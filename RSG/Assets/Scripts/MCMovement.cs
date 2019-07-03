@@ -16,8 +16,12 @@ public class MCMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
-        Vector3 horizontal = new Vector3((Input.GetAxis("Horizontal")*(charspeed)), 0.0f, 0.0f);
-        transform.position = transform.position + horizontal * Time.deltaTime;
+        Vector3 movement = new Vector3((Input.GetAxis("Horizontal") * (charspeed)), Input.GetAxis("Vertical") *(charspeed), 0.0f);
+
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Magnitude", movement.magnitude);
+
+        transform.position = transform.position + movement * Time.deltaTime;
     }
 }
