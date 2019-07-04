@@ -1,71 +1,64 @@
 fileFormatVersion: 2
-guid: 051ed3931fdfb4740aeb142f8ce96edc
+guid: 045374380bb0e1341ac570f1e3dd67ee
 TextureImporter:
   fileIDToRecycleName:
-    21300000: MC8WayMovementSS_0
-    21300002: MC8WayMovementSS_1
-    21300004: MC8WayMovementSS_2
-    21300006: MC8WayMovementSS_3
-    21300008: MC8WayMovementSS_4
-    21300010: MC8WayMovementSS_5
-    21300012: MC8WayMovementSS_6
-    21300014: MC8WayMovementSS_7
-    21300016: MC8WayMovementSS_8
-    21300018: MC8WayMovementSS_9
-    21300020: MC8WayMovementSS_10
-    21300022: MC8WayMovementSS_11
-    21300024: MC8WayMovementSS_12
-    21300026: MC8WayMovementSS_13
-    21300028: MC8WayMovementSS_14
-    21300030: MC8WayMovementSS_15
-    21300032: MC8WayMovementSS_16
-    21300034: MC8WayMovementSS_17
-    21300036: MC8WayMovementSS_18
-    21300038: MC8WayMovementSS_19
-    21300040: MC8WayMovementSS_20
-    21300042: MC8WayMovementSS_21
-    21300044: MC8WayMovementSS_22
-    21300046: MC8WayMovementSS_23
-    21300048: MC8WayMovementSS_24
-    21300050: MC8WayMovementSS_25
-    21300052: MC8WayMovementSS_26
-    21300054: MC8WayMovementSS_27
-    21300056: MC8WayMovementSS_28
-    21300058: MC8WayMovementSS_29
-    21300060: MC8WayMovementSS_30
-    21300062: MC8WayMovementSS_31
-    21300064: MC8WayMovementSS_32
-    21300066: MC8WayMovementSS_33
-    21300068: MC8WayMovementSS_34
-    21300070: MC8WayMovementSS_35
-    21300072: MC8WayMovementSS_36
-    21300074: MC8WayMovementSS_37
-    21300076: MC8WayMovementSS_38
-    21300078: MC8WayMovementSS_39
-    21300080: MC8WayMovementSS_40
-    21300082: MC8WayMovementSS_41
-    21300084: MC8WayMovementSS_42
-    21300086: MC8WayMovementSS_43
-    21300088: MC8WayMovementSS_44
-    21300090: MC8WayMovementSS_45
-    21300092: MC8WayMovementSS_46
-    21300094: MC8WayMovementSS_47
-    21300096: MC8WayMovementSS_48
-    21300098: MC8WayMovementSS_49
-    21300100: MC8WayMovementSS_50
-    21300102: MC8WayMovementSS_51
-    21300104: MC8WayMovementSS_52
-    21300106: MC8WayMovementSS_53
-    21300108: MC8WayMovementSS_54
-    21300110: MC8WayMovementSS_55
-    21300112: MC8WayMovementSS_56
-    21300114: MC8WayMovementSS_57
-    21300116: MC8WayMovementSS_58
-    21300118: MC8WayMovementSS_59
-    21300120: MC8WayMovementSS_60
-    21300122: MC8WayMovementSS_61
-    21300124: MC8WayMovementSS_62
-    21300126: MC8WayMovementSS_63
+    21300000: PlaceholderTileMap_0
+    21300002: PlaceholderTileMap_1
+    21300004: PlaceholderTileMap_2
+    21300006: PlaceholderTileMap_3
+    21300008: PlaceholderTileMap_4
+    21300010: PlaceholderTileMap_5
+    21300012: PlaceholderTileMap_6
+    21300014: PlaceholderTileMap_7
+    21300016: PlaceholderTileMap_8
+    21300018: PlaceholderTileMap_9
+    21300020: PlaceholderTileMap_10
+    21300022: PlaceholderTileMap_11
+    21300024: PlaceholderTileMap_12
+    21300026: PlaceholderTileMap_13
+    21300028: PlaceholderTileMap_14
+    21300030: PlaceholderTileMap_15
+    21300032: PlaceholderTileMap_16
+    21300034: PlaceholderTileMap_17
+    21300036: PlaceholderTileMap_18
+    21300038: PlaceholderTileMap_19
+    21300040: PlaceholderTileMap_20
+    21300042: PlaceholderTileMap_21
+    21300044: PlaceholderTileMap_22
+    21300046: PlaceholderTileMap_23
+    21300048: PlaceholderTileMap_24
+    21300050: PlaceholderTileMap_25
+    21300052: PlaceholderTileMap_26
+    21300054: PlaceholderTileMap_27
+    21300056: PlaceholderTileMap_28
+    21300058: PlaceholderTileMap_29
+    21300060: PlaceholderTileMap_30
+    21300062: PlaceholderTileMap_31
+    21300064: PlaceholderTileMap_32
+    21300066: PlaceholderTileMap_33
+    21300068: PlaceholderTileMap_34
+    21300070: PlaceholderTileMap_35
+    21300072: PlaceholderTileMap_36
+    21300074: PlaceholderTileMap_37
+    21300076: PlaceholderTileMap_38
+    21300078: PlaceholderTileMap_39
+    21300080: PlaceholderTileMap_40
+    21300082: PlaceholderTileMap_41
+    21300084: PlaceholderTileMap_42
+    21300086: PlaceholderTileMap_43
+    21300088: PlaceholderTileMap_44
+    21300090: PlaceholderTileMap_45
+    21300092: PlaceholderTileMap_46
+    21300094: PlaceholderTileMap_47
+    21300096: PlaceholderTileMap_48
+    21300098: PlaceholderTileMap_49
+    21300100: PlaceholderTileMap_50
+    21300102: PlaceholderTileMap_51
+    21300104: PlaceholderTileMap_52
+    21300106: PlaceholderTileMap_53
+    21300108: PlaceholderTileMap_54
+    21300110: PlaceholderTileMap_55
+    21300112: PlaceholderTileMap_56
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -170,1281 +163,1141 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MC8WayMovementSS_0
+      name: PlaceholderTileMap_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 140
+        x: 2
+        y: 92
         width: 16
-        height: 20
-      alignment: 9
-      pivot: {x: 0.6414427, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a1da0939cd331b4bafb04bb665eceb9
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC8WayMovementSS_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 140
-        width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e1a894cde7ee0041958fcbc5a5ee265
+      spriteID: 8ab0988204e884c42be325f8a57364b8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_2
+      name: PlaceholderTileMap_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 140
+        x: 20
+        y: 92
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c2f151dd3b0ddb4193759dacd035558
+      spriteID: 695a16e01076dba4684c38dcee16cd4c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_3
+      name: PlaceholderTileMap_2
       rect:
         serializedVersion: 2
-        x: 48
-        y: 140
+        x: 38
+        y: 92
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bf9e1471214de14bade71039eb6be6e
+      spriteID: 91b95c056128e58498d1820b643d71fd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_4
+      name: PlaceholderTileMap_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 140
+        x: 56
+        y: 92
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bdf54e29fbb60544ba8861fa37f457f
+      spriteID: 28dad1600e19cc54caed8f1bf744e714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_5
+      name: PlaceholderTileMap_4
       rect:
         serializedVersion: 2
-        x: 80
-        y: 140
+        x: 74
+        y: 92
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbfe0a5f5d94b9b4cb52fa18e8790f3d
+      spriteID: 15f77479dec4fa94082d359c7248fccf
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_6
+      name: PlaceholderTileMap_5
       rect:
         serializedVersion: 2
-        x: 96
-        y: 140
+        x: 92
+        y: 92
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ec8b8c471d757240b6a9b7e8c1dec73
+      spriteID: f830d6b1ac7c5c446b023695b1d922ff
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_7
+      name: PlaceholderTileMap_6
       rect:
         serializedVersion: 2
-        x: 112
-        y: 140
+        x: 110
+        y: 92
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fc9756ecb8de1845a9d07857c8695be
+      spriteID: 67f8c535fa608b54e818c6c4302fd85e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_8
+      name: PlaceholderTileMap_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 120
+        x: 128
+        y: 92
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29467de664350a744a561fa64be36d10
+      spriteID: 06d4f9f83597144449bf0e59ace36ee4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_9
+      name: PlaceholderTileMap_8
       rect:
         serializedVersion: 2
-        x: 16
-        y: 120
+        x: 146
+        y: 92
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd282128c548e534c83675f6d24fef2a
+      spriteID: dd39c03619ea7da42b750ee16a0c27df
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_10
+      name: PlaceholderTileMap_9
       rect:
         serializedVersion: 2
-        x: 32
-        y: 120
+        x: 164
+        y: 92
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7bec9ce3d3e7264e817521135cff6e6
+      spriteID: ff6fa0145c0f3084ab45707ab4208d6a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_11
+      name: PlaceholderTileMap_10
       rect:
         serializedVersion: 2
-        x: 48
-        y: 120
+        x: 182
+        y: 92
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2842b44f43070c24ead907383471a3f6
+      spriteID: d6cd6ea09b2c2384aa665f24084f4931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_12
+      name: PlaceholderTileMap_11
       rect:
         serializedVersion: 2
-        x: 64
-        y: 120
+        x: 2
+        y: 74
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0742353fd2057ce499ef9ae3bfda6634
+      spriteID: a3784121f8601d24ab1484895a3ecf59
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_13
+      name: PlaceholderTileMap_12
       rect:
         serializedVersion: 2
-        x: 80
-        y: 120
+        x: 20
+        y: 74
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5292b9470ee5c84ab714ccf05adbdf5
+      spriteID: 8a87609bb703f6a4797efca6e6e9f3fa
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_14
+      name: PlaceholderTileMap_13
       rect:
         serializedVersion: 2
-        x: 96
-        y: 120
+        x: 38
+        y: 74
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe658551ff2d09a42a44890bac2f307a
+      spriteID: 0e0a9130858aeda4b80bb49aebae9820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_15
+      name: PlaceholderTileMap_14
       rect:
         serializedVersion: 2
-        x: 112
-        y: 120
+        x: 56
+        y: 74
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f9ad9a1823541a40a41deeb7503228a
+      spriteID: 6ae72afc9abe9d64581b10e652c8b07d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_16
+      name: PlaceholderTileMap_15
       rect:
         serializedVersion: 2
-        x: 0
-        y: 100
+        x: 74
+        y: 74
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d08a20b6c8834145bfc25159f18bb04
+      spriteID: b82e3cb93c10c834baf293783baac7ac
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_17
+      name: PlaceholderTileMap_16
       rect:
         serializedVersion: 2
-        x: 16
-        y: 100
+        x: 92
+        y: 74
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b56ed933a2724ce44981e164c08eff46
+      spriteID: 7b0d01176fe567b4b90fafee72bb0e26
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_18
+      name: PlaceholderTileMap_17
       rect:
         serializedVersion: 2
-        x: 32
-        y: 100
+        x: 110
+        y: 74
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb2940f0929043e409044cd6e3e0d59a
+      spriteID: 71176377f6a9a9b488955745a981b630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_19
+      name: PlaceholderTileMap_18
       rect:
         serializedVersion: 2
-        x: 48
-        y: 100
+        x: 128
+        y: 74
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e795f662cd79a1d48be11cdbf6f083a6
+      spriteID: 100293f644de807409d7f8b649a0cee3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_20
+      name: PlaceholderTileMap_19
       rect:
         serializedVersion: 2
-        x: 64
-        y: 100
+        x: 146
+        y: 74
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 388ee4eb219286543af409678828825d
+      spriteID: 4c0b312a45eabbe47b9ff8f51fdcbff9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_21
+      name: PlaceholderTileMap_20
       rect:
         serializedVersion: 2
-        x: 80
-        y: 100
+        x: 164
+        y: 74
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 523c1987d0eaec942aec272171d5ae7b
+      spriteID: 930a9fa6d51de7e4086562e124017049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_22
+      name: PlaceholderTileMap_21
       rect:
         serializedVersion: 2
-        x: 96
-        y: 100
+        x: 182
+        y: 74
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b73dbe21b92fe28428bd8c76b3491cca
+      spriteID: 428c48db02454ce419e118ba2c4acf97
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_23
+      name: PlaceholderTileMap_22
       rect:
         serializedVersion: 2
-        x: 112
-        y: 100
+        x: 2
+        y: 56
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df4ca5caa54e3da4baae97cb08e5bbef
+      spriteID: 60f5f82315bf2c84bbb2c6cc1a5171a3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_24
+      name: PlaceholderTileMap_23
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
+        x: 20
+        y: 56
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39e33ad3d763bcf4392cf50e1416d60c
+      spriteID: 3e2f88ecfa960404d898146219765af8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_25
+      name: PlaceholderTileMap_24
       rect:
         serializedVersion: 2
-        x: 16
-        y: 80
+        x: 38
+        y: 56
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbd0ba2d08af2804eb4c245ab038bbb9
+      spriteID: 128f5464371fcee4a96071d2b76e861f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_26
+      name: PlaceholderTileMap_25
       rect:
         serializedVersion: 2
-        x: 32
-        y: 80
+        x: 56
+        y: 56
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9997c74b76660194aab5be3a572003ea
+      spriteID: bd43a2673e0255b4bb4838ec63391f7a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_27
+      name: PlaceholderTileMap_26
       rect:
         serializedVersion: 2
-        x: 48
-        y: 80
+        x: 74
+        y: 56
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af83953888f0f9e43b1da70ff54fda24
+      spriteID: 3c80fece0c1fa064f9d02da28781badb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_28
+      name: PlaceholderTileMap_27
       rect:
         serializedVersion: 2
-        x: 64
-        y: 80
+        x: 92
+        y: 56
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12884806b230fee449eac40aadb717ad
+      spriteID: 33a9390a98b44e64aa54b31e49e50dd1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_29
+      name: PlaceholderTileMap_28
       rect:
         serializedVersion: 2
-        x: 80
-        y: 80
+        x: 110
+        y: 56
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39bef63f6e23a1f4dafd52275cc59c20
+      spriteID: 62ae80389deff9c4dafac70384019658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_30
+      name: PlaceholderTileMap_29
       rect:
         serializedVersion: 2
-        x: 96
-        y: 80
+        x: 128
+        y: 56
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3776ed90af7ea3a41b1f2aed30a2d28b
+      spriteID: bd8684c656f51af45b1692b4fb90467a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_31
+      name: PlaceholderTileMap_30
       rect:
         serializedVersion: 2
-        x: 112
-        y: 80
+        x: 146
+        y: 56
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c4df10fe2931bf4ba6efed855f295af
+      spriteID: 612a5958736b5344b99e247848a9fed9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_32
+      name: PlaceholderTileMap_31
       rect:
         serializedVersion: 2
-        x: 0
-        y: 60
+        x: 164
+        y: 56
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67c0fcaac489e8545bea875959dad852
+      spriteID: 761e967c858162f41a56fdf63eb9150e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_33
+      name: PlaceholderTileMap_32
       rect:
         serializedVersion: 2
-        x: 16
-        y: 60
+        x: 182
+        y: 56
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb04c14704557274eb22493bc4e29214
+      spriteID: 94a156a03d5666244be037c756c2f84e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_34
+      name: PlaceholderTileMap_33
       rect:
         serializedVersion: 2
-        x: 32
-        y: 60
+        x: 2
+        y: 38
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2875b34ce3dd3124197851e14d39f1f6
+      spriteID: 1d105310504f3c74cadbdd1403875017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_35
+      name: PlaceholderTileMap_34
       rect:
         serializedVersion: 2
-        x: 48
-        y: 60
+        x: 20
+        y: 38
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45a6615aebf571841aac7897ee6166af
+      spriteID: b9ba504197ba1564cb593c5f0b7b15cc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_36
+      name: PlaceholderTileMap_35
       rect:
         serializedVersion: 2
-        x: 64
-        y: 60
+        x: 38
+        y: 38
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f71bfa71ae7af740a657534b116ccc2
+      spriteID: d1255b6b1125c5b4eb8df2260ce6eb07
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_37
+      name: PlaceholderTileMap_36
       rect:
         serializedVersion: 2
-        x: 80
-        y: 60
+        x: 56
+        y: 38
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28aed3ac88efe34489c8b47dac9a7bd7
+      spriteID: e47400c367f1a634995f969fc316a8bd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_38
+      name: PlaceholderTileMap_37
       rect:
         serializedVersion: 2
-        x: 96
-        y: 60
+        x: 74
+        y: 38
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a55e5025caf7834db26ccac3671342f
+      spriteID: 4b8eadcc0a387e147a26757ef2d040bf
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_39
+      name: PlaceholderTileMap_38
       rect:
         serializedVersion: 2
-        x: 112
-        y: 60
+        x: 92
+        y: 38
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 491e24ac4e6c372449ac565767143ea2
+      spriteID: 5e9f33d038e540b478012266fc9bbe16
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_40
+      name: PlaceholderTileMap_39
       rect:
         serializedVersion: 2
-        x: 0
-        y: 40
+        x: 110
+        y: 38
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d1f0112fcbbea049b5c8fcd73bf2da9
+      spriteID: ff74ac3fe171a0440bd59943296f8c00
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_41
+      name: PlaceholderTileMap_40
       rect:
         serializedVersion: 2
-        x: 16
-        y: 40
+        x: 128
+        y: 38
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbdf9175d8ed1fd4180dc2501a2bd4d1
+      spriteID: d3900aab7b1c9ce4392771ffff4e2b23
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_42
+      name: PlaceholderTileMap_41
       rect:
         serializedVersion: 2
-        x: 32
-        y: 40
+        x: 146
+        y: 38
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47c7d49471b93204b8ed31a9c4a7dc0c
+      spriteID: dbd10c0186b4c2f429fe4dfd96e1be5f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_43
+      name: PlaceholderTileMap_42
       rect:
         serializedVersion: 2
-        x: 48
-        y: 40
-        width: 16
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 59a3f1091d488fd41a14c7c653e4de78
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC8WayMovementSS_44
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 40
-        width: 16
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 215e214e01cbd624ab0bbf74aca47120
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC8WayMovementSS_45
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 40
-        width: 16
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b252a9997b121d94993376fcf52fad7b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC8WayMovementSS_46
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 40
-        width: 16
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c83e5d53784c6f5459a77a0b1b37cd51
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC8WayMovementSS_47
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 40
-        width: 16
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e28e0a5d2f7e4684ba650b10fa5f6e13
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC8WayMovementSS_48
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 2
         y: 20
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98ef7dd1ab9d0b843bfb9819e70ee9de
+      spriteID: 6398990b223f95a4babfd5727ee21fc9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_49
+      name: PlaceholderTileMap_43
       rect:
         serializedVersion: 2
-        x: 16
+        x: 20
         y: 20
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 120f4e604cc1082448209c8ff3ddb831
+      spriteID: ea22bbde71e243b4b9e79c01f63f371c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_50
+      name: PlaceholderTileMap_44
       rect:
         serializedVersion: 2
-        x: 32
+        x: 38
         y: 20
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 009212283fdd5c4448624e024541bbed
+      spriteID: 72931ff871646c740a8905c5f9d88842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_51
+      name: PlaceholderTileMap_45
       rect:
         serializedVersion: 2
-        x: 48
+        x: 56
         y: 20
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1342298dcba7d974bab308b96cc7bad4
+      spriteID: 9442feea89147d24b80e5d935e60854f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_52
+      name: PlaceholderTileMap_46
       rect:
         serializedVersion: 2
-        x: 64
+        x: 74
         y: 20
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 739940094b7302a4395c4f50742e3a35
+      spriteID: 9eb4c3fccb7ec8a48af290a72e4e23e7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_53
+      name: PlaceholderTileMap_47
       rect:
         serializedVersion: 2
-        x: 80
+        x: 93
         y: 20
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b95569e8f2ff8d04c8504a576c0a5456
+      spriteID: aae2156157c50404089212184e9f2fcc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_54
+      name: PlaceholderTileMap_48
       rect:
         serializedVersion: 2
-        x: 96
+        x: 111
         y: 20
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84ccbd8fc321178408a90e68e1a04766
+      spriteID: 2d63693d86acee346a16c17c095e7f3a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_55
+      name: PlaceholderTileMap_49
       rect:
         serializedVersion: 2
-        x: 112
+        x: 129
         y: 20
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94da7993dc98b094c8a01fd46a0a650a
+      spriteID: 86d4764b17780db44bac24bb2b9754e3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_56
+      name: PlaceholderTileMap_50
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 2
+        y: 2
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a79e3789097cb85419a6371c77de45db
+      spriteID: d174cc17ef053c641999949d2a59ec90
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_57
+      name: PlaceholderTileMap_51
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
+        x: 20
+        y: 2
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bc948f5e126fd6409fce55af1a4e030
+      spriteID: cdd8a1ab73470704d8ac6c160db931b7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_58
+      name: PlaceholderTileMap_52
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 38
+        y: 2
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: faf5ac7065a27e2458672588adee2108
+      spriteID: ac0a3002c169b4342bae840315382f95
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_59
+      name: PlaceholderTileMap_53
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
+        x: 56
+        y: 2
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7655afc339e6547498428f6960a66772
+      spriteID: ae5e68e60c0ed554b93933da34922916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_60
+      name: PlaceholderTileMap_54
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 74
+        y: 2
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63e600b7b1554594d869258848ddd121
+      spriteID: a2c9ae087ba0c9348aa43dcae356fc62
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_61
+      name: PlaceholderTileMap_55
       rect:
         serializedVersion: 2
-        x: 80
-        y: 0
+        x: 93
+        y: 2
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddafb94f1440b5c48b20a83e404b10ca
+      spriteID: 0776d19ea8e20894cb9857666f9c64c0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC8WayMovementSS_62
+      name: PlaceholderTileMap_56
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
+        x: 111
+        y: 2
         width: 16
-        height: 20
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9cd8a032d41e76418f0bcffc20441bb
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC8WayMovementSS_63
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 0
-        width: 16
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7fdf9da3bba875408b78c615bae5ed7
+      spriteID: aca0841dc49eff14492bbae3699267b2
       vertices: []
       indices: 
       edges: []
@@ -1452,7 +1305,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ba6b181646750bb4e8b6d371964ffa67
+    spriteID: 3e98932066d41534690f23ddad4665d6
     vertices: []
     indices: 
     edges: []
