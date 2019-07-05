@@ -8053,7 +8053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1590298302}
   speed: 100
-  nextWaypoitnDistance: 1
+  nextWaypoitnDistance: 4
   viewcone: {fileID: 1536314078}
 --- !u!114 &1763594953
 MonoBehaviour:

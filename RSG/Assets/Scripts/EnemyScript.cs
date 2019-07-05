@@ -9,13 +9,12 @@ public class EnemyScript : MonoBehaviour
     public Transform target;
     public float speed = 75f;
     public float nextWaypoitnDistance = 1f;
-
+    Vector2 lookahead;
     Path path;
     int currentWaypoint = 0;
     bool reachedEndofPath = false;
     Seeker seeker;
     Rigidbody2D rb;
-
     public Transform viewcone;
 
     void Start()
@@ -23,8 +22,8 @@ public class EnemyScript : MonoBehaviour
         //pathfinding setup
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-
         InvokeRepeating("UpdatePath", 0f, .1f);
+        lookahead = Vector2.zero;
     }
 
     void UpdatePath()
@@ -65,8 +64,16 @@ public class EnemyScript : MonoBehaviour
        Vector2 force = direction * speed * Time.deltaTime;
        
        rb.AddForce(force);
-       //change viewcone to face direction of force
 
+        try {
+            //look ahead 4 waypoints, calculate angle of target relative to enemy, lerp between current cone position and look ahead position
+            lookahead = ((Vector2)path.vectorPath[currentWaypoint + 5] - rb.position).normalized;
+            float rotationZ = Mathf.Atan2(lookahead.y * 10, lookahead.x * 10) * Mathf.Rad2Deg;
+            viewcone.rotation = Quaternion.Lerp(viewcone.rotation, Quaternion.Euler(0.0f, 0.0f, rotationZ + 90), 5f*Time.deltaTime);
+        } catch
+        {
+            //exepcted behvaiour do nothing.when within 4 waypoints (0.24 in game units, the enemy will not look elsewhere)
+        }
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
