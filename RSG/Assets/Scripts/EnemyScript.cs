@@ -16,6 +16,8 @@ public class EnemyScript : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
 
+    public Transform viewcone;
+
     void Start()
     {
         //pathfinding setup
@@ -61,8 +63,9 @@ public class EnemyScript : MonoBehaviour
 
        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
        Vector2 force = direction * speed * Time.deltaTime;
-
-        rb.AddForce(force);
+       
+       rb.AddForce(force);
+       //change viewcone to face direction of force
 
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
