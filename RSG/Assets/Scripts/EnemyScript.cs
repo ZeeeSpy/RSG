@@ -7,8 +7,8 @@ public class EnemyScript : MonoBehaviour
 {
     //Pathfinding
     public Transform target;
-    public float speed = 200f;
-    public float nextWaypoitnDistance = 3f;
+    public float speed = 75f;
+    public float nextWaypoitnDistance = 1f;
 
     Path path;
     int currentWaypoint = 0;
@@ -22,7 +22,7 @@ public class EnemyScript : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
-        InvokeRepeating("UpdatePath", 0f, .5f);
+        InvokeRepeating("UpdatePath", 0f, .1f);
     }
 
     void UpdatePath()
@@ -63,6 +63,7 @@ public class EnemyScript : MonoBehaviour
        Vector2 force = direction * speed * Time.deltaTime;
 
         rb.AddForce(force);
+
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
