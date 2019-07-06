@@ -9,8 +9,9 @@ public class EnemyScript : MonoBehaviour
     public Transform player;
     public Transform target;
 
-    private float speed = 25f;
-    //private float alertspeed = 100f;
+    private float patrolspeed = 25f;
+    private float alertspeed = 100f;
+    private float currentspeed;
     private float nextWaypoitnDistance = 4f;
 
     Path path;
@@ -32,6 +33,13 @@ public class EnemyScript : MonoBehaviour
     public float raydistance = 0.5f;
     public EnemyViewCone thisviewcone;
 
+    //Alert Mode
+    private bool alert = false;
+    private float lostvisiontime = 3f;
+    private float resettime = 3f;
+    private bool playercurrentlyvisible = false;
+    public GlobalMusicScript musicscript;
+
     void Start()
     {
         //player detection
@@ -44,25 +52,33 @@ public class EnemyScript : MonoBehaviour
         target = patrolpoints[patrolcount];
 
         //pathfinding setup
+        currentspeed = patrolspeed;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         lookahead = Vector2.zero;
         InvokeRepeating("UpdatePath", 0f, 0.1f);
     }
 
+
     void UpdatePath()
     {
         if (seeker.IsDone())
         {
-            if (reachedEndofPath)
+            if (!alert)
             {
-                //Change to make alert phase work
-                Cyclepatrol();
+                if (reachedEndofPath)
+                {
+                    Cyclepatrol();
+                }
+            } else //alert
+            {
+                //on alert set player as target and move fast
+                target = player.transform;
+                currentspeed = alertspeed;
             }
             seeker.StartPath(rb.position, target.position, OnPathComplete);
         }
     }
-
     void OnPathComplete(Path p)
     {
         if (!p.error)
@@ -72,7 +88,10 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+
+    /*************************
+        Main Update Loop
+    **************************/
     void FixedUpdate()
     {
        //If no path do nothing check
@@ -81,6 +100,7 @@ public class EnemyScript : MonoBehaviour
             return;
         }
 
+       //if end of path update bools
        if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndofPath = true;
@@ -96,20 +116,23 @@ public class EnemyScript : MonoBehaviour
 
         //continue to next waypoint
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
-
         if (distance < nextWaypoitnDistance)
         {
             currentWaypoint++;
         }
+
+
     }
+
 
     private void MovetowardsTargetPosition()
     {
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+        Vector2 force = direction * currentspeed * Time.deltaTime;
 
         rb.AddForce(force);
     }
+
 
     private void FaceConeToTarget()
     {
@@ -135,8 +158,28 @@ public class EnemyScript : MonoBehaviour
 
         if (playerray.collider.transform.tag == "PlayerBody" && thisviewcone.isDetected())
         {
-            Debug.Log("PlayerSpotted");
-            //switch to alert mode and follow player
+            lostvisiontime = resettime;
+            playercurrentlyvisible = true;
+            alert = true;
+            musicscript.startalertmusic();
+        } else
+        {
+            playercurrentlyvisible = false;
+        }
+
+        if (alert && !playercurrentlyvisible)
+        {
+            lostvisiontime -= Time.deltaTime;
+            //Debug.Log(lostvisiontime);
+            if (lostvisiontime < 0)
+            {
+                alert = false;
+                musicscript.startnormalmusic();
+                //add behavious of ai when lost sight of player
+                //currently ai goes back to normal patrol route
+                target = patrolpoints[patrolcount];
+                currentspeed = patrolspeed;
+            }
         }
     }
 
