@@ -12,7 +12,7 @@ public class EnemyScript : MonoBehaviour
     private float patrolspeed = 25f;
     private float alertspeed = 100f;
     private float currentspeed;
-    private float nextWaypoitnDistance = 4f;
+    private float nextWaypoitnDistance = 10f;
 
     Path path;
     int currentWaypoint = 0;
@@ -34,6 +34,9 @@ public class EnemyScript : MonoBehaviour
 
     //Alert Mode
     private bool alert = false;
+    private float coneturntime;
+    private float alertconeturntime = 25.0f;
+    private float normalconeturntime = 1.0f;
     private float lostvisiontime;
     readonly private float resettime = 10f;
     private bool playercurrentlyvisible = false;
@@ -59,6 +62,7 @@ public class EnemyScript : MonoBehaviour
 
         //alert setup
         lostvisiontime = resettime;
+        coneturntime = normalconeturntime;
     }
 
 
@@ -126,7 +130,9 @@ public class EnemyScript : MonoBehaviour
 
     }
 
-
+    /*************************
+        Move Towards Target
+    **************************/
     private void MovetowardsTargetPosition()
     {
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
@@ -135,7 +141,9 @@ public class EnemyScript : MonoBehaviour
         rb.AddForce(force);
     }
 
-
+    /*************************
+        Face cone to target
+    **************************/
     private void FaceConeToTarget()
     {
         try
@@ -143,7 +151,7 @@ public class EnemyScript : MonoBehaviour
             //look ahead 4 waypoints, calculate angle of target relative to enemy, lerp between current cone position and look ahead position
             lookahead = ((Vector2)path.vectorPath[currentWaypoint + 5] - rb.position).normalized;
             float rotationZ = Mathf.Atan2(lookahead.y * 10, lookahead.x * 10) * Mathf.Rad2Deg;
-            viewcone.rotation = Quaternion.Slerp(viewcone.rotation, Quaternion.Euler(0.0f, 0.0f, rotationZ + 90), 5f * Time.deltaTime);
+            viewcone.rotation = Quaternion.Slerp(viewcone.rotation, Quaternion.Euler(0.0f, 0.0f, rotationZ + 90), coneturntime * Time.deltaTime);
         }
         catch
         {
@@ -151,44 +159,50 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
+    /*************************
+        Detect Player/Alert Stuff
+    **************************/
     private void CheckIfPlayerIsDetected()
     {
-        RaycastHit2D playerray = Physics2D.Linecast(this.transform.position, player.position);
+        RaycastHit2D playerray = Physics2D.Linecast(this.transform.position, player.position); 
 
         //see line for debugging
         //Debug.DrawLine(transform.position, playerray.point, Color.white);
 
-        if (playerray.collider.transform.tag == "PlayerBody" && thisviewcone.isDetected()) //TODO happening here when player is too close
+        if (playerray.collider.transform.tag == "PlayerBody" && thisviewcone.isDetected()) //If vision cone and ray hit player
         {
             lostvisiontime = resettime;
             playercurrentlyvisible = true;
             alert = true;
+            coneturntime = alertconeturntime;
             musicscript.startalertmusic();
-        } else
+        } else //Player currently not visible
         {
             playercurrentlyvisible = false;
         }
 
-        if (playerray.collider.transform.tag == "PlayerBody" && playerray.distance <= 1.5) //stop player runing circles around enemy
+        if (playerray.collider.transform.tag == "PlayerBody" && playerray.distance <= 1.5) //if player isn't obstructed then player is visible
         {
             playercurrentlyvisible = true;
         }
 
-        if (alert && !playercurrentlyvisible)
+        if (alert && !playercurrentlyvisible)   //if there's an alert and player is not visible
         {
             lostvisiontime -= Time.deltaTime;
             Debug.Log(lostvisiontime);
-            if (lostvisiontime < 0)
+            if (lostvisiontime < 0)     //if there's an alert and player is not visible for a total of lostvisiontime 
             {
                 alert = false;
                 musicscript.startnormalmusic();
+                coneturntime = normalconeturntime;
                 //add behavious of ai when lost sight of player
                 //currently ai goes back to normal patrol route
+                //refactor so that alert and normal are functions that can be called to clean up code 
                 target = patrolpoints[patrolcount];
                 currentspeed = patrolspeed;
             }
         }
-    }
+    } 
 
     private void Cyclepatrol()
     {
