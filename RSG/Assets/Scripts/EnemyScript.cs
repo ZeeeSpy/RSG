@@ -6,13 +6,13 @@ using Pathfinding;
 public class EnemyScript : MonoBehaviour
 {
     //Pathfinding
-    public Transform player;
-    public Transform target;
+    private Transform player;
+    private Transform target;
 
-    private float patrolspeed = 25f;
-    private float alertspeed = 100f;
+    readonly private float patrolspeed = 25f;
+    readonly private float alertspeed = 100f;
     private float currentspeed;
-    private float nextWaypoitnDistance = 10f;
+    private float nextWaypoitnDistance = 0.1f;
 
     Path path;
     int currentWaypoint = 0;
@@ -20,7 +20,7 @@ public class EnemyScript : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
 
-    //Patrol points
+    //Patrol points //TODO
     private int patrolcount = 0;
     public Transform patrol1;
     public Transform patrol2;
@@ -28,24 +28,32 @@ public class EnemyScript : MonoBehaviour
     private Transform[] patrolpoints = new Transform[3];
 
     //Player Detection
-    public Transform viewcone;
+    private Transform viewcone;
+    private EnemyViewCone thisviewcone;
     Vector2 lookahead;
-    public EnemyViewCone thisviewcone;
+    
 
     //Alert Mode
     private bool alert = false;
     private float coneturntime;
-    private float alertconeturntime = 25.0f;
-    private float normalconeturntime = 1.0f;
+    readonly private float alertconeturntime = 25.0f;
+    readonly private float normalconeturntime = 1.0f;
     private float lostvisiontime;
     readonly private float resettime = 10f;
     private bool playercurrentlyvisible = false;
-    public GlobalMusicScript musicscript;
+    private GlobalMusicScript musicscript;
 
     void Start()
     {
+        ////Slow at start but removes dependencies that will be removed by prefabing
+        player = GameObject.FindWithTag("PlayerBody").GetComponent<Transform>();
+        viewcone = transform.Find("ViewCone").gameObject.GetComponent<Transform>();
+        thisviewcone = viewcone.GetComponent<EnemyViewCone>();
+        musicscript = (GlobalMusicScript)Object.FindObjectOfType(typeof(GlobalMusicScript));
+
         //player detection
         Physics2D.queriesStartInColliders = false;
+        // foo = Object.FindObjectWithTag("Bar");
 
         //patrol setup
         patrolpoints[0] = patrol1;

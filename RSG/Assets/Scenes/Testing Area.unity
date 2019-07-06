@@ -7634,8 +7634,8 @@ GameObject:
   - component: {fileID: 1348663010}
   - component: {fileID: 1348663009}
   m_Layer: 0
-  m_Name: Global Sounds
-  m_TagString: Untagged
+  m_Name: GlobalSounds
+  m_TagString: GlobalSounds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8249,15 +8249,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec0b38c658e8fc41b853120a251e210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1543737450}
-  target: {fileID: 1590298302}
   patrol1: {fileID: 785862710}
   patrol2: {fileID: 807652283}
   patrol3: {fileID: 2037637752}
-  viewcone: {fileID: 1536314078}
-  raydistance: 0
-  thisviewcone: {fileID: 1536314080}
-  musicscript: {fileID: 1348663009}
 --- !u!114 &1763594953
 MonoBehaviour:
   m_ObjectHideFlags: 0
