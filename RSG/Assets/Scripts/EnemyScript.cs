@@ -9,8 +9,8 @@ public class EnemyScript : MonoBehaviour
     private Transform player;
     private Transform target;
 
-    readonly private float patrolspeed = 25f;
-    readonly private float alertspeed = 100f;
+    readonly private float patrolspeed = 50f;
+    readonly private float alertspeed = 200f;
     private float currentspeed;
     private float nextWaypoitnDistance = 0.1f;
 
@@ -215,7 +215,7 @@ public class EnemyScript : MonoBehaviour
     private void Cyclepatrol()
     {
         patrolcount++;
-        if (patrolcount == 3)
+        if (patrolcount == patrolpoints.Length)
         {
             patrolcount = 0;
         }
