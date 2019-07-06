@@ -8,8 +8,11 @@ public class EnemyScript : MonoBehaviour
     //Pathfinding
     public Transform player;
     public Transform target;
-    public float speed = 75f;
-    public float nextWaypoitnDistance = 1f;
+
+    private float speed = 25f;
+    //private float alertspeed = 100f;
+    private float nextWaypoitnDistance = 4f;
+
     Path path;
     int currentWaypoint = 0;
     bool reachedEndofPath = false;
@@ -33,11 +36,13 @@ public class EnemyScript : MonoBehaviour
     {
         //player detection
         Physics2D.queriesStartInColliders = false;
+
         //patrol setup
         patrolpoints[0] = patrol1;
         patrolpoints[1] = patrol2;
         patrolpoints[2] = patrol3;
         target = patrolpoints[patrolcount];
+
         //pathfinding setup
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -51,7 +56,8 @@ public class EnemyScript : MonoBehaviour
         {
             if (reachedEndofPath)
             {
-                cyclepatrol();
+                //Change to make alert phase work
+                Cyclepatrol();
             }
             seeker.StartPath(rb.position, target.position, OnPathComplete);
         }
@@ -69,7 +75,7 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
+       //If no path do nothing check
        if (path == null)
         {
             return;
@@ -84,47 +90,57 @@ public class EnemyScript : MonoBehaviour
             reachedEndofPath = false;
         }
 
-       Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-       Vector2 force = direction * speed * Time.deltaTime;
-       
-       rb.AddForce(force);
+        MovetowardsTargetPosition();
+        FaceConeToTarget();
+        CheckIfPlayerIsDetected();
 
-        //Viewcone movement
-
-        try {
-            //look ahead 4 waypoints, calculate angle of target relative to enemy, lerp between current cone position and look ahead position
-            lookahead = ((Vector2)path.vectorPath[currentWaypoint + 5] - rb.position).normalized;
-            float rotationZ = Mathf.Atan2(lookahead.y * 10, lookahead.x * 10) * Mathf.Rad2Deg;
-            viewcone.rotation = Quaternion.Slerp(viewcone.rotation, Quaternion.Euler(0.0f, 0.0f, rotationZ + 90), 5f*Time.deltaTime);
-        } catch
-        {
-            //exepcted behvaiour do nothing.when within 4 waypoints (0.24 in game units, the enemy will not look elsewhere)
-        }
-
+        //continue to next waypoint
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
         if (distance < nextWaypoitnDistance)
         {
             currentWaypoint++;
         }
+    }
 
+    private void MovetowardsTargetPosition()
+    {
+        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        Vector2 force = direction * speed * Time.deltaTime;
 
-        //Player detection
+        rb.AddForce(force);
+    }
 
+    private void FaceConeToTarget()
+    {
+        try
+        {
+            //look ahead 4 waypoints, calculate angle of target relative to enemy, lerp between current cone position and look ahead position
+            lookahead = ((Vector2)path.vectorPath[currentWaypoint + 5] - rb.position).normalized;
+            float rotationZ = Mathf.Atan2(lookahead.y * 10, lookahead.x * 10) * Mathf.Rad2Deg;
+            viewcone.rotation = Quaternion.Slerp(viewcone.rotation, Quaternion.Euler(0.0f, 0.0f, rotationZ + 90), 5f * Time.deltaTime);
+        }
+        catch
+        {
+            //exepcted behvaiour do nothing.when within 4 waypoints (0.24 in game units, the enemy will not look elsewhere)
+        }
+    }
+
+    private void CheckIfPlayerIsDetected()
+    {
         RaycastHit2D playerray = Physics2D.Linecast(this.transform.position, player.position);
 
         //see line for debugging
-        Debug.DrawLine(transform.position, playerray.point, Color.white);
+        //Debug.DrawLine(transform.position, playerray.point, Color.white);
 
-        if (playerray.collider.transform.tag == "Player" && thisviewcone.isDetected())
+        if (playerray.collider.transform.tag == "PlayerBody" && thisviewcone.isDetected())
         {
             Debug.Log("PlayerSpotted");
             //switch to alert mode and follow player
         }
     }
 
-
-    private void cyclepatrol()
+    private void Cyclepatrol()
     {
         patrolcount++;
         if (patrolcount == 3)
