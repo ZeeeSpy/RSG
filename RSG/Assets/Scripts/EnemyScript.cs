@@ -10,14 +10,11 @@ public class EnemyScript : MonoBehaviour
     public Transform target;
     public float speed = 75f;
     public float nextWaypoitnDistance = 1f;
-    Vector2 lookahead;
     Path path;
     int currentWaypoint = 0;
     bool reachedEndofPath = false;
     Seeker seeker;
     Rigidbody2D rb;
-    public Transform viewcone;
-
 
     //Patrol points
     private int patrolcount = 0;
@@ -26,8 +23,16 @@ public class EnemyScript : MonoBehaviour
     public Transform patrol3;
     private Transform[] patrolpoints = new Transform[3];
 
+    //Player Detection
+    public Transform viewcone;
+    Vector2 lookahead;
+    public float raydistance = 0.5f;
+    public EnemyViewCone thisviewcone;
+
     void Start()
     {
+        //player detection
+        Physics2D.queriesStartInColliders = false;
         //patrol setup
         patrolpoints[0] = patrol1;
         patrolpoints[1] = patrol2;
@@ -84,6 +89,8 @@ public class EnemyScript : MonoBehaviour
        
        rb.AddForce(force);
 
+        //Viewcone movement
+
         try {
             //look ahead 4 waypoints, calculate angle of target relative to enemy, lerp between current cone position and look ahead position
             lookahead = ((Vector2)path.vectorPath[currentWaypoint + 5] - rb.position).normalized;
@@ -99,6 +106,20 @@ public class EnemyScript : MonoBehaviour
         if (distance < nextWaypoitnDistance)
         {
             currentWaypoint++;
+        }
+
+
+        //Player detection
+
+        RaycastHit2D playerray = Physics2D.Linecast(this.transform.position, player.position);
+
+        //see line for debugging
+        Debug.DrawLine(transform.position, playerray.point, Color.white);
+
+        if (playerray.collider.transform.tag == "Player" && thisviewcone.isDetected())
+        {
+            Debug.Log("PlayerSpotted");
+            //switch to alert mode and follow player
         }
     }
 

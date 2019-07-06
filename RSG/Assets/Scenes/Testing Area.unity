@@ -7558,7 +7558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAAIezx5FAKdQIAACEFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1zmzAQ/SsenWsPGAdDby1xnB7yMXE7uXCR0WI0FhIjidhOxv+9K4ENdbkg3u7bj7crvgiXpoHCKr3WnD0pBuT7hLgz+TYZjI9wpDslN/wTLj7vnNnKOVHv80YtV4iHjmZUDVbz4ofcCeccINhKXipdr9gOMmWsQbikwgCatLKOLRH6mpAjvqapo5zwNF+60yee0mByxmMB0oIeuQazIAnwCaOegkh6l6ZpsuyZHbGVhaB1A8x1MfCjWRT3xGgWL1NHjDxBYqe9r8vhcishuOkrJfbUeCUy2pgW+0QHxil27ssLZo5RAd9V1vUxpr+UpQHbC6Pp6Z5rlLCLS36qTteamn1X5gcVrcs0v4t9YV3Qp//s09CbS63qx0veMHA5bMWL/Rs9FdTYkfBj+H4oPfRqHajY062A9wrks1pr1UqGRqtbR20NzO+Hz2trWQXFfsC7Um/Athnkv855FiWLMImjeDUNLoNzDZ29FMdM8HrrZV10wEYoL7/fFNA4q19Yvd8j08dF1JX0x8BvuhsvXG944NpYNPUtS1frVrXauZKVF9C11tpMaQke7jtoQFJhT68Yxt7O88Y2SntjeaDuavXJe9vlxtxQPDz4B8GN6VUdrpMzlTo8galeWiu4hKFoZ3hGnTIlZbduY00utE2rS1qMaLuWs3/3jJRJEC3nRZpAEC1oSqdJGbK0nMMiXswLFlPiF5FL7JOK167QXh6cmhyCS1y6yx9nsta08avPND2s+WetRpJzWapNoQHkSxfhWjhoTIL3lK0YR4E2YC2Xft7kKydCFXtg+TVQ7jtdHa2m+RAlJw3/UNYhOcn8LyYnZ3L+C1BLAwQUAAAICAAAACHsl365a2wAAAB3AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9Kz0FFQSi9KLMgoBgoYgjilmSkgdrRSmoWBsblRsqVFqoGxSaJloq5FmmGKZZpRqomZiVFyilmiUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAAIezx5FAKdQIAACEFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAAIeyXfrlrbAAAAHcAAAAJACQAAAAAAAAAAAAAAMICAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAeQMAAAAA
+    dataString: UEsDBBQAAAgIAAAAIew1QPMOdQIAACIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE2TojAQ/StWzqsF4iDsbZdxnD3MR427NRcukTSSMiRUEkadKf/7dgIK63oxvO7X/fql4YtwaRoorNJrzdmTYkC+T4g7k2+TIfgIR7pTcsM/4ZLzzpmtXBL1OW/UcoV46GhG1WA1L37InXDJAYKt5KXS9YrtIFPGGoRLKgxgSCvr2BKhrwk54t80dZQTnuZLd/rEUxpMzngsQFrQo9RgFiQB/sKopyCS3qVpmix7ZkdsZSFo3QBzUwz8aBbFPTGaxcvUESNPkDhpn+t6uN5KCG56pcSeGu9ERhvT4pyYwDjFyb28YOYYFfBdZd0cY/pLWRqwvTGanu65Rgu7uuSn6nytqdl3Mj+oaF2n+V3shXVFn/6LT0MfLrWqHy99w8D1sBUv9m/0VFBjR8aP4ftBeujdOlCxp1sB7xXIZ7XWqpUMg1a3jtoamN8Pj9fRsgqK/YB3Um/Athnsv97zLEoWYRJH8WoaXC7ODXT2Vhwzweutt3XRARuhvP1+U0DjXf1C9X6PTF8XUSfpj4HfdDdeuD7wwLWxGOpHlk7rVrXapZKVN9CN1tpMaQke7idoQFJhT69Yxt7e501s1PYm8kDdq9U372OXN+aG4uEhPwhuQq/qcL05U6nDE5jqpbWCSxhEu8Az+pQpKbt1G3tyoW1aXdJiRNu1nP27Z6RMgmg5L9IEgmhBUzpNypCl5RwW8WJesJgSv4hc4pxUvHZCe3vw1uRQXOLSXb44k7WmjV99pulhzT9rNRbIZak2hQaQL12Jq3LQ2AVfVLZiHB3agLVc+gsnXzkRqtgDy689cz/q6mg1zYcqOWn4h7IOyUnmvzE5OZPzX1BLAwQUAAAICAAAACHsl365a2wAAAB3AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9Kz0FFQSi9KLMgoBgoYgjilmSkgdrRSmoWBsblRsqVFqoGxSaJloq5FmmGKZZpRqomZiVFyilmiUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAAIew1QPMOdQIAACIFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAAIeyXfrlrbAAAAHcAAAAJACQAAAAAAAAAAAAAAMICAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAeQMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -7598,7 +7598,7 @@ MonoBehaviour:
     seed: 0
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
-  showGraphs: 1
+  showGraphs: 0
 --- !u!4 &919025130
 Transform:
   m_ObjectHideFlags: 0
@@ -7866,6 +7866,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1536314078}
   - component: {fileID: 1536314079}
+  - component: {fileID: 1536314080}
   m_Layer: 0
   m_Name: ViewCone
   m_TagString: Untagged
@@ -7915,6 +7916,18 @@ PolygonCollider2D:
     - - {x: 0, y: 0}
       - {x: 0.5, y: -1}
       - {x: -0.5, y: -1}
+--- !u!114 &1536314080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536314077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5482141db2bc8c4d8e375d8dc3ee014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1543737447
 GameObject:
   m_ObjectHideFlags: 0
@@ -8144,14 +8157,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec0b38c658e8fc41b853120a251e210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1590298302}
   target: {fileID: 1590298302}
   speed: 100
   nextWaypoitnDistance: 4
-  viewcone: {fileID: 1536314078}
   patrol1: {fileID: 785862710}
   patrol2: {fileID: 807652283}
   patrol3: {fileID: 2037637752}
+  viewcone: {fileID: 1536314078}
+  raydistance: 0
 --- !u!114 &1763594953
 MonoBehaviour:
   m_ObjectHideFlags: 0
