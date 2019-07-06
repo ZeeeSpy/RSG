@@ -30,13 +30,12 @@ public class EnemyScript : MonoBehaviour
     //Player Detection
     public Transform viewcone;
     Vector2 lookahead;
-    public float raydistance = 0.5f;
     public EnemyViewCone thisviewcone;
 
     //Alert Mode
     private bool alert = false;
-    private float lostvisiontime = 3f;
-    private float resettime = 3f;
+    private float lostvisiontime;
+    readonly private float resettime = 10f;
     private bool playercurrentlyvisible = false;
     public GlobalMusicScript musicscript;
 
@@ -57,6 +56,9 @@ public class EnemyScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         lookahead = Vector2.zero;
         InvokeRepeating("UpdatePath", 0f, 0.1f);
+
+        //alert setup
+        lostvisiontime = resettime;
     }
 
 
@@ -156,7 +158,7 @@ public class EnemyScript : MonoBehaviour
         //see line for debugging
         //Debug.DrawLine(transform.position, playerray.point, Color.white);
 
-        if (playerray.collider.transform.tag == "PlayerBody" && thisviewcone.isDetected())
+        if (playerray.collider.transform.tag == "PlayerBody" && thisviewcone.isDetected()) //TODO happening here when player is too close
         {
             lostvisiontime = resettime;
             playercurrentlyvisible = true;
@@ -167,10 +169,15 @@ public class EnemyScript : MonoBehaviour
             playercurrentlyvisible = false;
         }
 
+        if (playerray.collider.transform.tag == "PlayerBody" && playerray.distance <= 1.5) //stop player runing circles around enemy
+        {
+            playercurrentlyvisible = true;
+        }
+
         if (alert && !playercurrentlyvisible)
         {
             lostvisiontime -= Time.deltaTime;
-            //Debug.Log(lostvisiontime);
+            Debug.Log(lostvisiontime);
             if (lostvisiontime < 0)
             {
                 alert = false;
