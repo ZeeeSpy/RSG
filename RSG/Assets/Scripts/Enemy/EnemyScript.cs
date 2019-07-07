@@ -175,7 +175,7 @@ public class EnemyScript : MonoBehaviour
         RaycastHit2D playerray = Physics2D.Linecast(this.transform.position, player.position); 
 
         //see line for debugging
-        //Debug.DrawLine(transform.position, playerray.point, Color.white);
+        Debug.DrawLine(transform.position, playerray.point, Color.white);
 
         if (playerray.collider.transform.tag == "PlayerBody" && thisviewcone.isDetected()) //If vision cone and ray hit player
         {
