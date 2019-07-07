@@ -4015,14 +4015,6 @@ CompositeCollider2D:
         Y: -20800000
       - X: -41600000
         Y: -20800000
-    - - X: 9599999
-        Y: -15999999
-      - X: 6400000
-        Y: -15999999
-      - X: 6400000
-        Y: -20800000
-      - X: 9599999
-        Y: -20800000
     - - X: 3200000
         Y: -15999999
       - X: 0
@@ -4046,6 +4038,14 @@ CompositeCollider2D:
       - X: -6400000
         Y: -20800000
       - X: -3200000
+        Y: -20800000
+    - - X: 9599999
+        Y: -15999999
+      - X: 6400000
+        Y: -15999999
+      - X: 6400000
+        Y: -20800000
+      - X: 9599999
         Y: -20800000
     - - X: -24000000
         Y: -19199998
@@ -4159,22 +4159,6 @@ CompositeCollider2D:
         Y: -23999998
       - X: -33600000
         Y: -23999998
-    - - X: -48000000
-        Y: -24000000
-      - X: -49600000
-        Y: -24000000
-      - X: -49600000
-        Y: -25600000
-      - X: -48000000
-        Y: -25600000
-    - - X: 16000000
-        Y: -24000000
-      - X: 14399999
-        Y: -24000000
-      - X: 14399999
-        Y: -25600000
-      - X: 16000000
-        Y: -25600000
     - - X: -38400000
         Y: -24000000
       - X: -43199996
@@ -4198,6 +4182,22 @@ CompositeCollider2D:
       - X: -36800000
         Y: -25600000
       - X: -33600000
+        Y: -25600000
+    - - X: 16000000
+        Y: -24000000
+      - X: 14399999
+        Y: -24000000
+      - X: 14399999
+        Y: -25600000
+      - X: 16000000
+        Y: -25600000
+    - - X: -48000000
+        Y: -24000000
+      - X: -49600000
+        Y: -24000000
+      - X: -49600000
+        Y: -25600000
+      - X: -48000000
         Y: -25600000
     - - X: 16000000
         Y: -25600002
@@ -4417,10 +4417,6 @@ CompositeCollider2D:
       - {x: -4.3199997, y: -1.4399998}
       - {x: -4.3199997, y: -2.08}
       - {x: -4.16, y: -2.08}
-    - - {x: 0.9599999, y: -1.5999999}
-      - {x: 0.64, y: -1.5999999}
-      - {x: 0.64, y: -2.08}
-      - {x: 0.9599999, y: -2.08}
     - - {x: 0.32, y: -1.5999999}
       - {x: 0, y: -1.5999999}
       - {x: 0, y: -2.08}
@@ -4433,6 +4429,10 @@ CompositeCollider2D:
       - {x: -0.64, y: -1.5999999}
       - {x: -0.64, y: -2.08}
       - {x: -0.32, y: -2.08}
+    - - {x: 0.9599999, y: -1.5999999}
+      - {x: 0.64, y: -1.5999999}
+      - {x: 0.64, y: -2.08}
+      - {x: 0.9599999, y: -2.08}
     - - {x: -2.4, y: -1.9199998}
       - {x: -2.56, y: -1.9199998}
       - {x: -2.56, y: -2.08}
@@ -4489,14 +4489,6 @@ CompositeCollider2D:
       - {x: -3.68, y: -2.0800002}
       - {x: -3.68, y: -2.3999999}
       - {x: -3.3600001, y: -2.3999999}
-    - - {x: -4.8, y: -2.4}
-      - {x: -4.96, y: -2.4}
-      - {x: -4.96, y: -2.56}
-      - {x: -4.8, y: -2.56}
-    - - {x: 1.6, y: -2.4}
-      - {x: 1.4399999, y: -2.4}
-      - {x: 1.4399999, y: -2.56}
-      - {x: 1.6, y: -2.56}
     - - {x: -3.8400002, y: -2.4}
       - {x: -4.3199997, y: -2.4}
       - {x: -4.3199997, y: -2.56}
@@ -4509,6 +4501,14 @@ CompositeCollider2D:
       - {x: -3.68, y: -2.4}
       - {x: -3.68, y: -2.56}
       - {x: -3.3600001, y: -2.56}
+    - - {x: 1.6, y: -2.4}
+      - {x: 1.4399999, y: -2.4}
+      - {x: 1.4399999, y: -2.56}
+      - {x: 1.6, y: -2.56}
+    - - {x: -4.8, y: -2.4}
+      - {x: -4.96, y: -2.4}
+      - {x: -4.96, y: -2.56}
+      - {x: -4.8, y: -2.56}
     - - {x: 1.6, y: -2.5600002}
       - {x: 0.96000004, y: -2.5600002}
       - {x: 0.96000004, y: -2.72}
@@ -6873,8 +6873,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: -11, y: -4, z: 0}
     second:
-      m_TileIndex: 19
-      m_TileSpriteIndex: 19
+      m_TileIndex: 22
+      m_TileSpriteIndex: 22
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -6990,8 +6990,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: -11, y: -3, z: 0}
     second:
-      m_TileIndex: 19
-      m_TileSpriteIndex: 19
+      m_TileIndex: 22
+      m_TileSpriteIndex: 22
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -7107,8 +7107,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: -11, y: -2, z: 0}
     second:
-      m_TileIndex: 19
-      m_TileSpriteIndex: 19
+      m_TileIndex: 22
+      m_TileSpriteIndex: 22
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -7179,8 +7179,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: -11, y: -1, z: 0}
     second:
-      m_TileIndex: 19
-      m_TileSpriteIndex: 19
+      m_TileIndex: 22
+      m_TileSpriteIndex: 22
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -7251,8 +7251,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: -11, y: 0, z: 0}
     second:
-      m_TileIndex: 19
-      m_TileSpriteIndex: 19
+      m_TileIndex: 22
+      m_TileSpriteIndex: 22
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -7305,8 +7305,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: -11, y: 1, z: 0}
     second:
-      m_TileIndex: 19
-      m_TileSpriteIndex: 19
+      m_TileIndex: 22
+      m_TileSpriteIndex: 22
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -7431,8 +7431,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: -11, y: 2, z: 0}
     second:
-      m_TileIndex: 19
-      m_TileSpriteIndex: 19
+      m_TileIndex: 22
+      m_TileSpriteIndex: 22
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -8009,13 +8009,13 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 0281ac209f91a844c995edde7847c058, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: e9a0419b9613df04c8f4f16e447642f4, type: 2}
-  - m_RefCount: 14
+  - m_RefCount: 7
     m_Data: {fileID: 11400000, guid: 12628c6cd5b4d624a8b46ec69467b5cc, type: 2}
   - m_RefCount: 41
     m_Data: {fileID: 11400000, guid: 0f393d144d6d7b345ba200bd73b4a2df, type: 2}
   - m_RefCount: 9
     m_Data: {fileID: 11400000, guid: d2a5066cce131ed4da41dd2c392f76ea, type: 2}
-  - m_RefCount: 20
+  - m_RefCount: 27
     m_Data: {fileID: 11400000, guid: 76fd941d98692c44ba4f40271f774c38, type: 2}
   - m_RefCount: 14
     m_Data: {fileID: 11400000, guid: fd2dcbecbf7df1542b36e06d166254e2, type: 2}
@@ -8064,13 +8064,13 @@ Tilemap:
     m_Data: {fileID: 21300022, guid: 045374380bb0e1341ac570f1e3dd67ee, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 21300000, guid: 045374380bb0e1341ac570f1e3dd67ee, type: 3}
-  - m_RefCount: 14
+  - m_RefCount: 7
     m_Data: {fileID: 21300030, guid: 045374380bb0e1341ac570f1e3dd67ee, type: 3}
   - m_RefCount: 41
     m_Data: {fileID: 21300116, guid: 045374380bb0e1341ac570f1e3dd67ee, type: 3}
   - m_RefCount: 9
     m_Data: {fileID: 21300034, guid: 045374380bb0e1341ac570f1e3dd67ee, type: 3}
-  - m_RefCount: 20
+  - m_RefCount: 27
     m_Data: {fileID: 21300058, guid: 045374380bb0e1341ac570f1e3dd67ee, type: 3}
   - m_RefCount: 14
     m_Data: {fileID: 21300110, guid: 045374380bb0e1341ac570f1e3dd67ee, type: 3}
@@ -8387,6 +8387,7 @@ GameObject:
   - component: {fileID: 1151209830}
   - component: {fileID: 1151209829}
   - component: {fileID: 1151209828}
+  - component: {fileID: 1151209831}
   m_Layer: 0
   m_Name: SouthCam
   m_TagString: MainCamera
@@ -8458,6 +8459,19 @@ Transform:
   m_Father: {fileID: 1767891094}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1151209831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151209827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c03b89804316f4cbbe3698f6b206db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1590298302}
 --- !u!1 &1314822792
 GameObject:
   m_ObjectHideFlags: 0
@@ -8866,7 +8880,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1536314077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.16, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1763594955}
