@@ -30,6 +30,7 @@ public class EnemyScript : MonoBehaviour
     //Player Detection
     private Transform viewcone;
     private EnemyViewCone thisviewcone;
+    private GameObject viewconeobject;
     Vector2 lookahead;
     
 
@@ -44,11 +45,19 @@ public class EnemyScript : MonoBehaviour
     private GlobalAlertScript globalalert;
     private bool calledin = false;
 
+    //Shooting Mode
+    private float shootingtimesetup = 1f;
+    private float shootingtime = 1f;
+    readonly private float shootingresettime = 1f;
+    private bool shootingstance = false;
+    private HeadLineScript headlinescript;
+
     void Start()
     {
         ////Slow at start but removes dependencies that will be removed by prefabing
         player = GameObject.FindWithTag("PlayerBody").GetComponent<Transform>();
-        viewcone = transform.Find("ViewCone").gameObject.GetComponent<Transform>();
+        viewconeobject = transform.Find("ViewCone").gameObject;
+        viewcone = viewconeobject.GetComponent<Transform>();
         thisviewcone = viewcone.GetComponent<EnemyViewCone>();
         
         globalalert = (GlobalAlertScript)Object.FindObjectOfType(typeof(GlobalAlertScript));
@@ -73,6 +82,9 @@ public class EnemyScript : MonoBehaviour
         lostvisiontime = resettime;
         coneturntime = normalconeturntime;
         globalalert.EnemyEnter();
+
+        //shooting
+        headlinescript = transform.Find("HeadLine").gameObject.GetComponent<HeadLineScript>();
     }
 
 
@@ -89,8 +101,8 @@ public class EnemyScript : MonoBehaviour
             } else //alert
             {
                 //on alert set player as target and move fast
-                target = player.transform;
-                currentspeed = alertspeed;
+                    target = player.transform;
+                    currentspeed = alertspeed;
             }
             seeker.StartPath(rb.position, target.position, OnPathComplete);
         }
@@ -145,10 +157,13 @@ public class EnemyScript : MonoBehaviour
     **************************/
     private void MovetowardsTargetPosition()
     {
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * currentspeed * Time.deltaTime;
+        if (!shootingstance) //enemy doesn't move while shooting
+        {
+            Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+            Vector2 force = direction * currentspeed * Time.deltaTime;
 
-        rb.AddForce(force);
+            rb.AddForce(force);
+        }
     }
 
     /*************************
@@ -175,57 +190,115 @@ public class EnemyScript : MonoBehaviour
     private void CheckIfPlayerIsDetected()
     {
         RaycastHit2D playerray = Physics2D.Linecast(this.transform.position, player.position); 
-
         //see line for debugging
         //Debug.DrawLine(transform.position, playerray.point, Color.white);
+
+
         if (globalalert.GetGlobalAlert() == true)
         {
             AlertMode();
         }
 
-        if (playerray.collider.transform.tag == "PlayerBody" && thisviewcone.isDetected()) //If vision cone and ray hit player
+
+        /*************************
+         Detect Player
+        **************************/
+        try
         {
-            lostvisiontime = resettime;
-            playercurrentlyvisible = true;
-            AlertMode();
-            globalalert.GlobalAlertOn();
-            if (calledin)
+            if (playerray.collider.transform.tag == "PlayerBody" && thisviewcone.isDetected()) //If vision cone and ray hit player
             {
-                globalalert.GotVisual();
-                calledin = false;
+                lostvisiontime = resettime;
+                playercurrentlyvisible = true;
+                AlertMode();
+                globalalert.GlobalAlertOn();
+                if (calledin)
+                {
+                    globalalert.GotVisual();
+                    calledin = false;
+                }
             }
-        } else //Player currently not visible
-        {
-            playercurrentlyvisible = false;
+            else //Player currently not visible
+            {
+                playercurrentlyvisible = false;
+            }
+        } catch {
+            Debug.Log("Raycast failed");
         }
 
-        if (playerray.collider.transform.tag == "PlayerBody" && playerray.distance <= 1.5) //if player isn't obstructed then player is visible
+        try
         {
-            playercurrentlyvisible = true;
+            if (playerray.collider.transform.tag == "PlayerBody" && playerray.distance <= 1.5) //if player isn't obstructed then player is visible
+            {
+                playercurrentlyvisible = true;
+            }
+        } catch
+        {
+            Debug.Log("Raycast failed");
         }
+
+        /*************************
+         Shooting Stance
+        **************************/
+
+        if (playercurrentlyvisible && alert && !shootingstance)
+        {
+            shootingtimesetup -= Time.deltaTime;
+            if (shootingtimesetup < 0)
+            {
+                shootingstance = true;
+                target = this.transform;
+            }
+        } 
+
+        if (shootingstance)
+        {
+            //Debug.Log("ShootingStance");   
+            shootingtime -= Time.deltaTime;
+            if (shootingtime < 0)
+            {
+                Debug.Log("Bang!");
+                if (headlinescript.Hits(playerray))
+                {
+                    Debug.Log("PlayerHit");
+                    //deal damage to player via GameMaster
+                }
+                shootingstance = false;
+                target = player;
+                shootingtime = shootingresettime;
+                shootingtimesetup = shootingresettime;
+            }
+        }
+
+
+        /*************************
+         Unsee Player
+        **************************/
 
         if (alert && !playercurrentlyvisible)   //if there's an alert and player is not visible
         {
             lostvisiontime -= Time.deltaTime;
-            Debug.Log(lostvisiontime);
+
+            //Lost vision timer for debugging
+            // Debug.Log(lostvisiontime);
             if (lostvisiontime < 0)     //if there's an alert and player is not visible for a total of lostvisiontime 
             {
-                if (!calledin)
+                if (!calledin) //Tell GameMaster that player hasn't been visible for lostvisiontime
                 {
                     globalalert.LostVisual();
                     calledin = true;
                 } 
 
-                if (!globalalert.GetGlobalAlert())
+                if (!globalalert.GetGlobalAlert()) //Check if Gamemaster has ceased the global alert meaning all enemies have lost contact for minimum of lostvisiontime
                 {
                     NormalMode();
                 }
 
                 //add behavious of ai when lost sight of player
                 //currently ai goes back to normal patrol route
-                //refactor so that alert and normal are functions that can be called to clean up code 
             }
         }
+
+
     } 
 
     private void AlertMode()
@@ -240,6 +313,7 @@ public class EnemyScript : MonoBehaviour
         coneturntime = normalconeturntime;
         target = patrolpoints[patrolcount];
         currentspeed = patrolspeed;
+        lostvisiontime = resettime;
         calledin = false;
     }
 
