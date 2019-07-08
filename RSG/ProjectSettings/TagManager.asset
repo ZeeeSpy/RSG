@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerBody
-  - GlobalSounds
+  - GameMaster
   layers:
   - Default
   - TransparentFX

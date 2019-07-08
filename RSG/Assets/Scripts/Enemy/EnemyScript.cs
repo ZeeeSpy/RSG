@@ -41,7 +41,8 @@ public class EnemyScript : MonoBehaviour
     private float lostvisiontime;
     readonly private float resettime = 10f;
     private bool playercurrentlyvisible = false;
-    private GlobalMusicScript musicscript;
+    private GlobalAlertScript globalalert;
+    private bool calledin = false;
 
     void Start()
     {
@@ -49,11 +50,11 @@ public class EnemyScript : MonoBehaviour
         player = GameObject.FindWithTag("PlayerBody").GetComponent<Transform>();
         viewcone = transform.Find("ViewCone").gameObject.GetComponent<Transform>();
         thisviewcone = viewcone.GetComponent<EnemyViewCone>();
-        musicscript = (GlobalMusicScript)Object.FindObjectOfType(typeof(GlobalMusicScript));
+        
+        globalalert = (GlobalAlertScript)Object.FindObjectOfType(typeof(GlobalAlertScript));
 
         //player detection
         Physics2D.queriesStartInColliders = false;
-        // foo = Object.FindObjectWithTag("Bar");
 
         //patrol setup
         patrolpoints[0] = patrol1;
@@ -71,6 +72,7 @@ public class EnemyScript : MonoBehaviour
         //alert setup
         lostvisiontime = resettime;
         coneturntime = normalconeturntime;
+        globalalert.EnemyEnter();
     }
 
 
@@ -175,15 +177,23 @@ public class EnemyScript : MonoBehaviour
         RaycastHit2D playerray = Physics2D.Linecast(this.transform.position, player.position); 
 
         //see line for debugging
-        Debug.DrawLine(transform.position, playerray.point, Color.white);
+        //Debug.DrawLine(transform.position, playerray.point, Color.white);
+        if (globalalert.GetGlobalAlert() == true)
+        {
+            AlertMode();
+        }
 
         if (playerray.collider.transform.tag == "PlayerBody" && thisviewcone.isDetected()) //If vision cone and ray hit player
         {
             lostvisiontime = resettime;
             playercurrentlyvisible = true;
-            alert = true;
-            coneturntime = alertconeturntime;
-            musicscript.startalertmusic();
+            AlertMode();
+            globalalert.GlobalAlertOn();
+            if (calledin)
+            {
+                globalalert.GotVisual();
+                calledin = false;
+            }
         } else //Player currently not visible
         {
             playercurrentlyvisible = false;
@@ -200,17 +210,38 @@ public class EnemyScript : MonoBehaviour
             Debug.Log(lostvisiontime);
             if (lostvisiontime < 0)     //if there's an alert and player is not visible for a total of lostvisiontime 
             {
-                alert = false;
-                musicscript.startnormalmusic();
-                coneturntime = normalconeturntime;
+                if (!calledin)
+                {
+                    globalalert.LostVisual();
+                    calledin = true;
+                } 
+
+                if (!globalalert.GetGlobalAlert())
+                {
+                    NormalMode();
+                }
+
                 //add behavious of ai when lost sight of player
                 //currently ai goes back to normal patrol route
                 //refactor so that alert and normal are functions that can be called to clean up code 
-                target = patrolpoints[patrolcount];
-                currentspeed = patrolspeed;
             }
         }
     } 
+
+    private void AlertMode()
+    {
+        alert = true;
+        coneturntime = alertconeturntime;
+    }
+
+    private void NormalMode()
+    {
+        alert = false;
+        coneturntime = normalconeturntime;
+        target = patrolpoints[patrolcount];
+        currentspeed = patrolspeed;
+        calledin = false;
+    }
 
     private void Cyclepatrol()
     {
