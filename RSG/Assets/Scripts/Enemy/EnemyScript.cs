@@ -236,7 +236,7 @@ public class EnemyScript : MonoBehaviour
 
 
             RaycastHit2D newray = Physics2D.Linecast(this.transform.position, player.position);
-            if (ScanForPlayer() && newray.distance <= 1.5) //if player isn't obstructed then player is visible
+            if (ScanForPlayer() && newray.distance <= 1.3) //if player isn't obstructed then player is visible
             {
                 playercurrentlyvisible = true;
             }

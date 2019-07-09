@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RoomCameraToggle : MonoBehaviour
 {
-
     public Camera previouscam; //camera from previous room
     public Camera targetcam; //camera in target room
 
