@@ -5,10 +5,12 @@ using Pathfinding;
 
 public class EnemyScript : MonoBehaviour
 {
+    public int routenumber = 0;
+
     //Pathfinding
     private Transform player;
     private Transform target;
-
+    private GlobalPatrolSystem patrolSystem;
     readonly private float patrolspeed = 50f;
     readonly private float alertspeed = 200f;
     private float currentspeed;
@@ -22,10 +24,7 @@ public class EnemyScript : MonoBehaviour
 
     //Patrol points //TODO
     private int patrolcount = 0;
-    public Transform patrol1;
-    public Transform patrol2;
-    public Transform patrol3;
-    private Transform[] patrolpoints = new Transform[3];
+    private Transform[] patrolpoints;
 
     //Player Detection
     private Transform viewcone;
@@ -52,6 +51,10 @@ public class EnemyScript : MonoBehaviour
     private bool shootingstance = false;
     private HeadLineScript headlinescript;
 
+
+    Transform[] playerhitboxes  = new Transform[4];
+
+
     void Start()
     {
         ////Slow at start but removes dependencies that will be removed by prefabing
@@ -66,9 +69,8 @@ public class EnemyScript : MonoBehaviour
         Physics2D.queriesStartInColliders = false;
 
         //patrol setup
-        patrolpoints[0] = patrol1;
-        patrolpoints[1] = patrol2;
-        patrolpoints[2] = patrol3;
+        patrolSystem = (GlobalPatrolSystem)Object.FindObjectOfType(typeof(GlobalPatrolSystem));
+        patrolpoints = patrolSystem.GetPatrolRoute(routenumber);
         target = patrolpoints[patrolcount];
 
         //pathfinding setup
@@ -85,6 +87,13 @@ public class EnemyScript : MonoBehaviour
 
         //shooting
         headlinescript = transform.Find("HeadLine").gameObject.GetComponent<HeadLineScript>();
+
+
+        //anti partial obscure
+        for (int i = 0; i < playerhitboxes.Length; i++)
+        {
+            playerhitboxes[i] = GameObject.FindWithTag("PlayerDetectionSquares").transform.GetChild(i).GetComponent<Transform>();
+        }
     }
 
 
@@ -189,7 +198,11 @@ public class EnemyScript : MonoBehaviour
     **************************/
     private void CheckIfPlayerIsDetected()
     {
-        RaycastHit2D playerray = Physics2D.Linecast(this.transform.position, player.position); 
+        //Was here
+        //
+        //RaycastHit2D playerray = Physics2D.Linecast(this.transform.position, player.position); 
+        //
+
         //see line for debugging
         //Debug.DrawLine(transform.position, playerray.point, Color.white);
 
@@ -203,9 +216,8 @@ public class EnemyScript : MonoBehaviour
         /*************************
          Detect Player
         **************************/
-        try
-        {
-            if (playerray.collider.transform.tag == "PlayerBody" && thisviewcone.isDetected()) //If vision cone and ray hit player
+
+            if (ScanForPlayer() && thisviewcone.isDetected()) //If vision cone and ray hit player
             {
                 lostvisiontime = resettime;
                 playercurrentlyvisible = true;
@@ -221,20 +233,14 @@ public class EnemyScript : MonoBehaviour
             {
                 playercurrentlyvisible = false;
             }
-        } catch {
-            Debug.Log("Raycast failed");
-        }
 
-        try
-        {
-            if (playerray.collider.transform.tag == "PlayerBody" && playerray.distance <= 1.5) //if player isn't obstructed then player is visible
+
+            RaycastHit2D newray = Physics2D.Linecast(this.transform.position, player.position);
+            if (ScanForPlayer() && newray.distance <= 1.5) //if player isn't obstructed then player is visible
             {
                 playercurrentlyvisible = true;
             }
-        } catch
-        {
-            Debug.Log("Raycast failed");
-        }
+
 
         /*************************
          Shooting Stance
@@ -257,7 +263,7 @@ public class EnemyScript : MonoBehaviour
             if (shootingtime < 0)
             {
                 Debug.Log("Bang!");
-                if (headlinescript.Hits(playerray))
+                if (headlinescript.Hits(ScanForPlayer()))
                 {
                     Debug.Log("PlayerHit");
                     //deal damage to player via GameMaster
@@ -299,7 +305,27 @@ public class EnemyScript : MonoBehaviour
         }
 
 
-    } 
+    }
+
+    private bool ScanForPlayer()
+    {
+        bool detected = false;
+        for (int i = 0; i < 4; i++)
+        {
+            RaycastHit2D playerray = Physics2D.Linecast(transform.position, playerhitboxes[i].position);
+            //Debug.DrawLine(transform.position, playerray.point, Color.black);
+            if (playerray)
+            {
+                if (playerray.collider.transform.tag == "PlayerBody")
+                {
+                    detected = true;
+                }
+            }
+            else return detected;
+            
+        }
+        return detected;
+    }
 
     private void AlertMode()
     {

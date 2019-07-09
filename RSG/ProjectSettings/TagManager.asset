@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PlayerBody
   - GameMaster
+  - PlayerDetectionSquares
+  - PatrolWayPoints
   layers:
   - Default
   - TransparentFX

@@ -20,7 +20,7 @@ public class HeadLineScript : MonoBehaviour
 
     }
 
-    public bool Hits(RaycastHit2D secondray)
+    public bool Hits(bool Secondhit)
     {
         RaycastHit2D ray = Physics2D.Linecast(this.transform.position, player.position);
         //Debug.DrawLine(transform.position, ray.point, Color.black);
@@ -37,23 +37,21 @@ public class HeadLineScript : MonoBehaviour
             return false;
         }
 
-        if (secondray)
+        if (Secondhit)
         {
-            if (secondray.collider.transform.tag == "PlayerBody")
-            {
                 linerenderer.SetPosition(0, transform.position);
                 linerenderer.SetPosition(1, player.position);
                 StartCoroutine(Shoot());
                 return true;
-            }
+
         }  else {
+            linerenderer.SetPosition(0, transform.position);
+            linerenderer.SetPosition(1, ray.point);
+            StartCoroutine(Shoot());
             return false;
         }
 
-        linerenderer.SetPosition(0, transform.position);
-        linerenderer.SetPosition(1, ray.point);
-        StartCoroutine(Shoot());
-        return false;
+        
     }
 
     IEnumerator Shoot()
