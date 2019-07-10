@@ -13,6 +13,15 @@ public class MCMovement : MonoBehaviour
     private Vector3 aim;
     private float movementspeed;
     private Camera currentcamera;
+    private Vector2 aimingdirection;
+    private Vector3 bulletcorection;
+
+
+    private bool endofAiming;
+
+
+    public GameObject bulletprefab;
+    readonly private float bulletSpeed = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +37,9 @@ public class MCMovement : MonoBehaviour
         if (shooting)
         {
             ShootingStance();
-        } 
+        }
         Animate();
+        Shoot();
     }
 
     private void ReadInputs()
@@ -45,12 +55,23 @@ public class MCMovement : MonoBehaviour
                 aim = currentcamera.ScreenToWorldPoint(Input.mousePosition);
                 aim.z = 0;
                 aim = aim - transform.position;
+                aim.Normalize();
                 shooting = true;
             }
         } else
         {
             shooting = false;
         }
+
+        endofAiming = Input.GetButtonUp("Fire1");
+    }
+
+
+    private void ShootingStance()
+    {
+        Debug.Log("player in shooting stance");
+        rb.velocity = Vector2.zero;
+        movementspeed = 0;
     }
 
     private void Animate()
@@ -60,11 +81,35 @@ public class MCMovement : MonoBehaviour
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
         }
-        animator.SetFloat("Speed", movementspeed);
-        rb.velocity = movement * movementspeed;
+
+        if (!shooting)
+        {
+            animator.SetFloat("Aiming", 0f);
+            rb.velocity = movement * movementspeed;
+            animator.SetFloat("Speed", movementspeed);
+        }
+
+        if (shooting)
+        {
+            animator.SetFloat("Aiming", 1f);
+            animator.SetFloat("Speed", 0);
+            animator.SetFloat("Horizontal", aim.x);
+            animator.SetFloat("Vertical", aim.y);
+        }
+
     }
 
-    private void ShootingStance() {
-
+    private void Shoot()
+    {
+        if (endofAiming && shooting)
+        {
+            bulletcorection.x = Mathf.Clamp(aim.x, -0.06f, 0.06f);
+            bulletcorection.y = Mathf.Clamp(aim.y, -0.05f, 0.05f);
+            Debug.Log("Got Here");
+            GameObject bullet = Instantiate(bulletprefab, transform.position+bulletcorection, Quaternion.identity);
+            bullet.GetComponent<Rigidbody2D>().velocity = aim * bulletSpeed;
+            Destroy(bullet, 1f);
+        }
     }
+ 
 }

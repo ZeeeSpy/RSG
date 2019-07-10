@@ -15647,7 +15647,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.01}
+  m_Offset: {x: 0.02, y: -0.01}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.62468964, y: 0.56023145}
@@ -15716,7 +15716,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543737447}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.001, y: 0.112, z: 0}
+  m_LocalPosition: {x: 0.001, y: -0.05850002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1590298302}
@@ -15780,7 +15780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590298300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.368, y: 0.351, z: 0}
+  m_LocalPosition: {x: -1.368, y: 0.4792, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1543737450}
@@ -15802,6 +15802,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1543737451}
   rb: {fileID: 1590298305}
+  bulletprefab: {fileID: 2890454968869865071, guid: 91e0fd516e951934a9662d72f5d3b9bc,
+    type: 3}
 --- !u!58 &1590298304
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -15815,7 +15817,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.02}
+  m_Offset: {x: 0, y: -0.15}
   serializedVersion: 2
   m_Radius: 0.02
 --- !u!50 &1590298305
@@ -16854,7 +16856,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935001623}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0, z: 0}
+  m_LocalPosition: {x: 0.03, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1201404365}
