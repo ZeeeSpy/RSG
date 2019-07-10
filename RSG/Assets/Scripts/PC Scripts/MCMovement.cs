@@ -11,17 +11,13 @@ public class MCMovement : MonoBehaviour
     private Vector3 movement;
     private bool shooting = false;
     private Vector3 aim;
+    private float movementspeed;
     private Camera currentcamera;
-    private LayerMask mask;
 
     // Start is called before the first frame update
     void Start()
     {
-        Physics2D.queriesStartInColliders = false;
-        LayerMask maska = LayerMask.GetMask("PlayerSquares");
-        LayerMask maskb = LayerMask.GetMask("Ignore Raycast");
-        mask = maska | maskb;
-        mask = ~mask;
+
     }
 
     // Update is called once per frame
@@ -33,14 +29,14 @@ public class MCMovement : MonoBehaviour
         {
             ShootingStance();
         } 
-
         Animate();
-        
     }
 
     private void ReadInputs()
     {
         movement = new Vector3((Input.GetAxis("Horizontal") * (charspeed)), Input.GetAxis("Vertical") * (charspeed), 0.0f);
+        movementspeed = Mathf.Clamp(movement.magnitude, 0.0f, 1.0f);
+        movement.Normalize();
 
         if (Input.GetButton("Shooting Stance"))
         {
@@ -59,17 +55,16 @@ public class MCMovement : MonoBehaviour
 
     private void Animate()
     {
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Magnitude", movement.magnitude);
-
-        rb.velocity = new Vector2(movement.x, movement.y);
+        if (movement != Vector3.zero)
+        {
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+        }
+        animator.SetFloat("Speed", movementspeed);
+        rb.velocity = movement * movementspeed;
     }
 
     private void ShootingStance() {
 
-        RaycastHit2D ray = Physics2D.Raycast(transform.position, aim, 5, mask);
-        Debug.DrawLine(transform.position, ray.point, Color.green);
-  
     }
 }
