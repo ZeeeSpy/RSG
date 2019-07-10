@@ -8,6 +8,8 @@ TagManager:
   - GameMaster
   - PlayerDetectionSquares
   - PatrolWayPoints
+  - Enemy
+  - Solid
   layers:
   - Default
   - TransparentFX

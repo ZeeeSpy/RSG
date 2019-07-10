@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class EBulletScript : MonoBehaviour
 {
     public Vector2 velocity = new Vector2(0.0f, 0.0f);
 
@@ -22,11 +22,10 @@ public class BulletScript : MonoBehaviour
                 break;
             }
 
-            if (other.CompareTag("Enemy"))
+            if (other.CompareTag("PlayerBody"))
             {
-                Debug.Log("EnemyHit");
+                Debug.Log("PlayerHit");
                 Destroy(gameObject);
-                other.GetComponent<EnemyScript>().gethit(1);
                 break;
             }
 

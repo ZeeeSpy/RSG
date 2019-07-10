@@ -49,11 +49,13 @@ public class EnemyScript : MonoBehaviour
     private float shootingtime = 1f;
     readonly private float shootingresettime = 1f;
     private bool shootingstance = false;
-    private HeadLineScript headlinescript;
-
 
     Transform[] playerhitboxes  = new Transform[4];
 
+    public GameObject bulletprefab;
+    readonly private float bulletSpeed = 3f;
+
+    private int HP = 3;
 
     void Start()
     {
@@ -85,8 +87,6 @@ public class EnemyScript : MonoBehaviour
         coneturntime = normalconeturntime;
         globalalert.EnemyEnter();
 
-        //shooting
-        headlinescript = transform.Find("HeadLine").gameObject.GetComponent<HeadLineScript>();
 
 
         //anti partial obscure
@@ -263,11 +263,9 @@ public class EnemyScript : MonoBehaviour
             if (shootingtime < 0)
             {
                 Debug.Log("Bang!");
-                if (headlinescript.Hits(ScanForPlayer()))
-                {
-                    Debug.Log("PlayerHit");
-                    //deal damage to player via GameMaster
-                }
+                GameObject bullet = Instantiate(bulletprefab, transform.position, Quaternion.identity);
+                bullet.GetComponent<EBulletScript>().velocity = (player.position-transform.position) * bulletSpeed;
+                Destroy(bullet, 1f);
                 shootingstance = false;
                 target = player;
                 shootingtime = shootingresettime;
@@ -351,5 +349,16 @@ public class EnemyScript : MonoBehaviour
             patrolcount = 0;
         }
         target = patrolpoints[patrolcount];
+    }
+
+    public void gethit(int damage)
+    {
+        HP = HP-damage;
+        Debug.Log("Current HP: " + HP);
+        if (HP <= 0)
+        {
+            //Enemy is dead
+            Destroy(gameObject);
+        }
     }
 }
