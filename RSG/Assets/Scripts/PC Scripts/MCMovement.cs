@@ -69,7 +69,6 @@ public class MCMovement : MonoBehaviour
 
     private void ShootingStance()
     {
-        Debug.Log("player in shooting stance");
         rb.velocity = Vector2.zero;
         movementspeed = 0;
     }
@@ -103,11 +102,10 @@ public class MCMovement : MonoBehaviour
     {
         if (endofAiming && shooting)
         {
-            bulletcorection.x = Mathf.Clamp(aim.x, -0.06f, 0.06f);
+            bulletcorection.x = Mathf.Clamp(aim.x, -0.04f, 0.07f);
             bulletcorection.y = Mathf.Clamp(aim.y, -0.05f, 0.05f);
-            Debug.Log("Got Here");
             GameObject bullet = Instantiate(bulletprefab, transform.position+bulletcorection, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = aim * bulletSpeed;
+            bullet.GetComponent<BulletScript>().velocity = aim * bulletSpeed;
             Destroy(bullet, 1f);
         }
     }

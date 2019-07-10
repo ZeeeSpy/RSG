@@ -6,6 +6,7 @@ public class HeadLineScript : MonoBehaviour
 {
     public Transform player;
     private LineRenderer linerenderer;
+    private LayerMask enemyignoremask;
 
     private void Start()
     {
@@ -13,6 +14,8 @@ public class HeadLineScript : MonoBehaviour
         player = GameObject.FindWithTag("PlayerBody").GetComponent<Transform>();
         linerenderer = transform.Find("Line").gameObject.GetComponent<LineRenderer>();
         linerenderer.enabled = false;
+        enemyignoremask = LayerMask.NameToLayer("EnemyIgnore");
+        enemyignoremask = ~enemyignoremask;
     }
 
     void FixedUpdate()
@@ -22,7 +25,7 @@ public class HeadLineScript : MonoBehaviour
 
     public bool Hits(bool Secondhit)
     {
-        RaycastHit2D ray = Physics2D.Linecast(this.transform.position, player.position);
+        RaycastHit2D ray = Physics2D.Linecast(this.transform.position, player.position, enemyignoremask);
         //Debug.DrawLine(transform.position, ray.point, Color.black);
         if (ray)
         {
