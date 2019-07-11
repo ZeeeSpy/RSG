@@ -12,7 +12,7 @@ public class EnemyScript : MonoBehaviour
     private Transform target;
     private GlobalPatrolSystem patrolSystem;
     readonly private float patrolspeed = 50f;
-    readonly private float alertspeed = 200f;
+    readonly private float alertspeed = 225f;
     private float currentspeed;
     private float nextWaypoitnDistance = 0.1f;
 
@@ -31,12 +31,12 @@ public class EnemyScript : MonoBehaviour
     private EnemyViewCone thisviewcone;
     private GameObject viewconeobject;
     Vector2 lookahead;
-    
+
 
     //Alert Mode
     private bool alert = false;
     private float coneturntime;
-    readonly private float alertconeturntime = 25.0f;
+    readonly private float alertconeturntime = 100.0f;
     readonly private float normalconeturntime = 1.0f;
     private float lostvisiontime;
     readonly private float resettime = 10f;
@@ -45,17 +45,20 @@ public class EnemyScript : MonoBehaviour
     private bool calledin = false;
 
     //Shooting Mode
-    private float shootingtimesetup = 1f;
-    private float shootingtime = 1f;
-    readonly private float shootingresettime = 1f;
+    private float shootingtimesetup = 0.75f;
+    private float shootingtime = 0.75f;
+    readonly private float shootingresettime = 0.75f;
     private bool shootingstance = false;
 
-    Transform[] playerhitboxes  = new Transform[4];
+    Transform[] playerhitboxes = new Transform[4];
 
     public GameObject bulletprefab;
+    public bool stunned = false;
     readonly private float bulletSpeed = 3f;
 
     private int HP = 3;
+    private float stuntime = 1.5f;
+    private SpriteRenderer thissprite;
 
     void Start()
     {
@@ -64,7 +67,8 @@ public class EnemyScript : MonoBehaviour
         viewconeobject = transform.Find("ViewCone").gameObject;
         viewcone = viewconeobject.GetComponent<Transform>();
         thisviewcone = viewcone.GetComponent<EnemyViewCone>();
-        
+        thissprite = transform.Find("EnemySprite").GetComponent<SpriteRenderer>();
+
         globalalert = (GlobalAlertScript)Object.FindObjectOfType(typeof(GlobalAlertScript));
 
         //player detection
@@ -97,6 +101,54 @@ public class EnemyScript : MonoBehaviour
     }
 
 
+    /*************************
+        Main Update Loop
+    **************************/
+    void FixedUpdate()
+    {
+        //If no path do nothing check
+        if (path == null)
+        {
+            return;
+        }
+
+        //if end of path update bools
+        if (currentWaypoint >= path.vectorPath.Count)
+        {
+            reachedEndofPath = true;
+            return;
+        }
+        else
+        {
+            reachedEndofPath = false;
+        }
+
+        if (!stunned) //if enemy is stunned they cannot do anything
+        {
+            MovetowardsTargetPosition();
+            FaceConeToTarget();
+            CheckIfPlayerIsDetected();
+
+            //continue to next waypoint
+            float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+            if (distance < nextWaypoitnDistance)
+            {
+                currentWaypoint++;
+            }
+
+        }
+        else //stunned
+        {
+            stuntime -= Time.deltaTime;
+            if (stuntime < 0)
+            {
+                stunned = false;
+                globalalert.GlobalAlertOn();
+                stuntime = 3f;
+            }
+        }
+    }
+
     void UpdatePath()
     {
         if (seeker.IsDone())
@@ -107,11 +159,12 @@ public class EnemyScript : MonoBehaviour
                 {
                     Cyclepatrol();
                 }
-            } else //alert
+            }
+            else //alert
             {
                 //on alert set player as target and move fast
-                    target = player.transform;
-                    currentspeed = alertspeed;
+                target = player.transform;
+                currentspeed = alertspeed;
             }
             seeker.StartPath(rb.position, target.position, OnPathComplete);
         }
@@ -123,42 +176,6 @@ public class EnemyScript : MonoBehaviour
             path = p;
             currentWaypoint = 0;
         }
-    }
-
-
-    /*************************
-        Main Update Loop
-    **************************/
-    void FixedUpdate()
-    {
-       //If no path do nothing check
-       if (path == null)
-        {
-            return;
-        }
-
-       //if end of path update bools
-       if (currentWaypoint >= path.vectorPath.Count)
-        {
-            reachedEndofPath = true;
-            return;
-        } else
-        {
-            reachedEndofPath = false;
-        }
-
-        MovetowardsTargetPosition();
-        FaceConeToTarget();
-        CheckIfPlayerIsDetected();
-
-        //continue to next waypoint
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
-        if (distance < nextWaypoitnDistance)
-        {
-            currentWaypoint++;
-        }
-
-
     }
 
     /*************************
@@ -198,48 +215,42 @@ public class EnemyScript : MonoBehaviour
     **************************/
     private void CheckIfPlayerIsDetected()
     {
-        //Was here
-        //
-        //RaycastHit2D playerray = Physics2D.Linecast(this.transform.position, player.position); 
-        //
-
-        //see line for debugging
-        //Debug.DrawLine(transform.position, playerray.point, Color.white);
-
 
         if (globalalert.GetGlobalAlert() == true)
         {
             AlertMode();
         }
 
+        bool playerseen = ScanForPlayer();
+        bool viewconeseen = thisviewcone.isDetected();
 
         /*************************
          Detect Player
         **************************/
 
-            if (ScanForPlayer() && thisviewcone.isDetected()) //If vision cone and ray hit player
+        if (playerseen && viewconeseen) //If vision cone and ray hit player
+        {
+            lostvisiontime = resettime;
+            playercurrentlyvisible = true;
+            AlertMode();
+            globalalert.GlobalAlertOn();
+            if (calledin)
             {
-                lostvisiontime = resettime;
-                playercurrentlyvisible = true;
-                AlertMode();
-                globalalert.GlobalAlertOn();
-                if (calledin)
-                {
-                    globalalert.GotVisual();
-                    calledin = false;
-                }
+                globalalert.GotVisual();
+                calledin = false;
             }
-            else //Player currently not visible
-            {
-                playercurrentlyvisible = false;
-            }
+        }
+        else //Player currently not visible
+        {
+            playercurrentlyvisible = false;
+        }
 
 
-            RaycastHit2D newray = Physics2D.Linecast(this.transform.position, player.position);
-            if (ScanForPlayer() && newray.distance <= 1.3) //if player isn't obstructed then player is visible
-            {
-                playercurrentlyvisible = true;
-            }
+        RaycastHit2D newray = Physics2D.Linecast(this.transform.position, player.position);
+        if (playerseen && newray.distance <= 1.3) //if player isn't obstructed then player is visible
+        {
+            playercurrentlyvisible = true;
+        }
 
 
         /*************************
@@ -254,7 +265,7 @@ public class EnemyScript : MonoBehaviour
                 shootingstance = true;
                 target = this.transform;
             }
-        } 
+        }
 
         if (shootingstance)
         {
@@ -263,9 +274,7 @@ public class EnemyScript : MonoBehaviour
             if (shootingtime < 0)
             {
                 Debug.Log("Bang!");
-                GameObject bullet = Instantiate(bulletprefab, transform.position, Quaternion.identity);
-                bullet.GetComponent<EBulletScript>().velocity = (player.position-transform.position) * bulletSpeed;
-                Destroy(bullet, 1f);
+                StartCoroutine(BurstFire()); //used to be shooting
                 shootingstance = false;
                 target = player;
                 shootingtime = shootingresettime;
@@ -290,7 +299,7 @@ public class EnemyScript : MonoBehaviour
                 {
                     globalalert.LostVisual();
                     calledin = true;
-                } 
+                }
 
                 if (!globalalert.GetGlobalAlert()) //Check if Gamemaster has ceased the global alert meaning all enemies have lost contact for minimum of lostvisiontime
                 {
@@ -320,7 +329,7 @@ public class EnemyScript : MonoBehaviour
                 }
             }
             else return detected;
-            
+
         }
         return detected;
     }
@@ -353,12 +362,40 @@ public class EnemyScript : MonoBehaviour
 
     public void gethit(int damage)
     {
-        HP = HP-damage;
-        Debug.Log("Current HP: " + HP);
+        HP = HP - damage;
+        stunned = true;
+        StartCoroutine(Flash());
         if (HP <= 0)
         {
-            //Enemy is dead
+            globalalert.EnemyExit();
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator Flash()
+    {
+        for (int n = 0; n < 2; n++)
+        {
+            thissprite.color = (Color.black);
+            yield return new WaitForSeconds(0.1f);
+            thissprite.color = (Color.green);
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+
+    IEnumerator BurstFire()
+    {
+        GameObject bullet = Instantiate(bulletprefab, transform.position, Quaternion.identity);
+        bullet.GetComponent<EBulletScript>().velocity = (player.position - transform.position) * bulletSpeed;
+        Destroy(bullet, 1f);
+        yield return new WaitForSeconds(0.1f);
+        GameObject bullet2 = Instantiate(bulletprefab, transform.position, Quaternion.identity);
+        bullet2.GetComponent<EBulletScript>().velocity = (player.position - transform.position) * bulletSpeed;
+        Destroy(bullet2, 1f);
+        yield return new WaitForSeconds(0.1f);
+        GameObject bullet3 = Instantiate(bulletprefab, transform.position, Quaternion.identity);
+        bullet3.GetComponent<EBulletScript>().velocity = (player.position - transform.position) * bulletSpeed;
+        Destroy(bullet3, 1f);
     }
 }

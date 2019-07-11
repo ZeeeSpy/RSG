@@ -15,6 +15,8 @@ public class MCMovement : MonoBehaviour
     private Camera currentcamera;
     private Vector2 aimingdirection;
     private Vector3 bulletcorection;
+    //[SerializeField]
+    //private int PISTOL_AMMO_COUNT = 0;
 
 
     private bool endofAiming;

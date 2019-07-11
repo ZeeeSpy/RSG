@@ -5,8 +5,10 @@ using UnityEngine;
 public class GlobalAlertScript : MonoBehaviour
 {
     private bool alert = false;
-    public int enemycount = 0;
-    public int lostvisual = 0;
+    [SerializeField]
+    private int enemycount = 0;
+    [SerializeField]
+    private int lostvisual = 0;
     private GlobalMusicScript musicscript;
 
     private void Start()
@@ -16,6 +18,7 @@ public class GlobalAlertScript : MonoBehaviour
 
     public void GlobalAlertOn()
     {
+        Debug.Log("GLOBAL ALERT ON");
         musicscript.startalertmusic();
         alert = true;
     }
@@ -35,6 +38,16 @@ public class GlobalAlertScript : MonoBehaviour
     public void EnemyEnter()
     {
         enemycount++;
+    }
+
+    public void EnemyExit()
+    {
+        enemycount--;
+        if (lostvisual == enemycount)
+        {
+            GlobalAlertOff();
+            lostvisual = 0;
+        }
     }
 
     public void LostVisual()
