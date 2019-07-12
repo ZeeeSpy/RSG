@@ -25,6 +25,7 @@ public class MCMovement : MonoBehaviour
 
     public AudioClip gunsound;
     public AudioClip equipgun;
+    public AudioClip emptygun;
     AudioSource audioSource;
     bool playaudio = true;
     private bool endofAiming;
@@ -134,6 +135,9 @@ public class MCMovement : MonoBehaviour
                 Ammocounttext.text = "9x19mm : " + PISTOL_AMMO_COUNT;
                 bullet.GetComponent<BulletScript>().velocity = aim * bulletSpeed;
                 Destroy(bullet, 1f);
+            } else
+            {
+                audioSource.PlayOneShot(emptygun, 1f);
             }
         }
     }
@@ -149,5 +153,23 @@ public class MCMovement : MonoBehaviour
             gameover.GameOver();
         }
     }
+
+    public void HealPlayer(int heal)
+    {
+        if (heal < 0)
+        {
+            return;
+        }
+        PLAYER_HITPOINTS = PLAYER_HITPOINTS + heal;
+        if (PLAYER_HITPOINTS > 10)
+        {
+            PLAYER_HITPOINTS = 10;
+        }
+    }
  
+    public void GetAmmo(int Ammo)
+    {
+        PISTOL_AMMO_COUNT = PISTOL_AMMO_COUNT + Ammo;
+        Ammocounttext.text = "9x19mm : " + PISTOL_AMMO_COUNT;
+    }
 }
