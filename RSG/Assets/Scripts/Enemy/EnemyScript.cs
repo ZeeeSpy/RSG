@@ -60,9 +60,13 @@ public class EnemyScript : MonoBehaviour
     private float stuntime = 1.5f;
     private SpriteRenderer thissprite;
 
+    public AudioClip gunsound;
+    AudioSource audioSource;
+
     void Start()
     {
         ////Slow at start but removes dependencies that will be removed by prefabing
+        audioSource = GetComponent<AudioSource>();
         player = GameObject.FindWithTag("PlayerBody").GetComponent<Transform>();
         viewconeobject = transform.Find("ViewCone").gameObject;
         viewcone = viewconeobject.GetComponent<Transform>();
@@ -386,6 +390,7 @@ public class EnemyScript : MonoBehaviour
 
     IEnumerator BurstFire()
     {
+        audioSource.PlayOneShot(gunsound, 1f);
         GameObject bullet = Instantiate(bulletprefab, transform.position, Quaternion.identity);
         bullet.GetComponent<EBulletScript>().velocity = (player.position - transform.position) * bulletSpeed;
         Destroy(bullet, 1f);

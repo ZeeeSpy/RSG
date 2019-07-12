@@ -5,6 +5,12 @@ using UnityEngine;
 public class EBulletScript : MonoBehaviour
 {
     public Vector2 velocity = new Vector2(0.0f, 0.0f);
+    private MCMovement playerscript;
+
+    private void Start()
+    {
+        playerscript = FindObjectOfType<MCMovement>();
+    }
 
     private void Update()
     {
@@ -24,7 +30,7 @@ public class EBulletScript : MonoBehaviour
 
             if (other.CompareTag("PlayerBody"))
             {
-                Debug.Log("PlayerHit");
+                playerscript.DamagePlayer(1);
                 Destroy(gameObject);
                 break;
             }

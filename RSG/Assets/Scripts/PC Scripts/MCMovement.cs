@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MCMovement : MonoBehaviour
 {
@@ -15,12 +16,19 @@ public class MCMovement : MonoBehaviour
     private Camera currentcamera;
     private Vector2 aimingdirection;
     private Vector3 bulletcorection;
-    //[SerializeField]
-    //private int PISTOL_AMMO_COUNT = 0;
+    public Text Ammocounttext;
+    public Slider hpslider;
+    [SerializeField]
+    private int PISTOL_AMMO_COUNT;
+    [SerializeField]
+    private int PLAYER_HITPOINTS;
 
-
+    public AudioClip gunsound;
+    public AudioClip equipgun;
+    AudioSource audioSource;
+    bool playaudio = true;
     private bool endofAiming;
-
+    private GameOverScript gameover;
 
     public GameObject bulletprefab;
     readonly private float bulletSpeed = 3f;
@@ -28,7 +36,11 @@ public class MCMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
+        PISTOL_AMMO_COUNT = 8;
+        PLAYER_HITPOINTS = 5;
+        Ammocounttext.text = "9x19mm : " + PISTOL_AMMO_COUNT;
+        gameover = (GameOverScript)Object.FindObjectOfType(typeof(GameOverScript));
     }
 
     // Update is called once per frame
@@ -39,6 +51,9 @@ public class MCMovement : MonoBehaviour
         if (shooting)
         {
             ShootingStance();
+        } else
+        {
+            playaudio = true;
         }
         Animate();
         Shoot();
@@ -71,6 +86,11 @@ public class MCMovement : MonoBehaviour
 
     private void ShootingStance()
     {
+        if (playaudio)
+        {
+            audioSource.PlayOneShot(equipgun, 1f);
+            playaudio = false;
+        }
         rb.velocity = Vector2.zero;
         movementspeed = 0;
     }
@@ -104,11 +124,29 @@ public class MCMovement : MonoBehaviour
     {
         if (endofAiming && shooting)
         {
-            bulletcorection.x = Mathf.Clamp(aim.x, -0.04f, 0.07f);
-            bulletcorection.y = Mathf.Clamp(aim.y, -0.05f, 0.05f);
-            GameObject bullet = Instantiate(bulletprefab, transform.position+bulletcorection, Quaternion.identity);
-            bullet.GetComponent<BulletScript>().velocity = aim * bulletSpeed;
-            Destroy(bullet, 1f);
+            if (PISTOL_AMMO_COUNT > 0)
+            {
+                audioSource.PlayOneShot(gunsound, 1f);
+                bulletcorection.x = Mathf.Clamp(aim.x, -0.04f, 0.07f);
+                bulletcorection.y = Mathf.Clamp(aim.y, -0.05f, 0.05f);
+                GameObject bullet = Instantiate(bulletprefab, transform.position + bulletcorection, Quaternion.identity);
+                PISTOL_AMMO_COUNT--;
+                Ammocounttext.text = "9x19mm : " + PISTOL_AMMO_COUNT;
+                bullet.GetComponent<BulletScript>().velocity = aim * bulletSpeed;
+                Destroy(bullet, 1f);
+            }
+        }
+    }
+
+    public void DamagePlayer(int dmg)
+    {
+        PLAYER_HITPOINTS = PLAYER_HITPOINTS - dmg;
+        hpslider.value = PLAYER_HITPOINTS;
+        if (PLAYER_HITPOINTS <= 0)
+        {
+            //Player Dead
+            Debug.Log("Player Died");
+            gameover.GameOver();
         }
     }
  
