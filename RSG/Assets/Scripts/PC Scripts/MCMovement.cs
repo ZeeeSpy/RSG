@@ -17,11 +17,8 @@ public class MCMovement : MonoBehaviour
     private Vector2 aimingdirection;
     private Vector3 bulletcorection;
     public Text Ammocounttext;
+    public Text EQPText;
     public Slider hpslider;
-    [SerializeField]
-    private int PISTOL_AMMO_COUNT;
-    [SerializeField]
-    private int PLAYER_HITPOINTS;
 
     public AudioClip gunsound;
     public AudioClip equipgun;
@@ -34,12 +31,35 @@ public class MCMovement : MonoBehaviour
     public GameObject bulletprefab;
     readonly private float bulletSpeed = 3f;
 
+    [SerializeField]
+    private int PISTOL_AMMO_COUNT;
+    [SerializeField]
+    private int PLAYER_HITPOINTS;
+    [SerializeField]
+    private int EMINE_COUNT;
+    [SerializeField]
+    private int TMINE_COUNT;
+
+    private string[] EQP = new string[2];
+    private int CurrentEQP;
+
     // Start is called before the first frame update
     void Start()
     {
+        //initial values for equipment for debugging and playtesting
         audioSource = GetComponent<AudioSource>();
+
         PISTOL_AMMO_COUNT = 8;
         PLAYER_HITPOINTS = 5;
+        EMINE_COUNT = 2;
+        TMINE_COUNT = 0;
+
+        
+        CurrentEQP =  0;
+        EQP[0] = "EQP: E.Mine x"+EMINE_COUNT;
+        EQP[1] = "EQP: T.Mine x"+TMINE_COUNT;
+        EQPText.text = EQP[CurrentEQP];
+
         Ammocounttext.text = "9x19mm : " + PISTOL_AMMO_COUNT;
         gameover = (GameOverScript)Object.FindObjectOfType(typeof(GameOverScript));
     }
@@ -81,7 +101,19 @@ public class MCMovement : MonoBehaviour
             shooting = false;
         }
 
-        endofAiming = Input.GetButtonUp("Fire1");
+        if (Input.GetButtonUp("EQP Cycle"))
+        {
+            CycleEQP();
+        }
+
+        if (Input.GetButtonUp("Use EQP"))
+        {
+            UseEQP();
+        }
+
+
+
+        endofAiming = Input.GetButtonUp("Shoot");
     }
 
 
@@ -171,5 +203,22 @@ public class MCMovement : MonoBehaviour
     {
         PISTOL_AMMO_COUNT = PISTOL_AMMO_COUNT + Ammo;
         Ammocounttext.text = "9x19mm : " + PISTOL_AMMO_COUNT;
+    }
+
+    private void CycleEQP()
+    {
+        audioSource.PlayOneShot(equipgun, 1f);
+        CurrentEQP++;
+        if (CurrentEQP >= EQP.Length)
+        {
+            CurrentEQP = 0;
+        }
+
+        EQPText.text = EQP[CurrentEQP];
+    }
+
+    private void UseEQP()
+    {
+
     }
 }
