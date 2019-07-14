@@ -41,7 +41,7 @@ public class GlobalAlertScript : MonoBehaviour
     }
 
     public void EnemyExit()
-    {
+    { 
         enemycount--;
         if (lostvisual == enemycount)
         {

@@ -151,6 +151,8 @@ public class EnemyScript : MonoBehaviour
                 stuntime = 3f;
             }
         }
+
+        CheckIfDead(); //have to do this in order to avoid taking double damage from a unity bug with colliders
     }
 
     void UpdatePath()
@@ -369,6 +371,10 @@ public class EnemyScript : MonoBehaviour
         HP = HP - damage;
         stunned = true;
         StartCoroutine(Flash());
+    }
+
+    private void CheckIfDead()
+    {
         if (HP <= 0)
         {
             globalalert.EnemyExit();

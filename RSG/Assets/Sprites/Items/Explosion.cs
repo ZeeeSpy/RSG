@@ -6,7 +6,11 @@ public class Explosion : MonoBehaviour
 {
 
     public BoxCollider2D explosionradius;
-    public GlobalAlertScript alertscript;
+    private GlobalAlertScript alertscript;
+    public AudioClip explosion;
+    public AudioSource audioSource;
+    public SpriteRenderer thissprite;
+    public BoxCollider2D thiscollider;
 
     private void Start()
     {
@@ -15,7 +19,6 @@ public class Explosion : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Got To Here");
         if (collider.CompareTag("Enemy"))
         {
             collider.GetComponent<EnemyScript>().gethit(5);
@@ -26,6 +29,9 @@ public class Explosion : MonoBehaviour
             collider.GetComponent<MCMovement>().DamagePlayer(5);
         }
         alertscript.GlobalAlertOn();
-        Destroy(gameObject, 0.2f);
+        audioSource.PlayOneShot(explosion, 7f);
+        thissprite.enabled = false;
+        thiscollider.enabled = false;
+        Destroy(gameObject, 7f);
     }
 }

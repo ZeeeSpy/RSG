@@ -14007,8 +14007,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -444.59998, y: 227.99998}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -374.59998, y: 220.85}
+  m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &679427250
 MonoBehaviour:
@@ -23030,6 +23030,9 @@ MonoBehaviour:
   emptygun: {fileID: 8300000, guid: 17e33e6daf0b50b47b6dc64a241272ba, type: 3}
   bulletprefab: {fileID: 2890454968869865071, guid: 91e0fd516e951934a9662d72f5d3b9bc,
     type: 3}
+  EMine: {fileID: 6794119007754226839, guid: a309f46a6b1bca345a48e4501ceea81e, type: 3}
+  TMine: {fileID: 6794119007754226839, guid: fd8f834ce7156b74b97b2ade5de69d17, type: 3}
+  shell: {fileID: 0}
   PISTOL_AMMO_COUNT: 0
   PLAYER_HITPOINTS: 0
   EMINE_COUNT: 0
