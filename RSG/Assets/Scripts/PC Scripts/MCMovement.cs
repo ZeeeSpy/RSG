@@ -54,7 +54,7 @@ public class MCMovement : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         PISTOL_AMMO_COUNT = 8;
-        PLAYER_HITPOINTS = 5;
+        PLAYER_HITPOINTS = 10;
         EMINE_COUNT = 2;
         TMINE_COUNT = 2;
 

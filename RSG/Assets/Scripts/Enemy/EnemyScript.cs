@@ -286,7 +286,10 @@ public class EnemyScript : MonoBehaviour
                 shootingstance = false;
                 target = player;
                 shootingtime = shootingresettime;
-                shootingtimesetup = shootingresettime;
+                if (!playercurrentlyvisible)
+                {
+                    shootingtimesetup = shootingresettime;
+                }
             }
         }
 

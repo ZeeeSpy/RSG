@@ -11,6 +11,7 @@ public class Explosion : MonoBehaviour
     public AudioSource audioSource;
     public SpriteRenderer thissprite;
     public BoxCollider2D thiscollider;
+    bool playingmusic = false;
 
     private void Start()
     {
@@ -28,10 +29,14 @@ public class Explosion : MonoBehaviour
         {
             collider.GetComponent<MCMovement>().DamagePlayer(5);
         }
-        alertscript.GlobalAlertOn();
-        audioSource.PlayOneShot(explosion, 7f);
-        thissprite.enabled = false;
-        thiscollider.enabled = false;
-        Destroy(gameObject, 7f);
+        if (!playingmusic)
+        {
+            playingmusic = true;
+            alertscript.GlobalAlertOn();
+            audioSource.PlayOneShot(explosion, 7f);
+            thissprite.enabled = false;
+            thiscollider.enabled = false;
+            Destroy(gameObject, 7f);
+        }
     }
 }
