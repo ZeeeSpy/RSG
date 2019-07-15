@@ -56,7 +56,7 @@ public class MCMovement : MonoBehaviour
         PISTOL_AMMO_COUNT = 8;
         PLAYER_HITPOINTS = 5;
         EMINE_COUNT = 2;
-        TMINE_COUNT = 0;
+        TMINE_COUNT = 2;
 
         
         CurrentEQP =  0;
@@ -234,7 +234,7 @@ public class MCMovement : MonoBehaviour
         {
             if (TMINE_COUNT > 0)
             {
-                GameObject equipable = Instantiate(TMine, transform.position, Quaternion.identity);
+                GameObject equipable = Instantiate(TMine, transform.position - new Vector3(0, 0.18f, 0), Quaternion.identity);
                 TMINE_COUNT--;
                 UpdateEQPUI();
             }
