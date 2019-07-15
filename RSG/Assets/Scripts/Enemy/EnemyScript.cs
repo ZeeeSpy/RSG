@@ -63,6 +63,8 @@ public class EnemyScript : MonoBehaviour
     public AudioClip gunsound;
     AudioSource audioSource;
 
+    bool dead = false;
+
     void Start()
     {
         ////Slow at start but removes dependencies that will be removed by prefabing
@@ -152,7 +154,7 @@ public class EnemyScript : MonoBehaviour
             }
         }
 
-        CheckIfDead(); //have to do this in order to avoid taking double damage from a unity bug with colliders
+
     }
 
     void UpdatePath()
@@ -371,12 +373,18 @@ public class EnemyScript : MonoBehaviour
         HP = HP - damage;
         stunned = true;
         StartCoroutine(Flash());
-    }
-
-    private void CheckIfDead()
-    {
         if (HP <= 0)
         {
+            DestroySelf();
+        }
+      
+    }
+
+    private void DestroySelf()
+    {
+        if (dead == false)
+        {
+            dead = true;
             globalalert.EnemyExit();
             Destroy(gameObject);
         }
