@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ *  Enemy bullet script. It ignores fellow enemies and is distroyed when it hits a solid wall or the player
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

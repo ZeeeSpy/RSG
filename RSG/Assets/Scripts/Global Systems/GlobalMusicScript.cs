@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ *  Script used to change the game music depending on the "alterness" of the guards
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

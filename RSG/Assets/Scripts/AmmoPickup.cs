@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ *  Script used to give player ammo on pickup. used only for debugging
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

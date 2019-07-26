@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ *  Script used for camera follow the player while staying within certain bounds. 
+ *  Currently there's a problem with the camera sitting inbetween pixels on non supported resolutions 
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

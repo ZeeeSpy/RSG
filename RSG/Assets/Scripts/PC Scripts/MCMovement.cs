@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ *  Script used to control the player, including "shooting stance" and playing sounds
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

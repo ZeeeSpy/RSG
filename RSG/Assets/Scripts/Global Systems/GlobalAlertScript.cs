@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ *  Script used to alert all guards and to set all guards back to normal mode.
+ *  Script also keeps count of number of enemies in map so that player can kill all enemies to stop
+ *  alert mode
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

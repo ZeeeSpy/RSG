@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ *  Script used to navigate the main menu
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

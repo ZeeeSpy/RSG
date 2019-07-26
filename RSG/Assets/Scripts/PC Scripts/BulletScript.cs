@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ *  Script used to determine direction and behaviour of player bullets, simmilar to ebullet but with different
+ *  collider effects.
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

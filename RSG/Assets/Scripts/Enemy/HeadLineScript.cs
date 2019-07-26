@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ *  Unused script: this script was used before to fix the depth problem by having the enenmy check for the 
+ *  player from two places on the enemy (head, toes) this was changed to 4 places on the player. 
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

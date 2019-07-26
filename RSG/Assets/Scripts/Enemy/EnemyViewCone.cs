@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ *  Enemy view cones are poly coliders, this is the script that detects if a player is in it.
+ *  if the enemy can raycast an uninterrupted line to the player and they are within the cone that means
+ *  the player is seen
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

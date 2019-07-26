@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ *  Script used to quit the game on pickup. used only for debugging
+ */
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

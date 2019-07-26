@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ *  Script used to switch between cameras depending on the position of the player
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

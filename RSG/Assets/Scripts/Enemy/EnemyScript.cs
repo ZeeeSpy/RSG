@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ *  Script that is in charge of the enemy AI. including path finding between waypoints, Alert Phase, Shooting phase etc
+ *  TODO: add a caution stage to enemy ai inbetween alert and normal
+ *  TODO: add flocking behaviour to enemy pathfinding
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
