@@ -16,10 +16,12 @@ public class GlobalAlertScript : MonoBehaviour
     [SerializeField]
     private int lostvisual = 0;
     private GlobalMusicScript musicscript;
+    private GlobalPatrolSystem patrolscript;
 
     private void Start()
     {
-        musicscript = (GlobalMusicScript)Object.FindObjectOfType(typeof(GlobalMusicScript));
+        musicscript = (GlobalMusicScript)FindObjectOfType(typeof(GlobalMusicScript));
+        patrolscript = (GlobalPatrolSystem)FindObjectOfType(typeof(GlobalPatrolSystem));
     }
 
     public void GlobalAlertOn()
@@ -31,6 +33,7 @@ public class GlobalAlertScript : MonoBehaviour
 
     private void GlobalAlertOff()
     {
+        patrolscript.Reenforce();
         alert = false;
         musicscript.startnormalmusic();
         lostvisual = 0;
@@ -46,8 +49,9 @@ public class GlobalAlertScript : MonoBehaviour
         enemycount++;
     }
 
-    public void EnemyExit()
-    { 
+    public void EnemyExit(int routenumber)
+    {
+        patrolscript.DeadGaurdPatrolRoute(routenumber);
         enemycount--;
         if (lostvisual == enemycount)
         {

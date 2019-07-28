@@ -394,7 +394,7 @@ public class EnemyScript : MonoBehaviour
         if (dead == false)
         {
             dead = true;
-            globalalert.EnemyExit();
+            globalalert.EnemyExit(routenumber);
             Destroy(gameObject);
         }
     }
@@ -425,5 +425,10 @@ public class EnemyScript : MonoBehaviour
         GameObject bullet3 = Instantiate(bulletprefab, transform.position, Quaternion.identity);
         bullet3.GetComponent<EBulletScript>().velocity = (player.position - transform.position) * bulletSpeed;
         Destroy(bullet3, 1f);
+    }
+
+    public void SetPatrolNumber(int numbertoassign)
+    {
+        routenumber = numbertoassign;
     }
 }

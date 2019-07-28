@@ -16,23 +16,72 @@ using System;
 
 public class GlobalPatrolSystem : MonoBehaviour
 {
-    public Transform[] GetPatrolRoute(int routenumber) {
+    private int numberofpatrols; //max number of possible patrols
+    private Transform[] patrolroutemaster; //holds all route nodes
+    private bool[] IsGuardAlive; //holds the "aliveness" of each guard
+    private int deadguards = 0;
+    public GameObject Enemy;
+    public GameObject SpawnPoint;
 
+    private void Awake() //Awake is before start
+    {
         Transform temp = transform.Find("PatrolWayPoints");
         Transform[] patrolpoints = new Transform[temp.childCount];
         for (int i = 0; i < patrolpoints.Length; i++)
         {
             patrolpoints[i] = temp.GetChild(i).GetComponent<Transform>();
         }
+        patrolroutemaster = (Transform[])patrolpoints.Clone();
+        IsGuardAlive = new bool[(patrolpoints.Length/4)]; //assume all patrols are filled from start
+        for (int i = 0; i < IsGuardAlive.Length;  i++)
+        {
+            IsGuardAlive[i] = true; //assumed all patrols are filled and thus all enemies are alive on start
+        }
+        
+    }
 
+    public Transform[] GetPatrolRoute(int routenumber)
+    {
         int routestartnumber = 0;
         if (routenumber != 0)
         {
             routestartnumber = (routenumber * 4);
         }
         Transform[] arraytoreturn = new Transform[4]; //Patrols are always 4 long for now
-        Array.Copy(patrolpoints, routestartnumber, arraytoreturn, 0, 4);
+        Array.Copy(patrolroutemaster, routestartnumber, arraytoreturn, 0, 4);
         return arraytoreturn;
+    }
 
+    public void DeadGaurdPatrolRoute(int routenumber)
+    {
+        IsGuardAlive[routenumber] = false;
+        Debug.Log("RouteNumber: " + routenumber + " needs to be filled");
+        deadguards++;
+    }
+
+    public void Reenforce()
+    {
+        if (deadguards == 0)
+        {
+            return;
+        }
+
+        int numberofdead = 0;
+        for (int i = 0; i < IsGuardAlive.Length; i++)
+        {
+            if (IsGuardAlive[i] == false)
+            {
+                StartCoroutine(SpawnReenfocement(i, numberofdead));
+                numberofdead++;
+            }
+        }
+    }
+
+    IEnumerator SpawnReenfocement(int patrolnumber,int order)
+    {
+        yield return new WaitForSeconds(order*5f);
+        GameObject enemy = Instantiate(Enemy, SpawnPoint.transform.position, Quaternion.identity);
+        enemy.GetComponent<EnemyScript>().SetPatrolNumber(patrolnumber);
+        IsGuardAlive[patrolnumber] = true;
     }
 }
