@@ -36,7 +36,6 @@ public class GlobalAlertScript : MonoBehaviour
         patrolscript.Reenforce();
         alert = false;
         musicscript.startnormalmusic();
-        lostvisual = 0;
     }
 
     public bool GetGlobalAlert()
@@ -55,8 +54,14 @@ public class GlobalAlertScript : MonoBehaviour
         enemycount--;
         if (lostvisual == enemycount)
         {
-            GlobalAlertOff();
-            lostvisual = 0;
+            if (alert)
+            {
+                GlobalAlertOff();
+                lostvisual = 0;
+            }  else
+            {
+                lostvisual = 0;
+            }
         }
     }
 

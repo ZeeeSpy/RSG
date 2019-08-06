@@ -57,10 +57,10 @@ public class MCMovement : MonoBehaviour
         //initial values for equipment for debugging and playtesting
         audioSource = GetComponent<AudioSource>();
 
-        PISTOL_AMMO_COUNT = 8;
+        PISTOL_AMMO_COUNT = 12;
         PLAYER_HITPOINTS = 10;
-        EMINE_COUNT = 2;
-        TMINE_COUNT = 2;
+        EMINE_COUNT = 0;
+        TMINE_COUNT = 0;
 
         
         CurrentEQP =  0;
@@ -167,7 +167,7 @@ public class MCMovement : MonoBehaviour
             if (PISTOL_AMMO_COUNT > 0)
             {
                 audioSource.PlayOneShot(gunsound, 1f);
-                bulletcorection.x = Mathf.Clamp(aim.x, -0.04f, 0.07f);
+                bulletcorection.x = Mathf.Clamp(aim.x, -0.03f, 0.07f);
                 bulletcorection.y = Mathf.Clamp(aim.y, -0.05f, 0.05f);
                 GameObject bullet = Instantiate(bulletprefab, transform.position + bulletcorection, Quaternion.identity);
                 PISTOL_AMMO_COUNT--;
@@ -224,7 +224,7 @@ public class MCMovement : MonoBehaviour
         EQPText.text = EQP[CurrentEQP];
     }
 
-    private void UseEQP()
+    private void UseEQP() //ugly needs to be refactored. Use "item" objects
     {
         if (CurrentEQP == 0) //EMine
         {

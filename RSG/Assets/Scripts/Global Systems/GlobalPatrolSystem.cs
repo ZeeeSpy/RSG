@@ -32,12 +32,11 @@ public class GlobalPatrolSystem : MonoBehaviour
             patrolpoints[i] = temp.GetChild(i).GetComponent<Transform>();
         }
         patrolroutemaster = (Transform[])patrolpoints.Clone();
-        IsGuardAlive = new bool[(patrolpoints.Length/4)]; //assume all patrols are filled from start
-        for (int i = 0; i < IsGuardAlive.Length;  i++)
+        IsGuardAlive = new bool[(patrolpoints.Length / 4)]; //assume all patrols are filled from start
+        for (int i = 0; i < IsGuardAlive.Length; i++)
         {
             IsGuardAlive[i] = true; //assumed all patrols are filled and thus all enemies are alive on start
         }
-        
     }
 
     public Transform[] GetPatrolRoute(int routenumber)
@@ -77,9 +76,9 @@ public class GlobalPatrolSystem : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnReenfocement(int patrolnumber,int order)
+    IEnumerator SpawnReenfocement(int patrolnumber, int order)
     {
-        yield return new WaitForSeconds(order*5f);
+        yield return new WaitForSeconds(order * 5f);
         GameObject enemy = Instantiate(Enemy, SpawnPoint.transform.position, Quaternion.identity);
         enemy.GetComponent<EnemyScript>().SetPatrolNumber(patrolnumber);
         IsGuardAlive[patrolnumber] = true;
