@@ -51,6 +51,9 @@ public class MCMovement : MonoBehaviour
     private string[] EQP = new string[3];
     private int CurrentEQP;
 
+    public SpriteRenderer InteractIcon;
+    private LightSwitchScript currentlightswitch;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +62,7 @@ public class MCMovement : MonoBehaviour
 
         PISTOL_AMMO_COUNT = 12;
         PLAYER_HITPOINTS = 10;
-        EMINE_COUNT = 0;
+        EMINE_COUNT = 3;
         TMINE_COUNT = 0;
 
         
@@ -71,6 +74,7 @@ public class MCMovement : MonoBehaviour
 
         Ammocounttext.text = "9x19mm : " + PISTOL_AMMO_COUNT;
         gameover = (GameOverScript)Object.FindObjectOfType(typeof(GameOverScript));
+
     }
 
     // Update is called once per frame
@@ -118,6 +122,11 @@ public class MCMovement : MonoBehaviour
         if (Input.GetButtonUp("Use EQP") && !shooting) //can only use items when not shooting
         {
             UseEQP();
+        }
+
+        if (InteractIcon.enabled == true && Input.GetButtonUp("Interact"))
+        {
+            currentlightswitch.Togglelight();
         }
 
         endofAiming = Input.GetButtonUp("Shoot");
@@ -260,5 +269,11 @@ public class MCMovement : MonoBehaviour
         EQP[1] = "EQP: T.Mine x" + TMINE_COUNT;
         EQP[2] = "EQP: Cartridge x" + PISTOL_AMMO_COUNT;
         EQPText.text = EQP[CurrentEQP];
+    }
+
+    public void ToggleInteractable(LightSwitchScript lightswitch)
+    {
+        currentlightswitch = lightswitch;
+        InteractIcon.enabled = !InteractIcon.enabled;
     }
 }
