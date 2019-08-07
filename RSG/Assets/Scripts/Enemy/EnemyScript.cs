@@ -431,4 +431,12 @@ public class EnemyScript : MonoBehaviour
     {
         routenumber = numbertoassign;
     }
+
+    public void CheckLightSwitch(Transform lighttocheck)
+    {
+        if (!alert)
+        {
+            target = lighttocheck; //auto returns to patrol
+        }
+    }
 }
