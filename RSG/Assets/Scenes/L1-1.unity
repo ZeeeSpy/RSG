@@ -8247,6 +8247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c226d9fbd4aad4f9cb9308872c2293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thislightswitch: {fileID: 1626306172}
 --- !u!1 &1626306168
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,7 +54,8 @@ public class LightSwitchScript : MonoBehaviour
     IEnumerator TurnLightOn()
     {
         yield return new WaitForSeconds(2f);
-        thislight.enabled = false; 
+        thislight.enabled = false;
+        thislightarea.MakeEnemyHaveNormalVison();
     }
 
     public void SmartLightAI(EnemyScript enemytocheck)

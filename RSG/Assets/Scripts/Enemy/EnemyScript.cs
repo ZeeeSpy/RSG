@@ -439,4 +439,15 @@ public class EnemyScript : MonoBehaviour
             target = lighttocheck; //auto returns to patrol
         }
     }
+
+    public void NightView()
+    {
+        thisviewcone.NightView();
+    }
+
+    public void NormalView()
+    {
+        thisviewcone.NormalView();
+    }
+
 }

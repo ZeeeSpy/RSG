@@ -13,12 +13,28 @@ public class LightSwitchArea : MonoBehaviour
 
     public void MakeEnemyCheck(Transform lightocheck)
     {
+        bool someonecheking = false;
         for (int i = 0; i < listofenemies.Count; i++)
         {
             if (listofenemies[i] != null)
             {
-                listofenemies[i].CheckLightSwitch(lightocheck);
-                return;
+                if (!someonecheking)
+                {
+                    listofenemies[i].CheckLightSwitch(lightocheck);
+                    someonecheking = true;
+                }
+                listofenemies[i].NightView();
+            }
+        }
+    }
+
+    public void MakeEnemyHaveNormalVison()
+    {
+        for (int i = 0; i < listofenemies.Count; i++)
+        {
+            if (listofenemies[i] != null)
+            {
+                listofenemies[i].NormalView();
             }
         }
     }

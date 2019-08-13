@@ -10,10 +10,12 @@ using UnityEngine;
 
 public class EnemyViewCone : MonoBehaviour
 {
-    bool detected; 
+    bool detected;
+    PolygonCollider2D viewcone;
     void Start()
     {
         detected = false;
+        viewcone = gameObject.GetComponent<PolygonCollider2D>();
     }
 
 
@@ -36,6 +38,22 @@ public class EnemyViewCone : MonoBehaviour
     public bool isDetected()
     {
         return detected;
+    }
+
+    public void NightView()
+    {
+        var myPoints = viewcone.points;
+        myPoints[1] = new Vector2(0.5f, -0.7f);
+        myPoints[2] = new Vector2(-0.5f, -0.7f);
+        viewcone.points = myPoints;
+    }
+
+    public void NormalView()
+    {
+        var myPoints = viewcone.points;
+        myPoints[1] = new Vector2(0.5f, -1.3f);
+        myPoints[1] = new Vector2(-0.5f, -1.3f);
+        viewcone.points = myPoints;
     }
 
 }
