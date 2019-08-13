@@ -43,8 +43,13 @@ public class LightSwitchArea : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            listofenemies.Add(other.GetComponent<EnemyScript>());
-            thislightswitch.SmartLightAI(other.GetComponent<EnemyScript>());
+            EnemyScript holder = other.GetComponent<EnemyScript>();
+            listofenemies.Add(holder);
+            thislightswitch.SmartLightAI(holder);
+            if (thislightswitch.IsTheLightOn() == true)
+            {
+                holder.NightView();
+            }
         }
     }
 
@@ -52,7 +57,12 @@ public class LightSwitchArea : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            listofenemies.Remove(other.GetComponent<EnemyScript>());
+            EnemyScript holder = other.GetComponent<EnemyScript>();
+            listofenemies.Remove(holder);
+            if (thislightswitch.IsTheLightOn() == false)
+            {
+               holder.NormalView();
+            }
         }
     }
 }

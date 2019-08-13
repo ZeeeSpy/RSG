@@ -67,4 +67,9 @@ public class LightSwitchScript : MonoBehaviour
             //add coroutine that after X amount of time checks if solider is dead
         }
     }
+
+    public bool IsTheLightOn()
+    {
+        return (thislight.enabled); //false means the "dimness" isn't on
+    }
 }

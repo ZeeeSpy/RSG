@@ -52,7 +52,7 @@ public class EnemyViewCone : MonoBehaviour
     {
         var myPoints = viewcone.points;
         myPoints[1] = new Vector2(0.5f, -1.3f);
-        myPoints[1] = new Vector2(-0.5f, -1.3f);
+        myPoints[2] = new Vector2(-0.5f, -1.3f);
         viewcone.points = myPoints;
     }
 
