@@ -16,6 +16,7 @@ public class EnemyScript : MonoBehaviour
     //Pathfinding
     private Transform player;
     private Transform target;
+    public Transform returnposition;
     private GlobalPatrolSystem patrolSystem;
     readonly private float patrolspeed = 50f;
     readonly private float alertspeed = 225f;
@@ -69,6 +70,7 @@ public class EnemyScript : MonoBehaviour
     public AudioClip gunsound;
     AudioSource audioSource;
 
+    public bool stationary = false;
     bool dead = false;
 
     void Start()
@@ -87,9 +89,16 @@ public class EnemyScript : MonoBehaviour
         Physics2D.queriesStartInColliders = false;
 
         //patrol setup
-        patrolSystem = (GlobalPatrolSystem)Object.FindObjectOfType(typeof(GlobalPatrolSystem));
-        patrolpoints = patrolSystem.GetPatrolRoute(routenumber);
-        target = patrolpoints[patrolcount];
+        if (!stationary)
+        {
+            patrolSystem = (GlobalPatrolSystem)Object.FindObjectOfType(typeof(GlobalPatrolSystem));
+            patrolpoints = patrolSystem.GetPatrolRoute(routenumber);
+            target = patrolpoints[patrolcount];
+        } else
+        {
+            target = returnposition;
+        }
+
 
         //pathfinding setup
         currentspeed = patrolspeed;
@@ -110,6 +119,7 @@ public class EnemyScript : MonoBehaviour
         {
             playerhitboxes[i] = GameObject.FindWithTag("PlayerDetectionSquares").transform.GetChild(i).GetComponent<Transform>();
         }
+
     }
 
 
@@ -159,19 +169,17 @@ public class EnemyScript : MonoBehaviour
                 stuntime = 3f;
             }
         }
-
-
     }
 
     void UpdatePath()
     {
-        if (seeker.IsDone())
+        if (seeker.IsDone()) //if seeker is done
         {
-            if (!alert)
+            if (!alert) //and there isn't an alert
             {
-                if (reachedEndofPath)
+                if (reachedEndofPath && !stationary)
                 {
-                    Cyclepatrol();
+                    Cyclepatrol(); //cylce patrol points
                 }
             }
             else //alert
@@ -180,7 +188,9 @@ public class EnemyScript : MonoBehaviour
                 target = player.transform;
                 currentspeed = alertspeed;
             }
-            seeker.StartPath(rb.position, target.position, OnPathComplete);
+
+                seeker.StartPath(rb.position, target.position, OnPathComplete);
+
         }
     }
     void OnPathComplete(Path p)
@@ -199,10 +209,12 @@ public class EnemyScript : MonoBehaviour
     {
         if (!shootingstance) //enemy doesn't move while shooting
         {
-            Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-            Vector2 force = direction * currentspeed * Time.deltaTime;
-
-            rb.AddForce(force);
+            if (Vector3.Distance(transform.position, target.position) > 0.1f) //stop just before target
+            {
+                Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+                Vector2 force = direction * currentspeed * Time.deltaTime;
+                rb.AddForce(force);
+            }
         }
     }
 
@@ -361,7 +373,15 @@ public class EnemyScript : MonoBehaviour
     {
         alert = false;
         coneturntime = normalconeturntime;
-        target = patrolpoints[patrolcount];
+
+        if (!stationary)
+        {
+            target = patrolpoints[patrolcount];
+        } else
+        {
+            target = returnposition;
+        }
+
         currentspeed = patrolspeed;
         lostvisiontime = resettime;
         calledin = false;

@@ -48,6 +48,7 @@ public class LightSwitchScript : MonoBehaviour
         if (thislight.enabled == true)
         {
             thislightarea.MakeEnemyCheck(lightswitchposition);
+            Debug.Log("1");
         }
     }
 
@@ -64,6 +65,7 @@ public class LightSwitchScript : MonoBehaviour
         {
             enemytocheck.CheckLightSwitch(lightswitchposition);
             currentlychecking = true;
+            
             //add coroutine that after X amount of time checks if solider is dead
         }
     }
