@@ -59,12 +59,12 @@ public class MCMovement : MonoBehaviour
     {
         //initial values for equipment for debugging and playtesting
         audioSource = GetComponent<AudioSource>();
-
+        /*
         PISTOL_AMMO_COUNT = 12;
         PLAYER_HITPOINTS = 10;
         EMINE_COUNT = 3;
         TMINE_COUNT = 0;
-
+        */
         
         CurrentEQP =  0;
         EQP[0] = "EQP: E.Mine x"+EMINE_COUNT;

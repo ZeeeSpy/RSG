@@ -11,9 +11,9 @@ public class MainMenu : MonoBehaviour
 {
     public AudioSource menubuttonsound;
 
-    public void PlayGame()
+    public void PlayGame(string levelname)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(levelname);
         //Add loading screen
     }
 
