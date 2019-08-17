@@ -17,6 +17,7 @@ public class GlobalAlertScript : MonoBehaviour
     private int lostvisual = 0;
     private GlobalMusicScript musicscript;
     private GlobalPatrolSystem patrolscript;
+    public bool tutorial = false;
 
     private void Start()
     {
@@ -26,9 +27,18 @@ public class GlobalAlertScript : MonoBehaviour
 
     public void GlobalAlertOn()
     {
-        Debug.Log("GLOBAL ALERT ON");
-        musicscript.startalertmusic();
-        alert = true;
+        if (tutorial)
+        {
+            Debug.Log("GameOver");
+            musicscript.startalertmusic();
+            alert = true;
+        }
+        else
+        {
+            Debug.Log("GLOBAL ALERT ON");
+            musicscript.startalertmusic();
+            alert = true;
+        }
     }
 
     private void GlobalAlertOff()

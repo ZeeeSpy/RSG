@@ -484,6 +484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemycount: 0
   lostvisual: 0
+  tutorial: 0
 --- !u!114 &108992451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,7 +687,7 @@ Transform:
   - {fileID: 1936865829}
   - {fileID: 1713214179}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &114767259
 GameObject:
@@ -1366,6 +1367,21 @@ PrefabInstance:
         type: 3}
       propertyPath: routenumber
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2604112588428612365, guid: 0babc2505f81d424ba90fbefc0e1cd88,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2604112588428612365, guid: 0babc2505f81d424ba90fbefc0e1cd88,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2604112588428612365, guid: 0babc2505f81d424ba90fbefc0e1cd88,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0babc2505f81d424ba90fbefc0e1cd88, type: 3}

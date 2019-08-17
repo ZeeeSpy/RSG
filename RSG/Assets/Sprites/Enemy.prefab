@@ -254,10 +254,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   routenumber: 0
+  returnposition: {fileID: 0}
+  eyesfront: {fileID: 0}
   bulletprefab: {fileID: 2890454968869865071, guid: 7569ca1f899399c45ad54581695a9070,
     type: 3}
   stunned: 0
   gunsound: {fileID: 8300000, guid: 395975b31b766a341936a67f53662055, type: 3}
+  stationary: 0
 --- !u!58 &2604112588738726687
 CircleCollider2D:
   m_ObjectHideFlags: 0
