@@ -17,6 +17,7 @@ public class EnemyScript : MonoBehaviour
     private Transform player;
     private Transform target;
     public Transform returnposition;
+    public Transform eyesfront;
     private GlobalPatrolSystem patrolSystem;
     readonly private float patrolspeed = 50f;
     readonly private float alertspeed = 225f;
@@ -96,7 +97,11 @@ public class EnemyScript : MonoBehaviour
             target = patrolpoints[patrolcount];
         } else
         {
-            target = returnposition;
+            Transform[] patrolpoints = new Transform[2];
+            patrolpoints[1] = returnposition;
+            patrolpoints[0] = eyesfront;
+            patrolcount++;
+            target = patrolpoints[patrolcount];
         }
 
 
@@ -177,18 +182,23 @@ public class EnemyScript : MonoBehaviour
         {
             if (!alert) //and there isn't an alert
             {
-                if (reachedEndofPath && !stationary)
+                if (reachedEndofPath)
                 {
-                    Cyclepatrol(); //cylce patrol points
+                    if (!stationary)
+                    {
+                        Cyclepatrol(); //cylce patrol points
+                    } else {
+                        StationaryCyclepatrol(); //cylce patrol as stationary enemy
+                    }
                 }
             }
+
             else //alert
             {
                 //on alert set player as target and move fast
                 target = player.transform;
                 currentspeed = alertspeed;
             }
-
                 seeker.StartPath(rb.position, target.position, OnPathComplete);
 
         }
@@ -209,7 +219,9 @@ public class EnemyScript : MonoBehaviour
     {
         if (!shootingstance) //enemy doesn't move while shooting
         {
-            if (Vector3.Distance(transform.position, target.position) > 0.1f) //stop just before target
+            /* stop just before target 0.1 is close enough to "reach destination" and cycle patrol
+            but far enough so that the sprite doesn't hit the waypoint */
+            if (Vector3.Distance(transform.position, target.position) > 0.1f)
             {
                 Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
                 Vector2 force = direction * currentspeed * Time.deltaTime;
@@ -373,15 +385,13 @@ public class EnemyScript : MonoBehaviour
     {
         alert = false;
         coneturntime = normalconeturntime;
-
-        if (!stationary)
+        if (stationary)
         {
-            target = patrolpoints[patrolcount];
+            patrolcount = 0;
         } else
         {
-            target = returnposition;
+            target = patrolpoints[patrolcount];
         }
-
         currentspeed = patrolspeed;
         lostvisiontime = resettime;
         calledin = false;
@@ -395,6 +405,26 @@ public class EnemyScript : MonoBehaviour
             patrolcount = 0;
         }
         target = patrolpoints[patrolcount];
+    }
+
+    private void StationaryCyclepatrol()
+    {
+        if (patrolcount == 1)
+        {
+            patrolcount++;
+            target = returnposition;          
+        }
+
+        if (patrolcount == 0)
+        {
+            patrolcount++;
+            target = eyesfront;
+        }
+
+        if (patrolcount == -1)
+        {
+            patrolcount++;
+        }
     }
 
     public void gethit(int damage)
@@ -457,6 +487,10 @@ public class EnemyScript : MonoBehaviour
         if (!alert)
         {
             target = lighttocheck; //auto returns to patrol
+            if (stationary)
+            {
+                patrolcount = -1;
+            }
         }
     }
 

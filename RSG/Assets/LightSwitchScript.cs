@@ -48,7 +48,6 @@ public class LightSwitchScript : MonoBehaviour
         if (thislight.enabled == true)
         {
             thislightarea.MakeEnemyCheck(lightswitchposition);
-            Debug.Log("1");
         }
     }
 
