@@ -7,17 +7,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+
 using UnityEngine.SceneManagement;
 
 public class TargetReachedScript : MonoBehaviour
 {
-    public SceneAsset targetscene;
+    public string targetscene;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) 
         {
-            SceneManager.LoadScene(targetscene.name, LoadSceneMode.Single);
+            SceneManager.LoadScene(targetscene, LoadSceneMode.Single);
         }
     }
 }

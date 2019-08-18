@@ -7591,10 +7591,10 @@ MonoBehaviour:
   EMine: {fileID: 6794119007754226839, guid: a309f46a6b1bca345a48e4501ceea81e, type: 3}
   TMine: {fileID: 6794119007754226839, guid: fd8f834ce7156b74b97b2ade5de69d17, type: 3}
   shell: {fileID: 0}
-  PISTOL_AMMO_COUNT: 0
-  PLAYER_HITPOINTS: 0
-  EMINE_COUNT: 0
-  TMINE_COUNT: 0
+  PISTOL_AMMO_COUNT: 12
+  PLAYER_HITPOINTS: 10
+  EMINE_COUNT: 3
+  TMINE_COUNT: 3
   InteractIcon: {fileID: 655902775}
 --- !u!210 &408129942
 SortingGroup:
@@ -17226,6 +17226,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 408129943}
+  yMinValue: -3.73
+  yMaxValue: -1.8
+  xMinValue: -3.32
+  xMaxValue: -0.12
+  lookaheaddist: 1
 --- !u!1 &1154754481
 GameObject:
   m_ObjectHideFlags: 0
@@ -17831,6 +17836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemycount: 0
   lostvisual: 0
+  tutorial: 0
 --- !u!114 &1348663014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25357,7 +25363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d7ed33e223d54419cf88a578087ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetscene: {fileID: 102900000, guid: b01ccc136871bc144a4122288d9a52ae, type: 3}
+  targetscene: 
 --- !u!61 &2096869791
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25631,6 +25637,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112388662069494497, guid: 6629ebf287562444bb3f9ecc28760a6c,
+        type: 3}
+      propertyPath: targetscene
+      value: Splash Screen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6629ebf287562444bb3f9ecc28760a6c, type: 3}

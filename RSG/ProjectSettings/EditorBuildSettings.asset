@@ -14,10 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorials/L0-1.unity
     guid: 6f65a7d4e6221b0459961ed246b649b0
-  - enabled: 1
-    path: Assets/Scenes/Tutorials/L0-2.unity
-    guid: 38de82f4c61c0c3409e773c07da4b647
-  - enabled: 1
-    path: Assets/Scenes/Tutorials/L0-3.unity
-    guid: 3d1d9e76e982741419bbec41b8f724a5
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
