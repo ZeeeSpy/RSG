@@ -36,9 +36,9 @@ public class CameraFollow : MonoBehaviour
          * Art assets are 100pixels per unit. 
          * 
          * Trying to make the camera pixel perfect (Correcting to 0.00) causes aliasing issues.
-         * Solution:
-         * This makes the camera snap to a precision of 0.02 and then add 0.01 to make the number odd.
-         * since for some reason unknown to god himself unity doesn't like even numbers
+         * Solution V2:
+         * This makes the camera snap to a precision of 0.00 on the x axis.
+         * on the y axis it will snap as if the pixel size is 75. (which it isn't) but stops aliasing
          */
         transform.position = new Vector3((Mathf.RoundToInt(gameObject.transform.position.x * pixelsize) / pixelsize), 
                                         (Mathf.RoundToInt(gameObject.transform.position.y * ypixelsize) / ypixelsize),
