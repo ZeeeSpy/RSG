@@ -53,9 +53,15 @@ public class GlobalPatrolSystem : MonoBehaviour
 
     public void DeadGaurdPatrolRoute(int routenumber)
     {
-        IsGuardAlive[routenumber] = false;
-        Debug.Log("RouteNumber: " + routenumber + " needs to be filled");
-        deadguards++;
+        if (!(routenumber == -1))
+        {
+            IsGuardAlive[routenumber] = false;
+            Debug.Log("RouteNumber: " + routenumber + " needs to be filled");
+            deadguards++;
+        } else
+        {
+            Debug.Log("Stationary Guard Dead");
+        }
     }
 
     public void Reenforce()
