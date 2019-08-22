@@ -40,16 +40,7 @@ public class MCMovement : MonoBehaviour
     public GameObject shell;
 
     [SerializeField]
-    private int PISTOL_AMMO_COUNT;
-    [SerializeField]
     private int PLAYER_HITPOINTS;
-    [SerializeField]
-    private int EMINE_COUNT;
-    [SerializeField]
-    private int TMINE_COUNT;
-
-    private string[] EQP = new string[3];
-    private int CurrentEQP;
 
     public SpriteRenderer InteractIcon;
     private LightSwitchScript currentlightswitch;
@@ -65,14 +56,7 @@ public class MCMovement : MonoBehaviour
         EMINE_COUNT = 3;
         TMINE_COUNT = 0;
         */
-        
-        CurrentEQP =  0;
-        EQP[0] = "EQP: E.Mine x"+EMINE_COUNT;
-        EQP[1] = "EQP: T.Mine x"+TMINE_COUNT;
-        EQP[2] = "EQP: Cartridge x"+PISTOL_AMMO_COUNT;
-        EQPText.text = EQP[CurrentEQP];
 
-        Ammocounttext.text = "9x19mm : " + PISTOL_AMMO_COUNT;
         gameover = (GameOverScript)Object.FindObjectOfType(typeof(GameOverScript));
 
     }
@@ -90,7 +74,6 @@ public class MCMovement : MonoBehaviour
             playaudio = true;
         }
         Animate();
-        Shoot();
     }
 
     private void ReadInputs()
@@ -112,16 +95,6 @@ public class MCMovement : MonoBehaviour
         } else
         {
             shooting = false;
-        }
-
-        if (Input.GetButtonUp("EQP Cycle"))
-        {
-            CycleEQP();
-        }
-
-        if (Input.GetButtonUp("Use EQP") && !shooting) //can only use items when not shooting
-        {
-            UseEQP();
         }
 
         if (InteractIcon.enabled == true && Input.GetButtonUp("Interact"))
@@ -169,27 +142,6 @@ public class MCMovement : MonoBehaviour
 
     }
 
-    private void Shoot()
-    {
-        if (endofAiming && shooting)
-        {
-            if (PISTOL_AMMO_COUNT > 0)
-            {
-                audioSource.PlayOneShot(gunsound, 1f);
-                bulletcorection.x = Mathf.Clamp(aim.x, -0.03f, 0.07f);
-                bulletcorection.y = Mathf.Clamp(aim.y, -0.05f, 0.05f);
-                GameObject bullet = Instantiate(bulletprefab, transform.position + bulletcorection, Quaternion.identity);
-                PISTOL_AMMO_COUNT--;
-                Ammocounttext.text = "9x19mm : " + PISTOL_AMMO_COUNT;
-                bullet.GetComponent<BulletScript>().velocity = aim * bulletSpeed;
-                Destroy(bullet, 1f);
-            } else
-            {
-                audioSource.PlayOneShot(emptygun, 1f);
-            }
-        }
-    }
-
     public void DamagePlayer(int dmg)
     {
         PLAYER_HITPOINTS = PLAYER_HITPOINTS - dmg;
@@ -213,62 +165,6 @@ public class MCMovement : MonoBehaviour
         {
             PLAYER_HITPOINTS = 10;
         }
-    }
- 
-    public void GetAmmo(int Ammo)
-    {
-        PISTOL_AMMO_COUNT = PISTOL_AMMO_COUNT + Ammo;
-        Ammocounttext.text = "9x19mm : " + PISTOL_AMMO_COUNT;
-    }
-
-    private void CycleEQP()
-    {
-        audioSource.PlayOneShot(equipgun, 1f);
-        CurrentEQP++;
-        if (CurrentEQP >= EQP.Length)
-        {
-            CurrentEQP = 0;
-        }
-        Debug.Log(EQP[CurrentEQP]);
-        EQPText.text = EQP[CurrentEQP];
-    }
-
-    private void UseEQP() //ugly needs to be refactored. Use "item" objects
-    {
-        if (CurrentEQP == 0) //EMine
-        {
-            if (EMINE_COUNT > 0)
-            {
-                GameObject equipable = Instantiate(EMine, transform.position - new Vector3(0, 0.18f, 0), Quaternion.identity);
-                EMINE_COUNT--;
-                UpdateEQPUI();
-            }
-        } else if (CurrentEQP == 1) //TMine
-        {
-            if (TMINE_COUNT > 0)
-            {
-                GameObject equipable = Instantiate(TMine, transform.position - new Vector3(0, 0.18f, 0), Quaternion.identity);
-                TMINE_COUNT--;
-                UpdateEQPUI();
-            }
-        } else if (CurrentEQP == 2) //Cartridge
-        {
-            if (PISTOL_AMMO_COUNT > 0)
-            {
-                //Needs to be a system simmilar to shooting
-                PISTOL_AMMO_COUNT--;
-                UpdateEQPUI();
-                Ammocounttext.text = "9x19mm : " + PISTOL_AMMO_COUNT;
-            }
-        }
-    }
-
-    private void UpdateEQPUI()
-    {
-        EQP[0] = "EQP: E.Mine x" + EMINE_COUNT;
-        EQP[1] = "EQP: T.Mine x" + TMINE_COUNT;
-        EQP[2] = "EQP: Cartridge x" + PISTOL_AMMO_COUNT;
-        EQPText.text = EQP[CurrentEQP];
     }
 
     public void ToggleInteractable(LightSwitchScript lightswitch)

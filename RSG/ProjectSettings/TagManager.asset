@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Solid
   - SpawnPoint
+  - InventoryCanvas
   layers:
   - Default
   - TransparentFX

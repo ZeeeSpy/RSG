@@ -22,8 +22,11 @@ public class AmmoPickup : MonoBehaviour
     {
         if (collision.CompareTag("Player")) 
         {
+            /*
             audioSource.PlayOneShot(pickup, 1f);
             player.GetAmmo(10);
+            //Refactoring
+            */
         }
     }
 }
