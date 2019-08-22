@@ -12,6 +12,7 @@ TagManager:
   - Solid
   - SpawnPoint
   - InventoryCanvas
+  - InventParent
   layers:
   - Default
   - TransparentFX

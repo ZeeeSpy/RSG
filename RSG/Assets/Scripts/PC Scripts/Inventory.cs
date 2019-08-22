@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public GameObject InventoryCanvas;
+    private GameObject InventoryCanvas;
     
     // Start is called before the first frame update
     void Start()
     {
-
+        InventoryCanvas = GameObject.FindWithTag("InventoryCanvas");
+        InventoryCanvas.SetActive(false);
     }
 
     // Update is called once per frame

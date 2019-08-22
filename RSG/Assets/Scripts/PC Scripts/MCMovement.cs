@@ -32,13 +32,6 @@ public class MCMovement : MonoBehaviour
     private bool endofAiming;
     private GameOverScript gameover;
 
-    public GameObject bulletprefab;
-    readonly private float bulletSpeed = 3f;
-
-    public GameObject EMine;
-    public GameObject TMine;
-    public GameObject shell;
-
     [SerializeField]
     private int PLAYER_HITPOINTS;
 
