@@ -7,6 +7,7 @@ public class ItemPickup : MonoBehaviour
     public string Itemname;
     public GameObject itemprefab;
     private InventParent inventparent;
+    public int amount = 1;
 
     public void Start()
     {
@@ -17,7 +18,7 @@ public class ItemPickup : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            inventparent.AddItemToInvent(icon, itemprefab, Itemname);
+            inventparent.AddItemToInvent(icon, itemprefab, Itemname, amount);
             Debug.Log("Got " + Itemname);
             Destroy(gameObject); //Destroy self after use
         }

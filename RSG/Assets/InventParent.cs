@@ -2,7 +2,7 @@
 
 public class InventParent : MonoBehaviour
 {
-    InventItemScript[] InventSlots = new InventItemScript[12];
+    InventItemScript[] InventSlots = new InventItemScript[14];
 
     void Start()
     {
@@ -14,13 +14,22 @@ public class InventParent : MonoBehaviour
         }
     }
 
-    public void AddItemToInvent(Sprite incicon, GameObject incthisgameobject, string itemname)
+    public void AddItemToInvent(Sprite incicon, GameObject incthisgameobject, string itemname, int amount)
     {
+        // loop through items, if taken check if its the same, if it is increase, else keep looping
+        // if the slot is empty add item
         for (int i = 0; i < InventSlots.Length; i++)
         {
-            if (!InventSlots[i].IsTaken())
+            if (InventSlots[i].IsTaken())
             {
-                InventSlots[i].SetItem(incicon, incthisgameobject,itemname);
+                if (InventSlots[i].GetItemName() == itemname)
+                {
+                    InventSlots[i].IncreaseItem(amount);
+                    return;
+                }
+            } else
+            {
+                InventSlots[i].SetItem(incicon, incthisgameobject, itemname, amount);
                 return;
             }
         }
