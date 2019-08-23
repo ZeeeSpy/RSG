@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ *  Script used to update the visuals on the inventory screen
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,7 +43,6 @@ public class InventDescScript : MonoBehaviour
         while (true)
         {
             playtime++;
-            PlayerStats.text = playtime.ToString() + " Seconds"; 
             yield return new WaitForSeconds(1);
         }
     }

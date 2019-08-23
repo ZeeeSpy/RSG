@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿/*
+ *  all child objects are InventItem's. Has an array of all child objects, in charge of 
+ *  assigning empty slots to picked up items and updating invent items values as well as 
+ *  invent items interfacing with the world
+ */
+
+using UnityEngine;
 
 public class InventParent : MonoBehaviour
 {

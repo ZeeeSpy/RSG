@@ -1,5 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+ *  Script used to toggle the inventory panel on and off
+ */
+
 using UnityEngine;
 
 public class Inventory : MonoBehaviour

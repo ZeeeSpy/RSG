@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/*
+ *  Player item within the inventory, takes one of the 15 slots, can be equiped. interacts with world via invent parent
+ */
+
+using UnityEngine;
 using UnityEngine.UI;
 
 public class InventItemScript : MonoBehaviour

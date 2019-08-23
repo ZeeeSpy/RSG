@@ -1,10 +1,20 @@
-﻿using UnityEngine;
+﻿/*
+ *  When the player hits the collision box the item to InventItems via InventParent
+ *  multi purpose script can be changed for any pickup that goes in the inventory as well as 
+ *  pickups such as ammo
+ *  
+ *  
+ *  TODO: add nice annimation to show what item was picked up
+ */
+
+using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
     // Start is called before the first frame update
     public Sprite icon;
     public string Itemname;
+    [TextArea(10, 20)] //Makes it easier to edit item descriptions. Ugly but w/e
     public string ItemDescription;
     public GameObject itemprefab;
     private InventParent inventparent;
