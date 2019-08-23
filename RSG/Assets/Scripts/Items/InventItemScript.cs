@@ -8,8 +8,10 @@ public class InventItemScript : MonoBehaviour
     private string itemname;
     public bool taken = false;
     private int count = 0;
+    private InventParent inventparent;
+    private string description;
 
-    public void SetItem(Sprite incicon, GameObject incthisgameobject, string incitemname,int amount)
+    public void SetItem(Sprite incicon, GameObject incthisgameobject, string incitemname,int amount,string itemdesc)
     {
         taken = true;
         icon.sprite = incicon;
@@ -17,6 +19,7 @@ public class InventItemScript : MonoBehaviour
         icon.enabled = true;
         itemname = incitemname;
         count = amount;
+        description = itemdesc;
     }
 
     public void IncreaseItem(int amount)
@@ -26,6 +29,7 @@ public class InventItemScript : MonoBehaviour
 
     public void EquipItem()
     {
+        inventparent.UpateUI(itemname +": " + count, description ,icon.sprite);
         Debug.Log("Equipping "+itemname + " " + count);
     }
 
@@ -37,5 +41,10 @@ public class InventItemScript : MonoBehaviour
     public string GetItemName()
     {
         return itemname;
+    }
+
+    public void SetParent(InventParent incscript)
+    {
+        inventparent = incscript;
     }
 }

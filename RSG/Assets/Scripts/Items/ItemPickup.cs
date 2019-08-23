@@ -5,6 +5,7 @@ public class ItemPickup : MonoBehaviour
     // Start is called before the first frame update
     public Sprite icon;
     public string Itemname;
+    public string ItemDescription;
     public GameObject itemprefab;
     private InventParent inventparent;
     public int amount = 1;
@@ -18,7 +19,7 @@ public class ItemPickup : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            inventparent.AddItemToInvent(icon, itemprefab, Itemname, amount);
+            inventparent.AddItemToInvent(icon, itemprefab, Itemname, amount,ItemDescription);
             Debug.Log("Got " + Itemname);
             Destroy(gameObject); //Destroy self after use
         }
