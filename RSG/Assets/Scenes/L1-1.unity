@@ -393,6 +393,7 @@ MonoBehaviour:
   itemprefab: {fileID: 6794119007754226839, guid: a309f46a6b1bca345a48e4501ceea81e,
     type: 3}
   amount: 1
+  type: placeable
 --- !u!1001 &43893306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5587,6 +5588,7 @@ MonoBehaviour:
     eye.
   itemprefab: {fileID: 0}
   amount: 1
+  type: 
 --- !u!210 &554289441
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -6145,6 +6147,7 @@ MonoBehaviour:
   gunsound: {fileID: 8300000, guid: 16d3fac0603bd2141afdb671cd635045, type: 3}
   equipgun: {fileID: 8300000, guid: 7545440e3fa6b684ba44b60c57473a08, type: 3}
   emptygun: {fileID: 8300000, guid: 17e33e6daf0b50b47b6dc64a241272ba, type: 3}
+  bulletprefab: {fileID: 0}
   PLAYER_HITPOINTS: 10
   InteractIcon: {fileID: 77406457}
 --- !u!210 &605779399
@@ -11539,6 +11542,7 @@ MonoBehaviour:
   itemprefab: {fileID: 6794119007754226839, guid: fd8f834ce7156b74b97b2ade5de69d17,
     type: 3}
   amount: 1
+  type: placeable
 --- !u!210 &1103473608
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -87186,6 +87190,7 @@ MonoBehaviour:
     with a 9mm barrel blank. '
   itemprefab: {fileID: 0}
   amount: 12
+  type: gun
 --- !u!210 &1458163318
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -87344,6 +87349,7 @@ MonoBehaviour:
     and checklist.
   itemprefab: {fileID: 0}
   amount: 1
+  type: 
 --- !u!210 &1483674600
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -98690,6 +98696,7 @@ MonoBehaviour:
     - \"C4.Ka25b=PZ2:QuJ\""
   itemprefab: {fileID: 0}
   amount: 1
+  type: 
 --- !u!210 &1673973707
 SortingGroup:
   m_ObjectHideFlags: 0

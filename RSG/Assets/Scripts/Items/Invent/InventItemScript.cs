@@ -15,13 +15,14 @@ public class InventItemScript : MonoBehaviour
     private int count = 0;
     private InventParent inventparent;
     private string description;
+    private string type;
 
     private void Start()
     {
         playerequipment = (Equipment)Object.FindObjectOfType(typeof(Equipment));
     }
 
-    public void SetItem(Sprite incicon, GameObject incthisgameobject, string incitemname,int amount,string itemdesc)
+    public void SetItem(Sprite incicon, GameObject incthisgameobject, string incitemname,int amount,string itemdesc, string inctype)
     {
         taken = true;
         icon.sprite = incicon;
@@ -30,6 +31,7 @@ public class InventItemScript : MonoBehaviour
         itemname = incitemname;
         count = amount;
         description = itemdesc;
+        type = inctype;
     }
 
     public void IncreaseItem(int amount)
@@ -41,7 +43,7 @@ public class InventItemScript : MonoBehaviour
     {
         inventparent.UpateUI(itemname +": " + count, description ,icon.sprite);
         Debug.Log("Equipping "+itemname + " " + count);
-        playerequipment.equipitem(thisgameobject,this);
+        playerequipment.equipitem(thisgameobject,this,type);
     }
 
     public bool IsTaken()

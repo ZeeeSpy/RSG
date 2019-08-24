@@ -2,9 +2,6 @@
  *  When the player hits the collision box the item to InventItems via InventParent
  *  multi purpose script can be changed for any pickup that goes in the inventory as well as 
  *  pickups such as ammo
- *  
- *  
- *  TODO: add nice annimation to show what item was picked up
  */
 
 using UnityEngine;
@@ -19,6 +16,7 @@ public class ItemPickup : MonoBehaviour
     public GameObject itemprefab;
     private InventParent inventparent;
     public int amount = 1;
+    public string type;
 
     public void Start()
     {
@@ -29,7 +27,7 @@ public class ItemPickup : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            inventparent.AddItemToInvent(icon, itemprefab, Itemname, amount,ItemDescription);
+            inventparent.AddItemToInvent(icon, itemprefab, Itemname, amount,ItemDescription,type);
             Debug.Log("Got " + Itemname);
             Destroy(gameObject); //Destroy self after use
         }

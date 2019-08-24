@@ -32,6 +32,12 @@ public class MCMovement : MonoBehaviour
     private bool endofAiming;
     private GameOverScript gameover;
 
+
+    public GameObject bulletprefab;
+    readonly private float bulletSpeed = 3f;
+    private bool GotGun = false;
+    private InventItemScript thegun;
+
     [SerializeField]
     private int PLAYER_HITPOINTS;
 
@@ -44,10 +50,7 @@ public class MCMovement : MonoBehaviour
         //initial values for equipment for debugging and playtesting
         audioSource = GetComponent<AudioSource>();
         /*
-        PISTOL_AMMO_COUNT = 12;
         PLAYER_HITPOINTS = 10;
-        EMINE_COUNT = 3;
-        TMINE_COUNT = 0;
         */
 
         gameover = (GameOverScript)Object.FindObjectOfType(typeof(GameOverScript));
@@ -67,6 +70,7 @@ public class MCMovement : MonoBehaviour
             playaudio = true;
         }
         Animate();
+        Shoot();
     }
 
     private void ReadInputs()
@@ -77,7 +81,7 @@ public class MCMovement : MonoBehaviour
 
         if (Input.GetButton("Shooting Stance"))
         {
-            if (currentcamera)
+            if (currentcamera && GotGun)
             {
                 aim = currentcamera.ScreenToWorldPoint(Input.mousePosition);
                 aim.z = 0;
@@ -165,4 +169,32 @@ public class MCMovement : MonoBehaviour
         currentlightswitch = lightswitch;
         InteractIcon.enabled = !InteractIcon.enabled;
     }
+
+
+    private void Shoot()
+    {
+        if (endofAiming && shooting)
+        {
+            if (thegun.UseItem())
+            {
+                audioSource.PlayOneShot(gunsound, 1f);
+                bulletcorection.x = Mathf.Clamp(aim.x, -0.03f, 0.07f);
+                bulletcorection.y = Mathf.Clamp(aim.y, -0.05f, 0.05f);
+                GameObject bullet = Instantiate(bulletprefab, transform.position + bulletcorection, Quaternion.identity);
+                bullet.GetComponent<BulletScript>().velocity = aim * bulletSpeed;
+                Destroy(bullet, 1f);
+            }
+            else
+            {
+                audioSource.PlayOneShot(emptygun, 1f);
+            }
+        }
+    }
+
+    public void GetGun(InventItemScript thegunscript)
+    {
+        GotGun = true;
+        thegun = thegunscript;
+    }
+
 }

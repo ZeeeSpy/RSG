@@ -6,31 +6,46 @@ public class Equipment : MonoBehaviour
 {
     private GameObject currentequipment;
     private InventItemScript currentitemscript;
+    private MCMovement playermovement;
 
     void Start()
     {
-        
+        playermovement = (MCMovement)Object.FindObjectOfType(typeof(MCMovement));
     }
-
 
     void Update()
     {
-        if (Input.GetButtonUp("Use EQP")) //if player uses EQP
+        if (currentequipment != null)
         {
-            if (currentitemscript.UseItem())
+            if (Input.GetButtonUp("Use EQP")) //if player uses EQP
             {
-                GameObject placeditem = Instantiate(currentequipment, transform.position - new Vector3(0, 0.18f, 0), Quaternion.identity);
+                if (currentitemscript.UseItem())
+                {
+                    GameObject placeditem = Instantiate(currentequipment, transform.position - new Vector3(0, 0.18f, 0), Quaternion.identity);
+                }
+                else
+                {
+                    Debug.Log("Ran Out of Equip");
+                }
             } else
             {
-                Debug.Log("Ran Out of Equip");
+                Debug.Log("Attemptyed to use null equipment");
             }
-        }
+        } 
     }
 
 
-    public void equipitem(GameObject itemtoequip, InventItemScript incscript)
+    public void equipitem(GameObject itemtoequip, InventItemScript incscript,string type)
     {
-        currentequipment = itemtoequip;
-        currentitemscript = incscript;
+        if (type == "placeable")
+        {
+            currentequipment = itemtoequip;
+            currentitemscript = incscript;
+        } 
+
+        if (type == "gun")
+        {
+            playermovement.GetGun(incscript);
+        }
     }
 }

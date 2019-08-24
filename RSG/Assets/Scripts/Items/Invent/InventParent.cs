@@ -24,7 +24,7 @@ public class InventParent : MonoBehaviour
         }
     }
 
-    public void AddItemToInvent(Sprite incicon, GameObject incthisgameobject, string itemname, int amount, string itemdesc)
+    public void AddItemToInvent(Sprite incicon, GameObject incthisgameobject, string itemname, int amount, string itemdesc, string inctype)
     {
         // loop through items, if taken check if its the same, if it is increase, else keep looping
         // if the slot is empty add item
@@ -39,7 +39,7 @@ public class InventParent : MonoBehaviour
                 }
             } else
             {
-                InventSlots[i].SetItem(incicon, incthisgameobject, itemname, amount, itemdesc);
+                InventSlots[i].SetItem(incicon, incthisgameobject, itemname, amount, itemdesc, inctype);
                 return;
             }
         }
