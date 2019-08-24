@@ -5585,8 +5585,7 @@ MonoBehaviour:
     a few bookmarks on some of the pages, and some notes in the margins. "Cockpit
     electronic wiring needs to be redesigned, too easy to tamper with" catches your
     eye.
-  itemprefab: {fileID: 6794119007754226839, guid: fd8f834ce7156b74b97b2ade5de69d17,
-    type: 3}
+  itemprefab: {fileID: 0}
   amount: 1
 --- !u!210 &554289441
 SortingGroup:
@@ -5985,6 +5984,7 @@ GameObject:
   - component: {fileID: 605779396}
   - component: {fileID: 605779395}
   - component: {fileID: 605779401}
+  - component: {fileID: 605779402}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6166,7 +6166,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605779394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -320.88, y: -185.32, z: 5.3125}
+  m_LocalPosition: {x: -320.8, y: -185.31, z: 5.3125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1105324942}
@@ -6186,6 +6186,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d243695c43203948b1a08b7e454a86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &605779402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605779394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 010098568c389cf4195f71c1dd1d5252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &625400936
@@ -6835,7 +6847,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768941345}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.933443, y: 1.4544668, z: 0}
+  m_LocalPosition: {x: 5.0134544, y: 1.4644701, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 505881214}
@@ -87172,8 +87184,7 @@ MonoBehaviour:
     less powerful than its big brother the TT-33. But because of this, it is a lot
     easier to carry, hold, use and is more accurate than the TT-33. This one is equiped
     with a 9mm barrel blank. '
-  itemprefab: {fileID: 6794119007754226839, guid: fd8f834ce7156b74b97b2ade5de69d17,
-    type: 3}
+  itemprefab: {fileID: 0}
   amount: 12
 --- !u!210 &1458163318
 SortingGroup:
@@ -87331,8 +87342,7 @@ MonoBehaviour:
   Itemname: Pilot Notes
   ItemDescription: Handwritten notes that seem to be listing a take off procedure
     and checklist.
-  itemprefab: {fileID: 6794119007754226839, guid: fd8f834ce7156b74b97b2ade5de69d17,
-    type: 3}
+  itemprefab: {fileID: 0}
   amount: 1
 --- !u!210 &1483674600
 SortingGroup:
@@ -98678,8 +98688,7 @@ MonoBehaviour:
   Itemname: Scrap Paper
   ItemDescription: "A bit of scrap paper, written on it is:\r\n\n\"CS- XYA-BO2\"\r\n\"PW
     - \"C4.Ka25b=PZ2:QuJ\""
-  itemprefab: {fileID: 6794119007754226839, guid: fd8f834ce7156b74b97b2ade5de69d17,
-    type: 3}
+  itemprefab: {fileID: 0}
   amount: 1
 --- !u!210 &1673973707
 SortingGroup:

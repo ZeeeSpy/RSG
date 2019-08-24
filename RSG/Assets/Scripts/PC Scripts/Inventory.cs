@@ -28,9 +28,4 @@ public class Inventory : MonoBehaviour
     {
         InventoryCanvas.enabled = !InventoryCanvas.enabled;
     }
-
-    public void ButtonCheck()
-    {
-        Debug.Log("Button Pressed");
-    }
 }
