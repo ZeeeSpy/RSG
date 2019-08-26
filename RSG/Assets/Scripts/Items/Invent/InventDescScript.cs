@@ -14,6 +14,7 @@ public class InventDescScript : MonoBehaviour
     public Text PlayerStats;
     public Image ItemImage;
     private int playtime = 0;
+    private InventItemScript currentitem;
 
 
     void Start()
@@ -27,15 +28,19 @@ public class InventDescScript : MonoBehaviour
         
     }
 
-    public void UpdateUI(string itemname, string itemdesc, Sprite itemimage)
+    public void UpdateUI(string itemname, string itemdesc, Sprite itemimage,InventItemScript incitem)
     {
         ItemImage.sprite = itemimage;
         ItemText.text = itemdesc;
         Stats.text = itemname;
+        currentitem = incitem;
     }
 
-    public void UpdatePlayerStats(){
-
+    public void UpdateOnOpen(){
+        if (currentitem != null)
+        {
+            Stats.text = currentitem.GetItemName() + ": " + currentitem.getCount();
+        }
     }
 
     IEnumerator TimePassed()

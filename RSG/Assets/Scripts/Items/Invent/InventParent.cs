@@ -45,8 +45,8 @@ public class InventParent : MonoBehaviour
         }
     }
 
-    public void UpateUI(string itemname,string itemdesc, Sprite itemimage)
+    public void UpdateUI(string itemname,string itemdesc, Sprite itemimage, InventItemScript incscript)
     {
-        descriptor.UpdateUI(itemname, itemdesc, itemimage);
+        descriptor.UpdateUI(itemname, itemdesc, itemimage, incscript);
     }
 }

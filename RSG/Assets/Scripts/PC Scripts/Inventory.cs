@@ -7,10 +7,12 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     private Canvas InventoryCanvas;
+    private InventDescScript descriptionscript;
     
     // Start is called before the first frame update
     void Start()
     {
+        descriptionscript = (InventDescScript)Object.FindObjectOfType(typeof(InventDescScript));
         InventoryCanvas = GameObject.FindWithTag("InventoryCanvas").GetComponent<Canvas>(); ;
         ToggleInvent();
     }
@@ -21,6 +23,7 @@ public class Inventory : MonoBehaviour
         if (Input.GetButtonUp("Inventory"))
         {
             ToggleInvent();
+            descriptionscript.UpdateOnOpen();
         }
     }
 
