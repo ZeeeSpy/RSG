@@ -10,9 +10,12 @@ public class InventParent : MonoBehaviour
 {
     InventItemScript[] InventSlots = new InventItemScript[15]; //magic number array size :/
     public InventDescScript descriptor;
+    public AudioClip pickupsound;
+    private AudioSource thisaudiosource;
 
     void Start()
     {
+        thisaudiosource = GetComponent<AudioSource>();
         InventItemScript temp;
         int i = 0;
         foreach (Transform child in transform) { 
@@ -26,6 +29,7 @@ public class InventParent : MonoBehaviour
 
     public void AddItemToInvent(Sprite incicon, GameObject incthisgameobject, string itemname, int amount, string itemdesc, string inctype)
     {
+        thisaudiosource.PlayOneShot(pickupsound);
         // loop through items, if taken check if its the same, if it is increase, else keep looping
         // if the slot is empty add item
         for (int i = 0; i < InventSlots.Length; i++)
@@ -43,6 +47,8 @@ public class InventParent : MonoBehaviour
                 return;
             }
         }
+
+        Debug.Log("Too many items");
     }
 
     public void UpdateUI(string itemname,string itemdesc, Sprite itemimage, InventItemScript incscript)
