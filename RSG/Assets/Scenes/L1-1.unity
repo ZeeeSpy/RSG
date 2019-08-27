@@ -7356,7 +7356,6 @@ GameObject:
   m_Component:
   - component: {fileID: 351877100}
   - component: {fileID: 351877103}
-  - component: {fileID: 351877102}
   - component: {fileID: 351877101}
   m_Layer: 0
   m_Name: SecondFloor Cam
@@ -7397,14 +7396,6 @@ MonoBehaviour:
   yMaxValue: 4.54
   xMinValue: -12.78
   xMaxValue: -6.79
---- !u!81 &351877102
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 351877099}
-  m_Enabled: 1
 --- !u!20 &351877103
 Camera:
   m_ObjectHideFlags: 0
@@ -8404,7 +8395,6 @@ GameObject:
   m_Component:
   - component: {fileID: 505881214}
   - component: {fileID: 505881216}
-  - component: {fileID: 505881215}
   - component: {fileID: 505881217}
   m_Layer: 0
   m_Name: Ground Floor Cam
@@ -8428,14 +8418,6 @@ Transform:
   m_Father: {fileID: 768941346}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &505881215
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 505881213}
-  m_Enabled: 1
 --- !u!20 &505881216
 Camera:
   m_ObjectHideFlags: 0
@@ -10547,6 +10529,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 768941346}
+  - component: {fileID: 768941347}
   m_Layer: 0
   m_Name: Cameras
   m_TagString: Untagged
@@ -10570,6 +10553,14 @@ Transform:
   m_Father: {fileID: 327965830}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &768941347
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768941345}
+  m_Enabled: 1
 --- !u!1 &796481584
 GameObject:
   m_ObjectHideFlags: 0
