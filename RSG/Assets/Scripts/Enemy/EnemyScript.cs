@@ -213,7 +213,13 @@ public class EnemyScript : MonoBehaviour
             currentWaypoint = 0;
         } else
         {
-            Debug.Log("PathError");
+            Debug.Log("Cannot go to player because they are on a different floor");
+            if (!calledin)
+            {
+                globalalert.LostVisual();
+                calledin = true;
+            }
+            //if enemy cannot get to player they cannot see player
         }
     }
 
@@ -226,7 +232,7 @@ public class EnemyScript : MonoBehaviour
         {
             /* stop just before target 0.1 is close enough to "reach destination" and cycle patrol
             but far enough so that the sprite doesn't hit the waypoint */
-            if (Vector3.Distance(transform.position, target.position) > 0.05f)
+            if (Vector3.Distance(transform.position, target.position) > 0.1f)
             {
                 Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
                 Vector2 force = direction * currentspeed * Time.deltaTime;
