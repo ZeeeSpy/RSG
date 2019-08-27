@@ -22,6 +22,7 @@ public class GlobalPatrolSystem : MonoBehaviour
     private int deadguards = 0;
     public GameObject Enemy;
     public GameObject SpawnPoint;
+    public GameObject SecondarySpawnPoint;
 
     private void Awake() //Awake is before start
     {
@@ -87,6 +88,10 @@ public class GlobalPatrolSystem : MonoBehaviour
         yield return new WaitForSeconds(order * 5f);
         GameObject enemy = Instantiate(Enemy, SpawnPoint.transform.position, Quaternion.identity);
         enemy.GetComponent<EnemyScript>().SetPatrolNumber(patrolnumber);
+        if (enemy.GetComponent<EnemyScript>().IsSecondFloor())
+        {
+            enemy.transform.position = SecondarySpawnPoint.transform.position;
+        }
         IsGuardAlive[patrolnumber] = true;
     }
 }

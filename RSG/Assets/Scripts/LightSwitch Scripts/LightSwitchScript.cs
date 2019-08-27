@@ -7,7 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightSwitchScript : MonoBehaviour
+public class LightSwitchScript : MonoBehaviour, Interactable
 {
     private MCMovement playerscript;
     public SpriteRenderer thislight;
@@ -42,7 +42,7 @@ public class LightSwitchScript : MonoBehaviour
         }
     }
 
-    public void Togglelight()
+    public void Interact()
     {
         thislight.enabled = !thislight.enabled;
         if (thislight.enabled == true)

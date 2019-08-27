@@ -42,7 +42,7 @@ public class MCMovement : MonoBehaviour
     private int PLAYER_HITPOINTS;
 
     public SpriteRenderer InteractIcon;
-    private LightSwitchScript currentlightswitch;
+    private Interactable interacatbleO;
 
     // Start is called before the first frame update
     void Start()
@@ -96,7 +96,7 @@ public class MCMovement : MonoBehaviour
 
         if (InteractIcon.enabled == true && Input.GetButtonUp("Interact"))
         {
-            currentlightswitch.Togglelight();
+            interacatbleO.Interact();
         }
 
         endofAiming = Input.GetButtonUp("Shoot");
@@ -164,9 +164,9 @@ public class MCMovement : MonoBehaviour
         }
     }
 
-    public void ToggleInteractable(LightSwitchScript lightswitch)
+    public void ToggleInteractable(Interactable incinteractable)
     {
-        currentlightswitch = lightswitch;
+        interacatbleO = incinteractable;
         InteractIcon.enabled = !InteractIcon.enabled;
     }
 

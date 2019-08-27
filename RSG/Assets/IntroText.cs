@@ -8,6 +8,7 @@ public class IntroText : MonoBehaviour
     private float delay = 0.1f;
     public Text textbox;
     private string[] ThingsToSay;
+    public bool DebugMode;
 
     private void Update()
     {
@@ -19,10 +20,16 @@ public class IntroText : MonoBehaviour
 
     public void Start()
     {
-        ThingsToSay = new string[1];
-        ThingsToSay[0] = ("Mission Objective:@Eliminate the experimental jet.@@Weapons and equipment are OSP(On - Site Procurement).@@Good luck. Press space to close this window.");
-        ThingsToSay[0] = AtToSpace(ThingsToSay[0]);
-        StartCoroutine(ShowText(ThingsToSay[0]));
+        if (!DebugMode)
+        {
+            ThingsToSay = new string[1];
+            ThingsToSay[0] = ("Mission Objective:@Eliminate the experimental jet.@@Weapons and equipment are OSP(On - Site Procurement).@@Good luck. Press space to close this window.");
+            ThingsToSay[0] = AtToSpace(ThingsToSay[0]);
+            StartCoroutine(ShowText(ThingsToSay[0]));
+        } else
+        {
+            GetComponent<Canvas>().enabled = false;
+        }
     }
 
     IEnumerator ShowText(string fullText)

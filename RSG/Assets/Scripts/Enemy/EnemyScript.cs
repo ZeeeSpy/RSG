@@ -23,6 +23,7 @@ public class EnemyScript : MonoBehaviour
     readonly private float alertspeed = 225f;
     private float currentspeed;
     private float nextWaypoitnDistance = 0.1f;
+    public bool secondfloor = false;
 
     Path path;
     int currentWaypoint = 0;
@@ -133,6 +134,7 @@ public class EnemyScript : MonoBehaviour
     **************************/
     void FixedUpdate()
     {
+
         //If no path do nothing check
         if (path == null)
         {
@@ -209,6 +211,9 @@ public class EnemyScript : MonoBehaviour
         {
             path = p;
             currentWaypoint = 0;
+        } else
+        {
+            Debug.Log("PathError");
         }
     }
 
@@ -221,7 +226,7 @@ public class EnemyScript : MonoBehaviour
         {
             /* stop just before target 0.1 is close enough to "reach destination" and cycle patrol
             but far enough so that the sprite doesn't hit the waypoint */
-            if (Vector3.Distance(transform.position, target.position) > 0.1f)
+            if (Vector3.Distance(transform.position, target.position) > 0.05f)
             {
                 Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
                 Vector2 force = direction * currentspeed * Time.deltaTime;
@@ -504,4 +509,8 @@ public class EnemyScript : MonoBehaviour
         thisviewcone.NormalView();
     }
 
+    public bool IsSecondFloor()
+    {
+        return secondfloor;
+    }
 }
