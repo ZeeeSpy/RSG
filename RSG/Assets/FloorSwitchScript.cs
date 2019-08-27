@@ -9,10 +9,12 @@ public class FloorSwitchScript : MonoBehaviour, Interactable
     public GameObject cameratoenable;
     private MCMovement playerscript;
     private Transform player;
+    private GlobalAlertScript alertscript;
 
     private void Start()
     {
         playerscript = GameObject.FindGameObjectWithTag("Player").GetComponent<MCMovement>();
+        alertscript = (GlobalAlertScript)Object.FindObjectOfType(typeof(GlobalAlertScript));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,5 +40,6 @@ public class FloorSwitchScript : MonoBehaviour, Interactable
         cameratodisable.SetActive(false);
         cameratoenable.SetActive(true);
         Debug.Log("Moved Player");
+        alertscript.HardAlertOff();
     }
 }

@@ -86,6 +86,12 @@ public class GlobalAlertScript : MonoBehaviour
         }
     }
 
+    public void HardAlertOff()
+    {
+        lostvisual = 0;
+        GlobalAlertOff();
+    }
+
     public void GotVisual()
     {
         lostvisual--;

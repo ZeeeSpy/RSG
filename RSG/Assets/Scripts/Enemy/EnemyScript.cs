@@ -74,6 +74,7 @@ public class EnemyScript : MonoBehaviour
 
     public bool stationary = false;
     bool dead = false;
+    private bool wasblocked = false;
 
     void Start()
     {
@@ -211,19 +212,26 @@ public class EnemyScript : MonoBehaviour
         {
             path = p;
             currentWaypoint = 0;
-
+            if (wasblocked && calledin)
+            {
+                NormalMode();
+                wasblocked = false;
+            }
         } else
         {
-            Debug.Log("Cannot go to player because they are on a different floor");
+            //Cannot go to player because they are on a different floor
             if (!calledin)
             {
                 globalalert.LostVisual();
                 calledin = true;
+                Debug.Log("A");
+                wasblocked = true;
             }
 
             if (calledin && !globalalert.GetGlobalAlert())
             {
                 NormalMode();
+                Debug.Log("B");
             }
 
         }
@@ -328,7 +336,7 @@ public class EnemyScript : MonoBehaviour
             shootingtime -= Time.deltaTime;
             if (shootingtime < 0)
             {
-                Debug.Log("Bang!");
+                //Debug.Log("Bang!");
                 StartCoroutine(BurstFire()); //used to be shooting
                 shootingstance = false;
                 target = player;
