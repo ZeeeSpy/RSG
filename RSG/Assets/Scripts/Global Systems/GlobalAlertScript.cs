@@ -46,6 +46,7 @@ public class GlobalAlertScript : MonoBehaviour
         patrolscript.Reenforce();
         alert = false;
         musicscript.startnormalmusic();
+        Debug.Log("GLOBAL ALERT OFF");
     }
 
     public bool GetGlobalAlert()
@@ -78,7 +79,6 @@ public class GlobalAlertScript : MonoBehaviour
     public void LostVisual()
     {
         lostvisual++;
-
         if (lostvisual == enemycount)
         {
             GlobalAlertOff();

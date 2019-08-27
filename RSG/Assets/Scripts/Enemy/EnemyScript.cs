@@ -43,15 +43,15 @@ public class EnemyScript : MonoBehaviour
 
 
     //Alert Mode
-    private bool alert = false;
+    public bool alert = false;
     private float coneturntime;
     readonly private float alertconeturntime = 100.0f;
     readonly private float normalconeturntime = 1.0f;
     private float lostvisiontime;
-    readonly private float resettime = 10f;
+    readonly private float resettime = 5f;
     private bool playercurrentlyvisible = false;
     private GlobalAlertScript globalalert;
-    private bool calledin = false;
+    public bool calledin = false;
 
     //Shooting Mode
     private float shootingtimesetup = 0.75f;
@@ -211,6 +211,7 @@ public class EnemyScript : MonoBehaviour
         {
             path = p;
             currentWaypoint = 0;
+
         } else
         {
             Debug.Log("Cannot go to player because they are on a different floor");
@@ -219,7 +220,12 @@ public class EnemyScript : MonoBehaviour
                 globalalert.LostVisual();
                 calledin = true;
             }
-            //if enemy cannot get to player they cannot see player
+
+            if (calledin && !globalalert.GetGlobalAlert())
+            {
+                NormalMode();
+            }
+
         }
     }
 
@@ -399,6 +405,7 @@ public class EnemyScript : MonoBehaviour
         if (stationary)
         {
             patrolcount = 0;
+            target = eyesfront;
         } else
         {
             target = patrolpoints[patrolcount];
