@@ -45,6 +45,7 @@ public class IntroText : MonoBehaviour
 
     public void DisplayText(string texttoshow)
     {
+        StopAllCoroutines();
         StartCoroutine(ShowText(texttoshow));
     }
 
