@@ -212,7 +212,7 @@ public class EnemyScript : MonoBehaviour
         {
             path = p;
             currentWaypoint = 0;
-            if (wasblocked && calledin)
+            if (wasblocked && calledin) //if they were blocked previously but player moved onto same floor continue as normal
             {
                 NormalMode();
                 wasblocked = false;
@@ -224,14 +224,12 @@ public class EnemyScript : MonoBehaviour
             {
                 globalalert.LostVisual();
                 calledin = true;
-                Debug.Log("A");
                 wasblocked = true;
             }
 
-            if (calledin && !globalalert.GetGlobalAlert())
+            if (calledin && !globalalert.GetGlobalAlert()) 
             {
                 NormalMode();
-                Debug.Log("B");
             }
 
         }

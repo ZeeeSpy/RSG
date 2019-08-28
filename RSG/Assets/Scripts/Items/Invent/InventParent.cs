@@ -55,4 +55,16 @@ public class InventParent : MonoBehaviour
     {
         descriptor.UpdateUI(itemname, itemdesc, itemimage, incscript);
     }
+
+    public bool FindItem(string itemname)
+    {
+        for (int i = 0; i < InventSlots.Length; i++)
+        {
+            if (InventSlots[i].GetItemName() == itemname)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
