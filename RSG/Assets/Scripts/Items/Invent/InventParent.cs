@@ -67,4 +67,16 @@ public class InventParent : MonoBehaviour
         }
         return false;
     }
+
+    public int FindItemCount(string itemname)
+    {
+        for (int i = 0; i < InventSlots.Length; i++)
+        {
+            if (InventSlots[i].GetItemName() == itemname)
+            {
+                return InventSlots[i].getCount();
+            }
+        }
+        return 0;
+    }
 }

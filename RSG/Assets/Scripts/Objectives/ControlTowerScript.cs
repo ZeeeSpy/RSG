@@ -23,6 +23,7 @@ public class ControlTowerScript : MonoBehaviour, Interactable
         if (collision.CompareTag("Player"))
         {
             playerscript.ToggleInteractable(this);
+            scrappaper = invent.FindItem("Scrap Paper");
         }
     }
 
@@ -36,11 +37,6 @@ public class ControlTowerScript : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        if (scrappaper == false)
-        {
-            scrappaper = invent.FindItem("Scrap Paper");
-        } 
-
         if (scrappaper == false)
         {
             textbox.DisplayText("I could try request permission to take off@@ but i don't know the password");

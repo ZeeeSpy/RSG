@@ -5,7 +5,7 @@ public class IntroText : MonoBehaviour
 {
     private string fullText;
     private string currentText;
-    private float delay = 0.1f;
+    private float delay = 0.01f;
     public Text textbox;
     private string ThingsToSay;
     public bool DebugMode;
