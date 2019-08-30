@@ -24,6 +24,7 @@ public class EnemyScript : MonoBehaviour
     private float currentspeed;
     private float nextWaypoitnDistance = 0.1f;
     public bool secondfloor = false;
+    private readonly float stoppingdistance = 0.05f;
 
     Path path;
     int currentWaypoint = 0;
@@ -244,7 +245,7 @@ public class EnemyScript : MonoBehaviour
         {
             /* stop just before target 0.1 is close enough to "reach destination" and cycle patrol
             but far enough so that the sprite doesn't hit the waypoint */
-            if (Vector3.Distance(transform.position, target.position) > 0.1f)
+            if (Vector3.Distance(transform.position, target.position) > stoppingdistance)
             {
                 Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
                 Vector2 force = direction * currentspeed * Time.deltaTime;
