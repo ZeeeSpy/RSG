@@ -51,4 +51,9 @@ public class InventDescScript : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
     }
+
+    public void UpdateCurrentObjective(string objectivetext)
+    {
+        PlayerStats.text = objectivetext;
+    }
 }

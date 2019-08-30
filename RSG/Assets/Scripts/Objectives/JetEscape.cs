@@ -10,6 +10,7 @@ public class JetEscape : MonoBehaviour, Interactable
     private ControlTowerScript controltower;
     private HangarDoor hangerdoorscript;
     private InventParent inventparent;
+    private FinishLevel finishlevel;
 
     private bool hangerdoor = false;
     private bool clearance = false;
@@ -22,6 +23,7 @@ public class JetEscape : MonoBehaviour, Interactable
         controltower = (ControlTowerScript)Object.FindObjectOfType(typeof(ControlTowerScript));
         hangerdoorscript = (HangarDoor)Object.FindObjectOfType(typeof(HangarDoor));
         inventparent = (InventParent)Object.FindObjectOfType(typeof(InventParent));
+        finishlevel = (FinishLevel)Object.FindObjectOfType(typeof(FinishLevel));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -74,7 +76,7 @@ public class JetEscape : MonoBehaviour, Interactable
         }
         else if (hangerdoor && !clearance && pilotsnotes)
         {
-            textbox.DisplayText("Bad Ending");
+            finishlevel.ShowStats(false, false);
         }
         else if (hangerdoor && clearance && !pilotsnotes)
         {
@@ -82,7 +84,7 @@ public class JetEscape : MonoBehaviour, Interactable
         }
         else if (hangerdoor && clearance && pilotsnotes)
         {
-            textbox.DisplayText("Good Ending");
+            finishlevel.ShowStats(false, true);
         }
     }
 }

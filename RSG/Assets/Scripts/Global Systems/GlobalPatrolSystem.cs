@@ -23,6 +23,7 @@ public class GlobalPatrolSystem : MonoBehaviour
     public GameObject Enemy;
     public GameObject SpawnPoint;
     public GameObject SecondarySpawnPoint;
+    private int KilledEnemies = 0;
 
     private void Awake() //Awake is before start
     {
@@ -54,6 +55,7 @@ public class GlobalPatrolSystem : MonoBehaviour
 
     public void DeadGaurdPatrolRoute(int routenumber)
     {
+        KilledEnemies++;
         if (!(routenumber == -1))
         {
             IsGuardAlive[routenumber] = false;
@@ -93,5 +95,10 @@ public class GlobalPatrolSystem : MonoBehaviour
             enemy.transform.position = SecondarySpawnPoint.transform.position;
         }
         IsGuardAlive[patrolnumber] = true;
+    }
+
+    public int GetKilledEnemies()
+    {
+        return KilledEnemies;
     }
 }

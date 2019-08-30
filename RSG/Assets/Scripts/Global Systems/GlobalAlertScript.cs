@@ -18,6 +18,8 @@ public class GlobalAlertScript : MonoBehaviour
     private GlobalMusicScript musicscript;
     private GlobalPatrolSystem patrolscript;
     public bool tutorial = false;
+    private int alertcount = 0;
+    private bool alerttoggle = false;
 
     private void Start()
     {
@@ -38,6 +40,12 @@ public class GlobalAlertScript : MonoBehaviour
             Debug.Log("GLOBAL ALERT ON");
             musicscript.startalertmusic();
             alert = true;
+
+            if (!alerttoggle)
+            {
+                alerttoggle = true;
+                alertcount++;
+            }
         }
     }
 
@@ -46,6 +54,7 @@ public class GlobalAlertScript : MonoBehaviour
         patrolscript.Reenforce();
         alert = false;
         musicscript.startnormalmusic();
+        alerttoggle = false;
         Debug.Log("GLOBAL ALERT OFF");
     }
 
@@ -97,4 +106,9 @@ public class GlobalAlertScript : MonoBehaviour
         lostvisual--;
     }
 
+
+    public int GetAlertCount()
+    {
+        return alertcount;
+    }
 }

@@ -10,8 +10,9 @@ public class DestroyJet : MonoBehaviour, Interactable
 
     private int currentcount = 0;
     private bool workshopman = false;
+    private bool escape = false;
 
-    void Start()
+    void Awake()
     {
         playerscript = GameObject.FindGameObjectWithTag("Player").GetComponent<MCMovement>();
         invent = (InventParent)Object.FindObjectOfType(typeof(InventParent));
@@ -46,10 +47,15 @@ public class DestroyJet : MonoBehaviour, Interactable
         {
             textbox.DisplayText("I need at least 4 bricks of C4 to blow this thing up, I only have " + currentcount);
         }
-        else if (workshopman && currentcount == 4)
+        else if (workshopman && currentcount <= 4)
         {
             textbox.DisplayText("Alright it's all set to blow ,better get the hell out of here");
+            escape = true;
         }
     }
 
+    public bool GetEscape()
+    {
+        return escape;
+    }
 }

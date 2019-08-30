@@ -9,6 +9,7 @@ public class IntroText : MonoBehaviour
     public Text textbox;
     private string ThingsToSay;
     public bool DebugMode;
+    private InventDescScript descriptor;
 
     private void Update()
     {
@@ -20,6 +21,7 @@ public class IntroText : MonoBehaviour
 
     public void Start()
     {
+        descriptor = (InventDescScript)Object.FindObjectOfType(typeof(InventDescScript));
         if (!DebugMode)
         {
             ThingsToSay  = ("Mission Objective:@Eliminate the experimental jet.@@Weapons and equipment are OSP(On - Site Procurement).@@Good luck. Press space to close this window.");
@@ -46,6 +48,7 @@ public class IntroText : MonoBehaviour
     public void DisplayText(string texttoshow)
     {
         StopAllCoroutines();
+        descriptor.UpdateCurrentObjective(texttoshow);
         StartCoroutine(ShowText(texttoshow));
     }
 

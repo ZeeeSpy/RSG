@@ -44,6 +44,9 @@ public class MCMovement : MonoBehaviour
     public SpriteRenderer InteractIcon;
     private Interactable interacatbleO;
 
+    private int shotsfired = 0;
+    private int damagetaken = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -143,6 +146,7 @@ public class MCMovement : MonoBehaviour
     {
         PLAYER_HITPOINTS = PLAYER_HITPOINTS - dmg;
         hpslider.value = PLAYER_HITPOINTS;
+        damagetaken++;
         if (PLAYER_HITPOINTS <= 0)
         {
             //Player Dead
@@ -177,6 +181,7 @@ public class MCMovement : MonoBehaviour
         {
             if (thegun.UseItem())
             {
+                shotsfired++;
                 audioSource.PlayOneShot(gunsound, 1f);
                 bulletcorection.x = Mathf.Clamp(aim.x, -0.03f, 0.07f);
                 bulletcorection.y = Mathf.Clamp(aim.y, -0.05f, 0.05f);
@@ -195,6 +200,11 @@ public class MCMovement : MonoBehaviour
     {
         GotGun = true;
         thegun = thegunscript;
+    }
+
+    public int GetShotsFired()
+    {
+        return shotsfired;
     }
 
 }
