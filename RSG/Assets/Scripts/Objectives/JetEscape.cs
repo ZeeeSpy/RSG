@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ * Script that handles the player interacting with the front of the jet and stealing it
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

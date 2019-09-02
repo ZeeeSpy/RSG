@@ -1,5 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+ * Script that allows the player to finish level after setting up jet to explode
+ */
 using UnityEngine;
 
 public class DestroyEscape : MonoBehaviour
@@ -16,10 +17,8 @@ public class DestroyEscape : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Got Here");
             if (Jet.GetEscape())
             {
-                Debug.Log("Got Here 2");
                 levelfinish.ShowStats(true, false);
             }
         }

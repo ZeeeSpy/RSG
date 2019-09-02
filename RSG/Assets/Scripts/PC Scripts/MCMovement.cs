@@ -47,6 +47,10 @@ public class MCMovement : MonoBehaviour
     private int shotsfired = 0;
     private int damagetaken = 0;
 
+    private LineRenderer lazersight;
+    private Vector3 correction;
+    private Vector3 bulletpos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +59,8 @@ public class MCMovement : MonoBehaviour
         /*
         PLAYER_HITPOINTS = 10;
         */
+
+        lazersight = gameObject.GetComponent<LineRenderer>();
 
         gameover = (GameOverScript)Object.FindObjectOfType(typeof(GameOverScript));
 
@@ -86,14 +92,30 @@ public class MCMovement : MonoBehaviour
         {
             if (currentcamera && GotGun)
             {
+                lazersight.enabled = true;
                 aim = currentcamera.ScreenToWorldPoint(Input.mousePosition);
                 aim.z = 0;
+                Vector3 lazeraim = aim; //lazer aim isn't relative like aim is
                 aim = aim - transform.position;
-                aim.Normalize();
+
+                //Foken lazer sights
+                
+                Vector3 thispos = transform.position;
+                Vector3 bulletcorrection = Vector3.ClampMagnitude(aim, 0.08f); //Circle restriction
+
+                thispos.z = 1;
+                lazeraim.z = 1;
+                thispos = thispos + bulletcorrection;
+                thispos.x += 0.02f; //sprite is off center by this much
+                bulletpos = thispos;
+                lazersight.SetPosition(0, thispos);
+                lazersight.SetPosition(1, lazeraim);
+
                 shooting = true;
             }
         } else
         {
+            lazersight.enabled = false;
             shooting = false;
         }
 
@@ -183,9 +205,7 @@ public class MCMovement : MonoBehaviour
             {
                 shotsfired++;
                 audioSource.PlayOneShot(gunsound, 1f);
-                bulletcorection.x = Mathf.Clamp(aim.x, -0.03f, 0.07f);
-                bulletcorection.y = Mathf.Clamp(aim.y, -0.05f, 0.05f);
-                GameObject bullet = Instantiate(bulletprefab, transform.position + bulletcorection, Quaternion.identity);
+                GameObject bullet = Instantiate(bulletprefab, bulletpos, Quaternion.identity);
                 bullet.GetComponent<BulletScript>().velocity = aim * bulletSpeed;
                 Destroy(bullet, 1f);
             }

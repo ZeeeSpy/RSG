@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ * Script that handles the player interacting with the rear of jet to destroy it
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

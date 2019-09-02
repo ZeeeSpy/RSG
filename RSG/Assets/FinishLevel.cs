@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Script used by Destryo Escape and Jet Escape to finish the level.
+ * This includes gathering player stats from various other script and calculating a score
+ */
+
+using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,6 +48,7 @@ public class FinishLevel : MonoBehaviour
         int totalshots = playershots.GetShotsFired();
 
         int score = ((600-timeelapsed)*100)+((1000*(1-(alertcount/10))-(deadenemies*50)));
+        //cool magic numbers right?
 
         TimeTaken.text = formattedtime;
         TotalAlerts.text = alertcount.ToString();

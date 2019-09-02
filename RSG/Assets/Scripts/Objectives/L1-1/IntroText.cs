@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Used to show a dialog box that infroms player of player characters thoughts while interacting.
+ * closed with "submit"
+ */
+
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 public class IntroText : MonoBehaviour
@@ -15,7 +20,7 @@ public class IntroText : MonoBehaviour
     {
         if (Input.GetButtonUp("Submit"))
         {
-            GetComponent<Canvas>().enabled = !GetComponent<Canvas>().enabled;
+            GetComponent<Canvas>().enabled = false;
         }
     }
 
