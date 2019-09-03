@@ -95,21 +95,43 @@ public class MCMovement : MonoBehaviour
                 lazersight.enabled = true;
                 aim = currentcamera.ScreenToWorldPoint(Input.mousePosition);
                 aim.z = 0;
-                Vector3 lazeraim = aim; //lazer aim isn't relative like aim is
+                Vector3 MousePos = aim; //lazer aim isn't relative like aim is
                 aim = aim - transform.position;
 
                 //Foken lazer sights
                 
                 Vector3 thispos = transform.position;
                 Vector3 bulletcorrection = Vector3.ClampMagnitude(aim, 0.08f); //Circle restriction
-
                 thispos.z = 1;
-                lazeraim.z = 1;
+                MousePos.z = 1;
                 thispos = thispos + bulletcorrection;
                 thispos.x += 0.02f; //sprite is off center by this much
                 bulletpos = thispos;
-                lazersight.SetPosition(0, thispos);
-                lazersight.SetPosition(1, lazeraim);
+                bool hitsolid = false;
+
+                Vector3 test = MousePos - thispos; //get direction of mouse reative to bullet spawn pos
+                test.Normalize(); //normalize direction vector
+                Vector3 LazerAim = thispos + (test*2); //create vector from bullet spawn pos in nomalized mouse direction * 2
+
+                RaycastHit2D[] hits = Physics2D.LinecastAll(thispos, LazerAim);
+                foreach (RaycastHit2D hit in hits)
+                {
+                    
+                    GameObject other = hit.collider.gameObject;
+                    if (other.CompareTag("Solid") || other.CompareTag("Enemy"))
+                    {
+                        lazersight.SetPosition(0, thispos);
+                        lazersight.SetPosition(1, hit.point);
+                        hitsolid = true;
+                        break;
+                    }
+                }
+
+                if (!hitsolid)
+                {
+                    lazersight.SetPosition(0, thispos);
+                    lazersight.SetPosition(1, LazerAim);
+                }
 
                 shooting = true;
             }
