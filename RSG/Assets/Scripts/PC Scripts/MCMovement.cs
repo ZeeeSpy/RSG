@@ -20,8 +20,6 @@ public class MCMovement : MonoBehaviour
     private Camera currentcamera;
     private Vector2 aimingdirection;
     private Vector3 bulletcorection;
-    public Text Ammocounttext;
-    public Text EQPText;
     public Slider hpslider;
 
     public AudioClip gunsound;
