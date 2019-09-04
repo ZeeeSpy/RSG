@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6794119007754226824}
   - component: {fileID: 6794119007754226826}
   - component: {fileID: 6794119007754226827}
+  - component: {fileID: 8967253998795051797}
   m_Layer: 2
   m_Name: E.Mine
   m_TagString: Untagged
@@ -124,3 +125,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &8967253998795051797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6794119007754226839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57caed09baf9b7f489224be07a55dffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: e40d21afa42c90b4f8cd6b911e9c8de5, type: 3}
+  Itemname: E Mine
+  ItemDescription: "An explosive mine with a large radius.\r\n\nPractically invisible
+    to the untrained eye when planted. Officially only used to destroy tank treads.
+    Not a typical covert peice of equipment."
+  itemprefab: {fileID: 6794119007754226839}
+  amount: 1
+  type: placeable

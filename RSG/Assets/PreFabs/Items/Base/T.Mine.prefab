@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6794119007754226824}
   - component: {fileID: 6794119007754226827}
   - component: {fileID: 8427958117369746840}
+  - component: {fileID: 6487326528628109289}
   m_Layer: 2
   m_Name: T.Mine
   m_TagString: Untagged
@@ -122,3 +123,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: {fileID: 6794119007754226827}
+--- !u!114 &6487326528628109289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6794119007754226839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57caed09baf9b7f489224be07a55dffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 1beba9e14a24cf44c9fa4215bfbe018f, type: 3}
+  Itemname: T Mine
+  ItemDescription: "A Tazer mine with a low radius. \r\n\r\nPractically invisible
+    to the untrained eye when planted. This frog mine is launched into the air by
+    a compressed spring and uses dart like electrodes to electrocute the nearest warm
+    body. Originally used to capture elephants for preservation purposes."
+  itemprefab: {fileID: 6794119007754226839}
+  amount: 1
+  type: placeable
