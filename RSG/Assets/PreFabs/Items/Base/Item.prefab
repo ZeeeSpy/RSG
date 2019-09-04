@@ -217,4 +217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 1553648494886834002}
-  taken: 0
+  NormalInventSlot: {fileID: 21300000, guid: acc00d3ea3cd4ae4eb691174b7be9a7d, type: 3}
+  EquipedInventSlot: {fileID: 21300000, guid: 3ca70ab40c68cb549abaa2010cd72128, type: 3}
+  InventSlot: {fileID: 1553648495217241312}

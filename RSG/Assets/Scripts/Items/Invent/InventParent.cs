@@ -12,6 +12,7 @@ public class InventParent : MonoBehaviour
     public InventDescScript descriptor;
     public AudioClip pickupsound;
     private AudioSource thisaudiosource;
+    private InventItemScript currentlyEquipedItem;
 
     void Start()
     {
@@ -54,6 +55,17 @@ public class InventParent : MonoBehaviour
     public void UpdateUI(string itemname,string itemdesc, Sprite itemimage, InventItemScript incscript)
     {
         descriptor.UpdateUI(itemname, itemdesc, itemimage, incscript);
+    }
+
+    public void SetItemAsEquiped(InventItemScript item)
+    { //Will need to be changed later as more weapons are added
+        if (item.GetItemType() == "placeable") {
+            if (currentlyEquipedItem != null)
+            {
+                currentlyEquipedItem.Unequip();
+            }
+            currentlyEquipedItem = item;
+        }
     }
 
     public bool FindItem(string itemname)

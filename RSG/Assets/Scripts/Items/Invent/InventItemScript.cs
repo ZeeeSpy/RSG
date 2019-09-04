@@ -11,20 +11,24 @@ public class InventItemScript : MonoBehaviour
     private GameObject thisgameobject;
     private Equipment playerequipment;
     private string itemname;
-    public bool taken = false;
+    private bool Set = false;
     private int count = 0;
     private InventParent inventparent;
     private string description;
     private string type;
+    public Sprite NormalInventSlot;
+    public Sprite EquipedInventSlot;
+    public Image InventSlot;
 
     private void Start()
     {
         playerequipment = (Equipment)Object.FindObjectOfType(typeof(Equipment));
+        InventSlot.sprite = NormalInventSlot;
     }
 
     public void SetItem(Sprite incicon, GameObject incthisgameobject, string incitemname, int amount, string itemdesc, string inctype)
     {
-        taken = true;
+        Set = true;
         icon.sprite = incicon;
         thisgameobject = incthisgameobject;
         icon.enabled = true;
@@ -40,15 +44,27 @@ public class InventItemScript : MonoBehaviour
     }
 
     public void EquipItem()
+    { 
+        if (Set) {
+            inventparent.SetItemAsEquiped(this);
+            inventparent.UpdateUI(itemname + ": " + count, description, icon.sprite, this);
+            //Debug.Log("Equipping " + itemname + " " + count);
+            playerequipment.equipitem(thisgameobject, this, type);
+            if (GetItemType() != "")
+            {
+                InventSlot.sprite = EquipedInventSlot;
+            }
+        }
+    }
+
+    public void Unequip()
     {
-        inventparent.UpdateUI(itemname + ": " + count, description, icon.sprite, this);
-        Debug.Log("Equipping " + itemname + " " + count);
-        playerequipment.equipitem(thisgameobject, this, type);
+        InventSlot.sprite = NormalInventSlot;
     }
 
     public bool IsTaken()
     {
-        return taken;
+        return Set;
     }
 
     public string GetItemName()
@@ -76,5 +92,10 @@ public class InventItemScript : MonoBehaviour
             count--;
             return true;
         }
+    }
+
+    public string GetItemType()
+    {
+        return type;
     }
 }

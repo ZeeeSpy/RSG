@@ -27,10 +27,7 @@ public class Equipment : MonoBehaviour
                 {
                     Debug.Log("Ran Out of Equip");
                 }
-            } else
-            {
-                Debug.Log("Attemptyed to use null equipment");
-            }
+            } 
         } 
     }
 
