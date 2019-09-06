@@ -12,14 +12,16 @@ public class CameraFollow : MonoBehaviour
     public Transform player;
     Vector3 velocity = Vector3.zero;
 
-    private float smoothTime = 0.2f;
+    private float smoothTime = 0.5f;
+    private float lookaheadSmoothtime = 0.2f;
+    private bool pixelfix = true;
     public float yMinValue;
     public float yMaxValue;
     public float xMinValue;
     public float xMaxValue;
-    private float pixelsize = 100;
-    private float ypixelsize = 75;
-    private float lookaheaddist = 1.1f;
+    private readonly float pixelsize = 100;
+    private readonly float ypixelsize = 75;
+    private readonly float lookaheaddist = 1.1f;
 
 
     // Update is called once per frame
@@ -30,8 +32,14 @@ public class CameraFollow : MonoBehaviour
         targetPos.y = Mathf.Clamp(targetPos.y, yMinValue, yMaxValue);
         targetPos.x = Mathf.Clamp(targetPos.x, xMinValue, xMaxValue);
 
+        if (Input.GetAxis("CamHor") != 0|| Input.GetAxis("CamVer") != 0)
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, lookaheadSmoothtime);
+        } else
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
+        }
 
-        transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
         /*
          * Art assets are 100pixels per unit. 
          * 
@@ -39,9 +47,29 @@ public class CameraFollow : MonoBehaviour
          * Solution V2:
          * This makes the camera snap to a precision of 0.00 on the x axis.
          * on the y axis it will snap as if the pixel size is 75. (which it isn't) but stops aliasing
+         * 
+         * This causes camera issues
+         * 
+         * moving along x,y is okay but moving in 8 directions causes visible jitter.
+         * 
+         * Posibile solutions:
+         * 1) Increase smooth time - This causes camera to "lag" behind
+         * 2) Turn off pixel snapped - This causes aliasing issues out the ass. some people don't mind though
+         * 2) Have different smooth times for look ahead and normal that can be edited by player - its player problem now
          */
-        transform.position = new Vector3((Mathf.RoundToInt(gameObject.transform.position.x * pixelsize) / pixelsize), 
-                                        (Mathf.RoundToInt(gameObject.transform.position.y * ypixelsize) / ypixelsize),
-                                        (Mathf.RoundToInt(gameObject.transform.position.z * pixelsize) / pixelsize));
+
+        if (pixelfix)
+        {
+            transform.position = new Vector3((Mathf.RoundToInt(gameObject.transform.position.x * pixelsize) / pixelsize),
+                                            (Mathf.RoundToInt(gameObject.transform.position.y * ypixelsize) / ypixelsize),
+                                            (Mathf.RoundToInt(gameObject.transform.position.z * pixelsize) / pixelsize));
+        }
+    }
+
+    public void UpdateCameraSmooth(float incsmoothTime, float inclookaheadSmoothtime, bool fix)
+    {
+        smoothTime = incsmoothTime;
+        lookaheadSmoothtime = inclookaheadSmoothtime;
+        pixelfix = fix;
     }
 }

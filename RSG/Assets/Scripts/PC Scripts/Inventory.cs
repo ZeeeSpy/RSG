@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
     {
         descriptionscript = (InventDescScript)Object.FindObjectOfType(typeof(InventDescScript));
         InventoryCanvas = GameObject.FindWithTag("InventoryCanvas").GetComponent<Canvas>(); ;
-        ToggleInvent();
+        InventoryCanvas.enabled = false;
     }
 
     // Update is called once per frame
