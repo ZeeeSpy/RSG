@@ -1,0 +1,35 @@
+Remake 
+~~~~~~~~~~~~~~~~~~~~~~~~
+Note: Some of these have flipped sprites so don't redo stuff you dont have to
+~~~~~~~~~~~~~~~~~~~~~~~~
+8WayAim
+8WayIdle
+MC8WayMovementSS
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+16x32px and 32x16px (Perspective depending if it's lengthways or not)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sofa/Benches
+Office Desk (need multiple version so they dont look samey)
+Computer terminal
+Bunk Beds
+Storage shelves
+Waist high counter
+Changing room lockers
+Toilet stall with walls (16x32 only)
+bathroom long sink (32x16 only)
+
+16x16
+~~~~~~~~~~~~~~~
+Office Chair (various positions needed)
+small table
+
+
+32x32
+~~~~~~~~~~~~~~~
+Palletes of stuff (a few versions, just stacks of boxes)
+large table
+
+
+https://www.youtube.com/watch?v=qOIe1bcWAn0
